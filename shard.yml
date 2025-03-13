@@ -6,4 +6,9 @@ authors:
 
 crystal: '>= 1.15.1'
 
+development_dependencies:
+  stumpy_png:
+    github: stumpycr/stumpy_png
+    version: "~> 5.0"
+
 license: MIT
