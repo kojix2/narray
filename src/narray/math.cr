@@ -1,7 +1,36 @@
 # Mathematical operations for NArray
+#
+# This module provides various mathematical operations for NArray, including:
+# - Element-wise arithmetic operations (+, -, *, /)
+# - In-place arithmetic operations (add!, subtract!, multiply!, divide!)
+# - Statistical functions (sum, mean, min, max, std)
+# - Matrix operations (dot, matmul)
 module Narray
   class Array(T)
-    # Element-wise addition
+    # Performs element-wise addition of two arrays.
+    #
+    # If the shapes match exactly, adds corresponding elements.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then adds corresponding elements.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = Narray.array([2, 2], [5, 6, 7, 8])
+    # c = a + b
+    # c.shape # => [2, 2]
+    # c.data  # => [6, 8, 10, 12]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [1, 2])
+    # b = Narray.array([1, 3], [3, 4, 5])
+    # c = a + b
+    # c.shape # => [2, 3]
+    # c.data  # => [4, 5, 6, 5, 6, 7]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#add!`, `Array#-`.
     def +(other : Array(T)) : Array(T)
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -34,7 +63,18 @@ module Narray
       end
     end
 
-    # Element-wise addition with a scalar
+    # Performs element-wise addition of an array and a scalar.
+    #
+    # Adds the scalar to each element of the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = a + 5
+    # b.shape # => [2, 2]
+    # b.data  # => [6, 7, 8, 9]
+    # ```
+    #
+    # See also: `Array#add!`, `Array#-`.
     def +(scalar : Number) : Array(T)
       # Create a new array with the same shape
       new_data = ::Array(T).new(size) { T.zero }
@@ -47,7 +87,29 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
-    # Element-wise addition in-place
+    # Performs element-wise addition of two arrays in-place.
+    #
+    # If the shapes match exactly, adds corresponding elements in-place.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then adds corresponding elements in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = Narray.array([2, 2], [5, 6, 7, 8])
+    # a.add!(b)
+    # a.data # => [6, 8, 10, 12]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [1, 2])
+    # b = Narray.array([1, 3], [3, 4, 5])
+    # a.add!(b)
+    # a.shape # => [2, 3]
+    # a.data  # => [4, 5, 6, 5, 6, 7]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#+`, `Array#subtract!`.
     def add!(other : Array(T)) : self
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -93,7 +155,17 @@ module Narray
       end
     end
 
-    # Element-wise addition with a scalar in-place
+    # Performs element-wise addition of an array and a scalar in-place.
+    #
+    # Adds the scalar to each element of the array in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.add!(5)
+    # a.data # => [6, 7, 8, 9]
+    # ```
+    #
+    # See also: `Array#+`, `Array#subtract!`.
     def add!(scalar : Number) : self
       # Add scalar to each element in-place
       size.times do |i|
@@ -103,7 +175,30 @@ module Narray
       self
     end
 
-    # Element-wise subtraction
+    # Performs element-wise subtraction of two arrays.
+    #
+    # If the shapes match exactly, subtracts corresponding elements.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then subtracts corresponding elements.
+    #
+    # ```
+    # a = Narray.array([2, 2], [5, 6, 7, 8])
+    # b = Narray.array([2, 2], [1, 2, 3, 4])
+    # c = a - b
+    # c.shape # => [2, 2]
+    # c.data  # => [4, 4, 4, 4]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [5, 10])
+    # b = Narray.array([1, 3], [1, 2, 3])
+    # c = a - b
+    # c.shape # => [2, 3]
+    # c.data  # => [4, 3, 2, 9, 8, 7]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#subtract!`, `Array#+`.
     def -(other : Array(T)) : Array(T)
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -136,7 +231,18 @@ module Narray
       end
     end
 
-    # Element-wise subtraction with a scalar
+    # Performs element-wise subtraction of an array and a scalar.
+    #
+    # Subtracts the scalar from each element of the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [5, 6, 7, 8])
+    # b = a - 3
+    # b.shape # => [2, 2]
+    # b.data  # => [2, 3, 4, 5]
+    # ```
+    #
+    # See also: `Array#subtract!`, `Array#+`.
     def -(scalar : Number) : Array(T)
       # Create a new array with the same shape
       new_data = ::Array(T).new(size) { T.zero }
@@ -149,7 +255,29 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
-    # Element-wise subtraction in-place
+    # Performs element-wise subtraction of two arrays in-place.
+    #
+    # If the shapes match exactly, subtracts corresponding elements in-place.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then subtracts corresponding elements in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [5, 6, 7, 8])
+    # b = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.subtract!(b)
+    # a.data # => [4, 4, 4, 4]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [5, 10])
+    # b = Narray.array([1, 3], [1, 2, 3])
+    # a.subtract!(b)
+    # a.shape # => [2, 3]
+    # a.data  # => [4, 3, 2, 9, 8, 7]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#-`, `Array#add!`.
     def subtract!(other : Array(T)) : self
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -195,7 +323,17 @@ module Narray
       end
     end
 
-    # Element-wise subtraction with a scalar in-place
+    # Performs element-wise subtraction of an array and a scalar in-place.
+    #
+    # Subtracts the scalar from each element of the array in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [5, 6, 7, 8])
+    # a.subtract!(3)
+    # a.data # => [2, 3, 4, 5]
+    # ```
+    #
+    # See also: `Array#-`, `Array#add!`.
     def subtract!(scalar : Number) : self
       # Subtract scalar from each element in-place
       size.times do |i|
@@ -205,7 +343,30 @@ module Narray
       self
     end
 
-    # Element-wise multiplication
+    # Performs element-wise multiplication of two arrays.
+    #
+    # If the shapes match exactly, multiplies corresponding elements.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then multiplies corresponding elements.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = Narray.array([2, 2], [5, 6, 7, 8])
+    # c = a * b
+    # c.shape # => [2, 2]
+    # c.data  # => [5, 12, 21, 32]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [2, 3])
+    # b = Narray.array([1, 3], [1, 2, 3])
+    # c = a * b
+    # c.shape # => [2, 3]
+    # c.data  # => [2, 4, 6, 3, 6, 9]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#multiply!`, `Array#/`.
     def *(other : Array(T)) : Array(T)
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -238,7 +399,18 @@ module Narray
       end
     end
 
-    # Element-wise multiplication with a scalar
+    # Performs element-wise multiplication of an array and a scalar.
+    #
+    # Multiplies each element of the array by the scalar.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = a * 2
+    # b.shape # => [2, 2]
+    # b.data  # => [2, 4, 6, 8]
+    # ```
+    #
+    # See also: `Array#multiply!`, `Array#/`.
     def *(scalar : Number) : Array(T)
       # Create a new array with the same shape
       new_data = ::Array(T).new(size) { T.zero }
@@ -251,7 +423,29 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
-    # Element-wise multiplication in-place
+    # Performs element-wise multiplication of two arrays in-place.
+    #
+    # If the shapes match exactly, multiplies corresponding elements in-place.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then multiplies corresponding elements in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = Narray.array([2, 2], [5, 6, 7, 8])
+    # a.multiply!(b)
+    # a.data # => [5, 12, 21, 32]
+    #
+    # # Broadcasting example
+    # a = Narray.array([2, 1], [2, 3])
+    # b = Narray.array([1, 3], [1, 2, 3])
+    # a.multiply!(b)
+    # a.shape # => [2, 3]
+    # a.data  # => [2, 4, 6, 3, 6, 9]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#*`, `Array#divide!`.
     def multiply!(other : Array(T)) : self
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -297,7 +491,17 @@ module Narray
       end
     end
 
-    # Element-wise multiplication with a scalar in-place
+    # Performs element-wise multiplication of an array and a scalar in-place.
+    #
+    # Multiplies each element of the array by the scalar in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.multiply!(2)
+    # a.data # => [2, 4, 6, 8]
+    # ```
+    #
+    # See also: `Array#*`, `Array#divide!`.
     def multiply!(scalar : Number) : self
       # Multiply each element by scalar in-place
       size.times do |i|
@@ -307,7 +511,30 @@ module Narray
       self
     end
 
-    # Element-wise division
+    # Performs element-wise division of two arrays.
+    #
+    # If the shapes match exactly, divides corresponding elements.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then divides corresponding elements.
+    #
+    # ```
+    # a = Narray.array([2, 2], [10, 12, 14, 16])
+    # b = Narray.array([2, 2], [2, 3, 2, 4])
+    # c = a / b
+    # c.shape # => [2, 2]
+    # c.data  # => [5, 4, 7, 4]
+    #
+    # # Broadcasting example with floating-point division
+    # a = Narray.array([2, 1], [6.0, 9.0])
+    # b = Narray.array([1, 3], [1.0, 2.0, 3.0])
+    # c = a / b
+    # c.shape # => [2, 3]
+    # c.data  # => [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#divide!`, `Array#*`.
     def /(other : Array(T)) : Array(T)
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -342,7 +569,18 @@ module Narray
       end
     end
 
-    # Element-wise division with a scalar
+    # Performs element-wise division of an array and a scalar.
+    #
+    # Divides each element of the array by the scalar.
+    #
+    # ```
+    # a = Narray.array([2, 2], [2, 4, 6, 8])
+    # b = a / 2
+    # b.shape # => [2, 2]
+    # b.data  # => [1, 2, 3, 4]
+    # ```
+    #
+    # See also: `Array#divide!`, `Array#*`.
     def /(scalar : Number) : Array(T)
       # Create a new array with the same shape
       new_data = ::Array(T).new(size) { T.zero }
@@ -355,7 +593,29 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
-    # Element-wise division in-place
+    # Performs element-wise division of two arrays in-place.
+    #
+    # If the shapes match exactly, divides corresponding elements in-place.
+    # If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+    # and then divides corresponding elements in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [10, 12, 14, 16])
+    # b = Narray.array([2, 2], [2, 3, 2, 4])
+    # a.divide!(b)
+    # a.data # => [5, 4, 7, 4]
+    #
+    # # Broadcasting example with floating-point division
+    # a = Narray.array([2, 1], [6.0, 9.0])
+    # b = Narray.array([1, 3], [1.0, 2.0, 3.0])
+    # a.divide!(b)
+    # a.shape # => [2, 3]
+    # a.data  # => [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are not compatible for broadcasting.
+    #
+    # See also: `Array#/`, `Array#multiply!`.
     def divide!(other : Array(T)) : self
       # Check if shapes are compatible for broadcasting
       if shape == other.shape
@@ -405,7 +665,17 @@ module Narray
       end
     end
 
-    # Element-wise division with a scalar in-place
+    # Performs element-wise division of an array and a scalar in-place.
+    #
+    # Divides each element of the array by the scalar in-place.
+    #
+    # ```
+    # a = Narray.array([2, 2], [2, 4, 6, 8])
+    # a.divide!(2)
+    # a.data # => [1, 2, 3, 4]
+    # ```
+    #
+    # See also: `Array#/`, `Array#multiply!`.
     def divide!(scalar : Number) : self
       # Divide each element by scalar in-place
       size.times do |i|
@@ -415,7 +685,16 @@ module Narray
       self
     end
 
-    # Element-wise negation
+    # Performs element-wise negation of an array.
+    #
+    # Returns a new array with each element negated.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # b = -a
+    # b.shape # => [2, 2]
+    # b.data  # => [-1, -2, -3, -4]
+    # ```
     def -
       # Create a new array with the same shape
       new_data = ::Array(T).new(size) { T.zero }
@@ -428,27 +707,66 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
-    # Sum of all elements
+    # Computes the sum of all elements in the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.sum # => 10
+    # ```
+    #
+    # See also: `Array#mean`, `Array#min`, `Array#max`.
     def sum : T
       data.sum
     end
 
-    # Mean of all elements
+    # Computes the mean (average) of all elements in the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.mean # => 2.5
+    # ```
+    #
+    # See also: `Array#sum`, `Array#std`.
     def mean : Float64
       sum.to_f / size
     end
 
-    # Minimum value
+    # Returns the minimum value in the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [3, 1, 4, 2])
+    # a.min # => 1
+    # ```
+    #
+    # See also: `Array#max`, `Array#sum`.
     def min : T
       data.min
     end
 
-    # Maximum value
+    # Returns the maximum value in the array.
+    #
+    # ```
+    # a = Narray.array([2, 2], [3, 1, 4, 2])
+    # a.max # => 4
+    # ```
+    #
+    # See also: `Array#min`, `Array#sum`.
     def max : T
       data.max
     end
 
-    # Standard deviation
+    # Computes the standard deviation of all elements in the array.
+    #
+    # The standard deviation is a measure of the amount of variation or dispersion of a set of values.
+    # A low standard deviation indicates that the values tend to be close to the mean,
+    # while a high standard deviation indicates that the values are spread out over a wider range.
+    #
+    # ```
+    # a = Narray.array([2, 2], [1, 2, 3, 4])
+    # a.std # => 1.118... (approximately)
+    # ```
+    #
+    # See also: `Array#mean`, `Array#sum`.
     def std : Float64
       m = mean
       variance = data.sum { |x| (x.to_f - m) ** 2 } / size
@@ -456,7 +774,23 @@ module Narray
     end
   end
 
-  # Matrix multiplication (dot product)
+  # Computes the matrix multiplication (dot product) of two matrices.
+  #
+  # For 2D arrays, this is the standard matrix multiplication.
+  # The inner dimensions must match: if a has shape [m, n] and b has shape [n, p],
+  # the result will have shape [m, p].
+  #
+  # ```
+  # a = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+  # b = Narray.array([3, 2], [7, 8, 9, 10, 11, 12])
+  # c = Narray.dot(a, b)
+  # c.shape # => [2, 2]
+  # c.data  # => [58, 64, 139, 154]
+  # ```
+  #
+  # Raises `ArgumentError` if the arrays are not 2-dimensional or if the inner dimensions don't match.
+  #
+  # See also: `Narray.matmul`.
   def self.dot(a : Array(T), b : Array(U)) : Array(Float64) forall T, U
     # Check dimensions
     if a.ndim != 2 || b.ndim != 2

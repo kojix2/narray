@@ -35,7 +35,7 @@ describe Narray do
 
     it "computes the determinant of a 2x2 matrix" do
       a = Narray.array([2, 2], [1, 2, 3, 4])
-      Narray.det(a).should eq(-2.0)  # 1*4 - 2*3 = -2
+      Narray.det(a).should eq(-2.0) # 1*4 - 2*3 = -2
     end
 
     it "computes the determinant of a 3x3 matrix and matches NumPy results" do
@@ -84,9 +84,9 @@ describe Narray do
         1, 0, 0, 0,
         0, 2, 0, 0,
         0, 0, 3, 0,
-        0, 0, 0, 4
+        0, 0, 0, 4,
       ])
-      Narray.det(a).should eq(24.0)  # Diagonal matrix, determinant is product of diagonal elements
+      Narray.det(a).should eq(24.0) # Diagonal matrix, determinant is product of diagonal elements
     end
 
     it "returns 0 for a singular matrix" do
@@ -94,15 +94,15 @@ describe Narray do
       a = Narray.array([3, 3], [
         1, 2, 3,
         0, 0, 0,
-        7, 8, 9
+        7, 8, 9,
       ])
       Narray.det(a).should eq(0.0)
 
       # Matrix with linearly dependent rows
       b = Narray.array([3, 3], [
         1, 2, 3,
-        2, 4, 6,  # This is 2 * first row
-        7, 8, 9
+        2, 4, 6, # This is 2 * first row
+        7, 8, 9,
       ])
       Narray.det(b).should eq(0.0)
     end
@@ -255,7 +255,7 @@ describe Narray do
       a = Narray.array([3, 3], [
         2, 1, 0,
         1, 2, 1,
-        0, 1, 2
+        0, 1, 2,
       ])
       eigenvalues, eigenvectors = Narray.eig(a)
 
@@ -301,7 +301,7 @@ describe Narray do
         v_i = Narray.array([3, 1], [
           eigenvectors[[0, i]],
           eigenvectors[[1, i]],
-          eigenvectors[[2, i]]
+          eigenvectors[[2, i]],
         ])
 
         # Check normalization
@@ -309,11 +309,11 @@ describe Narray do
         norm_squared.should be_close(1.0, 1e-10)
 
         # Check orthogonality with other eigenvectors
-        (i+1...3).each do |j|
+        (i + 1...3).each do |j|
           v_j = Narray.array([3, 1], [
             eigenvectors[[0, j]],
             eigenvectors[[1, j]],
-            eigenvectors[[2, j]]
+            eigenvectors[[2, j]],
           ])
 
           # Dot product should be close to 0
@@ -329,7 +329,7 @@ describe Narray do
         v = Narray.array([3, 1], [
           eigenvectors[[0, i]],
           eigenvectors[[1, i]],
-          eigenvectors[[2, i]]
+          eigenvectors[[2, i]],
         ])
 
         # Calculate A * v
@@ -345,7 +345,7 @@ describe Narray do
           diff = av[[j, 0]] - lv[[j, 0]]
           diff_norm += diff * diff
         end
-        Math.sqrt(diff_norm).should be_close(0.0, 2.0)  # Use an even larger tolerance for NumPy compatibility
+        Math.sqrt(diff_norm).should be_close(0.0, 2.0) # Use an even larger tolerance for NumPy compatibility
       end
     end
 
@@ -353,7 +353,7 @@ describe Narray do
       a = Narray.array([3, 3], [
         1, 2, 3,
         4, 5, 6,
-        7, 8, 9
+        7, 8, 9,
       ])
 
       expect_raises(ArgumentError, /Only symmetric matrices/) do

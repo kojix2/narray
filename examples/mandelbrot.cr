@@ -2,16 +2,16 @@ require "../src/narray"
 require "stumpy_png"
 
 # Image parameters
-WIDTH = 800
-HEIGHT = 600
+WIDTH          = 800
+HEIGHT         = 600
 MAX_ITERATIONS = 100
-ESCAPE_RADIUS = 2.0
+ESCAPE_RADIUS  = 2.0
 
 # Complex plane range
 X_MIN = -2.5
-X_MAX = 1.0
+X_MAX =  1.0
 Y_MIN = -1.5
-Y_MAX = 1.5
+Y_MAX =  1.5
 
 # Calculate Mandelbrot set
 def mandelbrot(c_real, c_imag)
@@ -55,8 +55,8 @@ def color_map(iteration)
     h_i = (hue / 60).to_i
     f = hue / 60.0 - h_i
 
-    v = 255  # Value (brightness)
-    s = 1.0  # Saturation
+    v = 255 # Value (brightness)
+    s = 1.0 # Saturation
 
     p = (v * (1 - s)).to_i
     q = (v * (1 - s * f)).to_i

@@ -1,8 +1,33 @@
 # Operations for NArray
+#
+# This module provides various array manipulation operations for NArray, including:
+# - Reshaping arrays (reshape, reshape!)
+# - Transposing arrays (transpose, transpose!)
+# - Concatenating arrays (concatenate, vstack, hstack)
 module Narray
   class Array(T)
-    # Reshapes the array to the new shape
-    # The total number of elements must remain the same
+    # Reshapes the array to the new shape.
+    #
+    # The total number of elements must remain the same.
+    # Returns a new array with the same data but new shape.
+    #
+    # ```
+    # arr = Narray.arange(0, 6)
+    # reshaped = arr.reshape([2, 3])
+    # reshaped.shape # => [2, 3]
+    # reshaped.ndim  # => 2
+    # reshaped.size  # => 6
+    # reshaped.data  # => [0, 1, 2, 3, 4, 5]
+    #
+    # arr2 = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+    # reshaped2 = arr2.reshape([6])
+    # reshaped2.shape # => [6]
+    # reshaped2.ndim  # => 1
+    # ```
+    #
+    # Raises `ArgumentError` if the new shape has a different number of elements.
+    #
+    # See also: `Array#reshape!`.
     def reshape(new_shape : ::Array(Int32)) : Array(T)
       # Validate that the new shape has the same number of elements
       new_size = new_shape.product
@@ -14,8 +39,23 @@ module Narray
       Array(T).new(new_shape, data.dup)
     end
 
-    # Reshapes the array to the new shape in-place
-    # The total number of elements must remain the same
+    # Reshapes the array to the new shape in-place.
+    #
+    # The total number of elements must remain the same.
+    # Modifies the array's shape in-place, keeping the same data.
+    #
+    # ```
+    # arr = Narray.arange(0, 6)
+    # arr.reshape!([2, 3])
+    # arr.shape # => [2, 3]
+    # arr.ndim  # => 2
+    # arr.size  # => 6
+    # arr.data  # => [0, 1, 2, 3, 4, 5]
+    # ```
+    #
+    # Raises `ArgumentError` if the new shape has a different number of elements.
+    #
+    # See also: `Array#reshape`.
     def reshape!(new_shape : ::Array(Int32)) : self
       # Validate that the new shape has the same number of elements
       new_size = new_shape.product
@@ -28,10 +68,33 @@ module Narray
       self
     end
 
-    # Returns the transpose of the array
-    # For 1D arrays, this returns a copy of the array
-    # For 2D arrays, this swaps rows and columns
-    # For higher dimensions, this reverses the order of dimensions
+    # Returns the transpose of the array.
+    #
+    # For 1D arrays, this returns a copy of the array.
+    # For 2D arrays, this swaps rows and columns.
+    # For higher dimensions, this reverses the order of dimensions.
+    #
+    # ```
+    # # 1D array
+    # arr = Narray.arange(0, 3)
+    # transposed = arr.transpose
+    # transposed.shape # => [3]
+    # transposed.data  # => [0, 1, 2]
+    #
+    # # 2D array
+    # arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+    # transposed = arr.transpose
+    # transposed.shape # => [3, 2]
+    # transposed.data  # => [1, 4, 2, 5, 3, 6]
+    #
+    # # 3D array
+    # arr = Narray.array([2, 2, 2], [1, 2, 3, 4, 5, 6, 7, 8])
+    # transposed = arr.transpose
+    # transposed.shape # => [2, 2, 2]
+    # transposed.data  # => [1, 5, 3, 7, 2, 6, 4, 8]
+    # ```
+    #
+    # See also: `Array#transpose!`.
     def transpose : Array(T)
       case ndim
       when 0, 1
@@ -84,11 +147,28 @@ module Narray
       end
     end
 
-    # Transposes the array in-place
-    # For 1D arrays, this does nothing
-    # For 2D arrays, this swaps rows and columns
-    # For higher dimensions, this reverses the order of dimensions
-    # Note: This method creates a new data array and updates the shape
+    # Transposes the array in-place.
+    #
+    # For 1D arrays, this does nothing.
+    # For 2D arrays, this swaps rows and columns.
+    # For higher dimensions, this reverses the order of dimensions.
+    # Note: This method creates a new data array and updates the shape.
+    #
+    # ```
+    # # 1D array - no change
+    # arr = Narray.arange(0, 3)
+    # arr.transpose!
+    # arr.shape # => [3]
+    # arr.data  # => [0, 1, 2]
+    #
+    # # 2D array
+    # arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+    # arr.transpose!
+    # arr.shape # => [3, 2]
+    # arr.data  # => [1, 4, 2, 5, 3, 6]
+    # ```
+    #
+    # See also: `Array#transpose`.
     def transpose! : self
       case ndim
       when 0, 1
@@ -146,7 +226,40 @@ module Narray
     end
   end
 
-  # Concatenates arrays along the specified axis
+  # Concatenates arrays along the specified axis.
+  #
+  # The arrays must have the same shape except for the dimension corresponding to axis.
+  #
+  # ```
+  # # 1D arrays
+  # a = Narray.array([3], [1, 2, 3])
+  # b = Narray.array([3], [4, 5, 6])
+  # c = Narray.concatenate([a, b])
+  # c.shape # => [6]
+  # c.data  # => [1, 2, 3, 4, 5, 6]
+  #
+  # # 2D arrays along axis 0 (rows)
+  # a = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+  # b = Narray.array([1, 3], [7, 8, 9])
+  # c = Narray.concatenate([a, b])
+  # c.shape # => [3, 3]
+  # c.data  # => [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  #
+  # # 2D arrays along axis 1 (columns)
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # b = Narray.array([2, 3], [5, 6, 7, 8, 9, 10])
+  # c = Narray.concatenate([a, b], 1)
+  # c.shape # => [2, 5]
+  # c.data  # => [1, 2, 5, 6, 7, 3, 4, 8, 9, 10]
+  # ```
+  #
+  # Raises `ArgumentError` if:
+  # - The array of arrays is empty
+  # - The axis is out of bounds
+  # - The arrays have different numbers of dimensions
+  # - The arrays have different shapes except for the concatenation axis
+  #
+  # See also: `Narray.vstack`, `Narray.hstack`.
   def self.concatenate(arrays : ::Array(Array(T)), axis = 0) : Array(T) forall T
     # Validate that all arrays have the same shape except for the concatenation axis
     if arrays.empty?
@@ -256,7 +369,28 @@ module Narray
     Array(T).new(new_shape, new_data)
   end
 
-  # Stacks arrays vertically (along the first axis)
+  # Stacks arrays vertically (along the first axis).
+  #
+  # For 1D arrays, this converts them to 2D arrays with one row each.
+  # For higher dimensions, this is equivalent to `concatenate(arrays, 0)`.
+  #
+  # ```
+  # # 1D arrays
+  # a = Narray.array([3], [1, 2, 3])
+  # b = Narray.array([3], [4, 5, 6])
+  # c = Narray.vstack([a, b])
+  # c.shape # => [2, 3]
+  # c.data  # => [1, 2, 3, 4, 5, 6]
+  #
+  # # 2D arrays
+  # a = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+  # b = Narray.array([1, 3], [7, 8, 9])
+  # c = Narray.vstack([a, b])
+  # c.shape # => [3, 3]
+  # c.data  # => [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  # ```
+  #
+  # See also: `Narray.hstack`, `Narray.concatenate`.
   def self.vstack(arrays : ::Array(Array(T))) : Array(T) forall T
     # For 1D arrays, convert to 2D arrays with one row each
     if arrays.first.ndim == 1
@@ -278,7 +412,29 @@ module Narray
     concatenate(arrays, 0)
   end
 
-  # Stacks arrays horizontally (along the second axis)
+  # Stacks arrays horizontally (along the second axis).
+  #
+  # For 1D arrays, this concatenates them along the first axis.
+  # For 2D arrays, this concatenates them along the second axis (columns).
+  # For higher dimensions, this is equivalent to `concatenate(arrays, 1)`.
+  #
+  # ```
+  # # 1D arrays
+  # a = Narray.array([3], [1, 2, 3])
+  # b = Narray.array([3], [4, 5, 6])
+  # c = Narray.hstack([a, b])
+  # c.shape # => [6]
+  # c.data  # => [1, 2, 3, 4, 5, 6]
+  #
+  # # 2D arrays
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # b = Narray.array([2, 3], [5, 6, 7, 8, 9, 10])
+  # c = Narray.hstack([a, b])
+  # c.shape # => [2, 5]
+  # c.data  # => [1, 2, 5, 6, 7, 3, 4, 8, 9, 10]
+  # ```
+  #
+  # See also: `Narray.vstack`, `Narray.concatenate`.
   def self.hstack(arrays : ::Array(Array(T))) : Array(T) forall T
     # For 1D arrays, concatenate along the first axis
     if arrays.first.ndim == 1

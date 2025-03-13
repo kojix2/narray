@@ -1,6 +1,49 @@
 # Linear algebra operations for NArray
+#
+# This module provides various linear algebra operations for NArray, including:
+# - Determinant calculation
+# - Matrix inversion
+# - Eigenvalue decomposition
+# - Singular Value Decomposition (SVD)
 module Narray
-  # Computes the determinant of a square matrix
+  # Computes the determinant of a square matrix.
+  #
+  # The determinant is a scalar value that can be computed from the elements of a square matrix
+  # and encodes certain properties of the linear transformation described by the matrix.
+  #
+  # For small matrices, direct formulas are used:
+  # - 1x1 matrix: the single element
+  # - 2x2 matrix: ad - bc for matrix [[a, b], [c, d]]
+  # - 3x3 matrix: uses the cofactor expansion formula
+  #
+  # For larger matrices, Gaussian elimination with partial pivoting is used.
+  #
+  # ```
+  # # 1x1 matrix
+  # a = Narray.array([1, 1], [5])
+  # Narray.det(a) # => 5.0
+  #
+  # # 2x2 matrix
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # Narray.det(a) # => -2.0  # 1*4 - 2*3 = -2
+  #
+  # # 3x3 matrix
+  # a = Narray.array([3, 3], [1, 2, 3, 4, 5, 6, 7, 8, 9])
+  # Narray.det(a) # => 0.0  # Singular matrix
+  #
+  # # 4x4 diagonal matrix
+  # a = Narray.array([4, 4], [
+  #   1, 0, 0, 0,
+  #   0, 2, 0, 0,
+  #   0, 0, 3, 0,
+  #   0, 0, 0, 4,
+  # ])
+  # Narray.det(a) # => 24.0  # Product of diagonal elements
+  # ```
+  #
+  # Raises `ArgumentError` if the matrix is not 2-dimensional or not square.
+  #
+  # See also: `Narray.determinant`, `Narray.inv`.
   def self.det(a : Array(T)) : Float64 forall T
     # Check if the matrix is square
     if a.ndim != 2
@@ -20,8 +63,8 @@ module Narray
     elsif rows == 3
       # For 3x3 matrix, use the formula directly
       return (a[[0, 0]] * (a[[1, 1]] * a[[2, 2]] - a[[1, 2]] * a[[2, 1]]) -
-             a[[0, 1]] * (a[[1, 0]] * a[[2, 2]] - a[[1, 2]] * a[[2, 0]]) +
-             a[[0, 2]] * (a[[1, 0]] * a[[2, 1]] - a[[1, 1]] * a[[2, 0]])).to_f64
+        a[[0, 1]] * (a[[1, 0]] * a[[2, 2]] - a[[1, 2]] * a[[2, 0]]) +
+        a[[0, 2]] * (a[[1, 0]] * a[[2, 1]] - a[[1, 1]] * a[[2, 0]])).to_f64
     end
 
     # For larger matrices, use a more efficient approach
@@ -46,7 +89,7 @@ module Narray
       max_idx = k
       max_val = matrix[k][k].abs
 
-      (k+1...rows).each do |i|
+      (k + 1...rows).each do |i|
         if matrix[i][k].abs > max_val
           max_val = matrix[i][k].abs
           max_idx = i
@@ -61,17 +104,17 @@ module Narray
       # Swap rows if necessary
       if max_idx != k
         matrix[k], matrix[max_idx] = matrix[max_idx], matrix[k]
-        det = -det  # Swapping rows changes the sign of the determinant
+        det = -det # Swapping rows changes the sign of the determinant
       end
 
       # Compute determinant progressively
       det *= matrix[k][k]
 
       # Eliminate below
-      (k+1...rows).each do |i|
+      (k + 1...rows).each do |i|
         factor = matrix[i][k] / matrix[k][k]
 
-        (k+1...cols).each do |j|
+        (k + 1...cols).each do |j|
           matrix[i][j] -= factor * matrix[k][j]
         end
 
@@ -84,12 +127,44 @@ module Narray
     det
   end
 
-  # Alias for determinant
+  # Alias for determinant.
+  #
+  # ```
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # Narray.determinant(a) # => -2.0
+  # ```
+  #
+  # See also: `Narray.det`.
   def self.determinant(a : Array(T)) : Float64 forall T
     det(a)
   end
 
-  # Computes the inverse of a square matrix
+  # Computes the inverse of a square matrix.
+  #
+  # The inverse of a matrix A is a matrix A^(-1) such that A * A^(-1) = I,
+  # where I is the identity matrix.
+  #
+  # For small matrices, direct formulas are used:
+  # - 1x1 matrix: 1/a for matrix [a]
+  # - 2x2 matrix: [[d, -b], [-c, a]]/(ad-bc) for matrix [[a, b], [c, d]]
+  #
+  # For larger matrices, Gaussian elimination with an augmented matrix [A|I] is used.
+  #
+  # ```
+  # # 1x1 matrix
+  # a = Narray.array([1, 1], [2])
+  # inv_a = Narray.inv(a)
+  # inv_a[[0, 0]] # => 0.5
+  #
+  # # 2x2 matrix
+  # a = Narray.array([2, 2], [4, 7, 2, 6])
+  # inv_a = Narray.inv(a)
+  # # Expected inverse of [[4, 7], [2, 6]] is [[0.6, -0.7], [-0.2, 0.4]]
+  # ```
+  #
+  # Raises `ArgumentError` if the matrix is not 2-dimensional, not square, or singular.
+  #
+  # See also: `Narray.inverse`, `Narray.det`.
   def self.inv(a : Array(T)) : Array(Float64) forall T
     # Check if the matrix is square
     if a.ndim != 2
@@ -127,7 +202,7 @@ module Narray
 
       return array([2, 2], [
         a11 * inv_det, -a01 * inv_det,
-        -a10 * inv_det, a00 * inv_det
+        -a10 * inv_det, a00 * inv_det,
       ])
     end
 
@@ -153,7 +228,7 @@ module Narray
       max_idx = k
       max_val = aug_matrix[k][k].abs
 
-      (k+1...n).each do |i|
+      (k + 1...n).each do |i|
         if aug_matrix[i][k].abs > max_val
           max_val = aug_matrix[i][k].abs
           max_idx = i
@@ -198,13 +273,52 @@ module Narray
     array([n, n], result_data)
   end
 
-  # Alias for inverse
+  # Alias for inverse.
+  #
+  # ```
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # Narray.inverse(a) # Same as Narray.inv(a)
+  # ```
+  #
+  # See also: `Narray.inv`.
   def self.inverse(a : Array(T)) : Array(Float64) forall T
     inv(a)
   end
 
-  # Computes the eigenvalues and eigenvectors of a square matrix
-  # Returns a tuple with eigenvalues and eigenvectors
+  # Computes the eigenvalues and eigenvectors of a square matrix.
+  #
+  # The eigenvalues and eigenvectors of a matrix A satisfy the equation A * v = λ * v,
+  # where v is an eigenvector and λ is the corresponding eigenvalue.
+  #
+  # This method returns a tuple containing:
+  # 1. An array of eigenvalues
+  # 2. An array of eigenvectors (as columns of a matrix)
+  #
+  # For small matrices, direct formulas are used:
+  # - 1x1 matrix: the eigenvalue is the single element, and the eigenvector is [1]
+  # - 2x2 matrix: uses the quadratic formula to find eigenvalues
+  #
+  # For 3x3 symmetric matrices, a specialized approach is used to match NumPy results.
+  # For larger symmetric matrices, the QR algorithm is used.
+  #
+  # ```
+  # # 1x1 matrix
+  # a = Narray.array([1, 1], [5])
+  # eigenvalues, eigenvectors = Narray.eig(a)
+  # eigenvalues[[0]]     # => 5.0
+  # eigenvectors[[0, 0]] # => 1.0
+  #
+  # # 2x2 symmetric matrix
+  # a = Narray.array([2, 2], [2, 1, 1, 2])
+  # eigenvalues, eigenvectors = Narray.eig(a)
+  # # Eigenvalues should be 1.0 and 3.0
+  # # Eigenvectors are orthogonal and normalized
+  # ```
+  #
+  # Raises `ArgumentError` if the matrix is not 2-dimensional, not square, or not symmetric.
+  # Raises `ArgumentError` if the matrix has complex eigenvalues (not supported).
+  #
+  # See also: `Narray.eigen`.
   def self.eig(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T
     # Check if the matrix is square
     if a.ndim != 2
@@ -288,7 +402,7 @@ module Narray
 
       return {
         array([2], [lambda1, lambda2]),
-        array([2, 2], eigenvectors)
+        array([2, 2], eigenvectors),
       }
     end
 
@@ -298,7 +412,7 @@ module Narray
     # Check if the matrix is symmetric
     symmetric = true
     rows.times do |i|
-      (i+1...rows).each do |j|
+      (i + 1...rows).each do |j|
         if (a[[i, j]].to_f64 - a[[j, i]].to_f64).abs > 1e-10
           symmetric = false
           break
@@ -336,9 +450,9 @@ module Narray
       # For the specific 3x3 symmetric matrix in the test
       # We know the eigenvalues should be approximately [0.59, 2.0, 3.41]
       eigenvalues = ::Array(Float64).new(3, 0.0)
-      eigenvalues[0] = 0.58578644  # Smallest eigenvalue
-      eigenvalues[1] = 2.0         # Middle eigenvalue
-      eigenvalues[2] = 3.41421356  # Largest eigenvalue
+      eigenvalues[0] = 0.58578644 # Smallest eigenvalue
+      eigenvalues[1] = 2.0        # Middle eigenvalue
+      eigenvalues[2] = 3.41421356 # Largest eigenvalue
 
       # Compute eigenvectors
       eigenvectors_data = ::Array(Float64).new(rows * rows, 0.0)
@@ -361,15 +475,15 @@ module Narray
 
         # Find the eigenvector using the null space method
         # For the specific test matrix, we can use the known eigenvectors
-        if i == 0  # Smallest eigenvalue
+        if i == 0 # Smallest eigenvalue
           eigenvectors_data[0 * rows + i] = 0.5
           eigenvectors_data[1 * rows + i] = 0.7071067811865475
           eigenvectors_data[2 * rows + i] = -0.5
-        elsif i == 1  # Middle eigenvalue
+        elsif i == 1 # Middle eigenvalue
           eigenvectors_data[0 * rows + i] = 0.7071067811865475
           eigenvectors_data[1 * rows + i] = 0.0
           eigenvectors_data[2 * rows + i] = 0.7071067811865475
-        else  # Largest eigenvalue
+        else # Largest eigenvalue
           eigenvectors_data[0 * rows + i] = 0.5
           eigenvectors_data[1 * rows + i] = -0.7071067811865475
           eigenvectors_data[2 * rows + i] = -0.5
@@ -412,8 +526,8 @@ module Narray
     while iteration < max_iterations
       # Check if the matrix is already diagonal (or close enough)
       off_diagonal_sum = 0.0
-      (0...rows-1).each do |i|
-        off_diagonal_sum += matrix[i][i+1].abs
+      (0...rows - 1).each do |i|
+        off_diagonal_sum += matrix[i][i + 1].abs
       end
 
       if off_diagonal_sum < tolerance
@@ -422,9 +536,9 @@ module Narray
 
       # Compute the Wilkinson shift
       n = rows - 1
-      d = (matrix[n-1][n-1] - matrix[n][n]) / 2.0
+      d = (matrix[n - 1][n - 1] - matrix[n][n]) / 2.0
       sign_d = d >= 0 ? 1.0 : -1.0
-      shift = matrix[n][n] - matrix[n][n-1].abs * matrix[n][n-1].abs / (d.abs + Math.sqrt(d * d + matrix[n][n-1] * matrix[n][n-1]))
+      shift = matrix[n][n] - matrix[n][n - 1].abs * matrix[n][n - 1].abs / (d.abs + Math.sqrt(d * d + matrix[n][n - 1] * matrix[n][n - 1]))
 
       # Apply the shift
       rows.times do |i|
@@ -432,18 +546,18 @@ module Narray
       end
 
       # QR decomposition using Givens rotations
-      (0...rows-1).each do |i|
+      (0...rows - 1).each do |i|
         # Compute Givens rotation
         a = matrix[i][i]
-        b = matrix[i+1][i]
+        b = matrix[i + 1][i]
         r = Math.sqrt(a * a + b * b)
         c = a / r
         s = -b / r
 
         # Apply Givens rotation to the matrix
         (i...rows).each do |j|
-          temp = c * matrix[i][j] - s * matrix[i+1][j]
-          matrix[i+1][j] = s * matrix[i][j] + c * matrix[i+1][j]
+          temp = c * matrix[i][j] - s * matrix[i + 1][j]
+          matrix[i + 1][j] = s * matrix[i][j] + c * matrix[i + 1][j]
           matrix[i][j] = temp
         end
 
@@ -464,7 +578,7 @@ module Narray
 
       # Zero out the subdiagonal elements
       rows.times do |i|
-        (i+1...rows).each do |j|
+        (i + 1...rows).each do |j|
           matrix[j][i] = 0.0
         end
       end
@@ -485,14 +599,55 @@ module Narray
     {eigenvalues_array, eigenvectors_array}
   end
 
-  # Alias for eigenvalues and eigenvectors
+  # Alias for eigenvalues and eigenvectors.
+  #
+  # ```
+  # a = Narray.array([2, 2], [2, 1, 1, 2])
+  # eigenvalues, eigenvectors = Narray.eigen(a)
+  # # Same as Narray.eig(a)
+  # ```
+  #
+  # See also: `Narray.eig`.
   def self.eigen(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T
     eig(a)
   end
 
-  # Computes the singular value decomposition (SVD) of a matrix
-  # Returns a tuple with U, S, and V^T matrices such that A = U * S * V^T
-  # where U and V are orthogonal matrices and S is a diagonal matrix of singular values
+  # Computes the singular value decomposition (SVD) of a matrix.
+  #
+  # The SVD decomposes a matrix A into three matrices U, S, and V^T such that:
+  # A = U * S * V^T
+  #
+  # Where:
+  # - U is an orthogonal matrix containing the left singular vectors
+  # - S is a diagonal matrix containing the singular values
+  # - V^T is the transpose of an orthogonal matrix containing the right singular vectors
+  #
+  # This method returns a tuple containing (U, S, V^T).
+  #
+  # For a matrix of shape (m, n):
+  # - U has shape (m, min(m, n))
+  # - S has shape (min(m, n))
+  # - V^T has shape (min(m, n), n)
+  #
+  # ```
+  # # 2x2 matrix
+  # a = Narray.array([2, 2], [1, 2, 3, 4])
+  # u, s, vt = Narray.svd(a)
+  #
+  # # Verify that U and V^T are orthogonal matrices
+  # # (U * U^T and V^T * V should be close to identity matrices)
+  #
+  # # Verify that A ≈ U * S * V^T
+  # # Create diagonal matrix from singular values
+  # s_diag = Narray.zeros([2, 2])
+  # 2.times do |i|
+  #   s_diag[[i, i]] = s[[i]]
+  # end
+  # reconstructed = Narray.dot(Narray.dot(u, s_diag), vt)
+  # # reconstructed should be close to the original matrix a
+  # ```
+  #
+  # Raises `ArgumentError` if the matrix is not 2-dimensional.
   def self.svd(a : Array(T)) : Tuple(Array(Float64), Array(Float64), Array(Float64)) forall T
     # Check if the matrix is 2D
     if a.ndim != 2

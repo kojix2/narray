@@ -1,7 +1,36 @@
 # Broadcasting functionality for NArray
+#
+# Broadcasting allows operations between arrays of different shapes.
+# It follows NumPy's broadcasting rules:
+# 1. Arrays with fewer dimensions are padded with ones on the left.
+# 2. Arrays with dimension size 1 are stretched to match the other array's size.
+# 3. Arrays with incompatible shapes cannot be broadcast.
 module Narray
-  # Checks if two shapes are broadcast compatible
-  # Returns the resulting shape if compatible, nil otherwise
+  # Checks if two shapes are broadcast compatible and returns the resulting shape.
+  #
+  # Broadcasting rules:
+  # - Arrays with fewer dimensions are padded with ones on the left.
+  # - Arrays with dimension size 1 are stretched to match the other array's size.
+  # - If dimensions are incompatible (neither equal nor one is 1), returns nil.
+  #
+  # ```
+  # # Same shapes
+  # Narray.broadcast_shapes([2, 3], [2, 3]) # => [2, 3]
+  #
+  # # Broadcasting scalar to array
+  # Narray.broadcast_shapes([2, 3], [] of Int32) # => [2, 3]
+  #
+  # # Broadcasting 1D array to 2D array
+  # Narray.broadcast_shapes([2, 3], [3]) # => [2, 3]
+  #
+  # # Broadcasting when one dimension is 1
+  # Narray.broadcast_shapes([2, 1], [1, 3]) # => [2, 3]
+  #
+  # # Incompatible shapes
+  # Narray.broadcast_shapes([2, 3], [4, 5]) # => nil
+  # ```
+  #
+  # See also: `Narray.broadcast`, `Narray.can_broadcast?`.
   def self.broadcast_shapes(shape1 : ::Array(Int32), shape2 : ::Array(Int32)) : ::Array(Int32)?
     # Get the number of dimensions for each shape
     ndim1 = shape1.size
@@ -35,8 +64,30 @@ module Narray
     result_shape
   end
 
-  # Broadcasts an array to a new shape
-  # The new shape must be broadcast compatible with the original shape
+  # Broadcasts an array to a new shape.
+  #
+  # The new shape must be broadcast compatible with the original shape.
+  # If the shapes are already the same, returns the original array.
+  #
+  # ```
+  # # Original array with shape [3]
+  # arr = Narray.array([3], [1, 2, 3])
+  #
+  # # Broadcast to shape [2, 3]
+  # result = Narray.broadcast(arr, [2, 3])
+  # result.shape # => [2, 3]
+  # result.data  # => [1, 2, 3, 1, 2, 3]
+  #
+  # # Broadcasting with dimension size 1
+  # arr2 = Narray.array([2, 1], [1, 2])
+  # result2 = Narray.broadcast(arr2, [2, 3])
+  # result2.shape # => [2, 3]
+  # result2.data  # => [1, 1, 1, 2, 2, 2]
+  # ```
+  #
+  # Raises `ArgumentError` if the shapes are incompatible for broadcasting.
+  #
+  # See also: `Narray.broadcast_shapes`, `Array#broadcast_to`.
   def self.broadcast(array : Array(T), new_shape : ::Array(Int32)) : Array(T) forall T
     # If shapes are already the same, return the original array
     if array.shape == new_shape
@@ -70,7 +121,18 @@ module Narray
     Array(T).new(new_shape, new_data)
   end
 
-  # Checks if a shape can be broadcast to another shape
+  # Checks if a shape can be broadcast to another shape.
+  #
+  # Returns true if the shapes are compatible for broadcasting and the result
+  # of broadcasting would match the target shape.
+  #
+  # ```
+  # Narray.can_broadcast?([2, 1], [2, 3]) # => true
+  # Narray.can_broadcast?([3], [2, 3])    # => true
+  # Narray.can_broadcast?([2, 3], [4, 5]) # => false
+  # ```
+  #
+  # See also: `Narray.broadcast_shapes`, `Narray.broadcast`.
   def self.can_broadcast?(from_shape : ::Array(Int32), to_shape : ::Array(Int32)) : Bool
     # If the result of broadcast_shapes matches to_shape, then broadcasting is possible
     if result_shape = broadcast_shapes(from_shape, to_shape)
@@ -80,7 +142,10 @@ module Narray
     false
   end
 
-  # Converts a flat index to multi-dimensional indices for a given shape
+  # Converts a flat index to multi-dimensional indices for a given shape.
+  #
+  # This method calculates the multi-dimensional indices corresponding to
+  # a flat index in the underlying data array.
   private def self.flat_index_to_indices(flat_index : Int32, shape : ::Array(Int32)) : ::Array(Int32)
     ndim = shape.size
     indices = ::Array(Int32).new(ndim, 0)
@@ -97,7 +162,10 @@ module Narray
     indices
   end
 
-  # Converts multi-dimensional indices to a flat index for a given shape
+  # Converts multi-dimensional indices to a flat index for a given shape.
+  #
+  # This method calculates the flat index in the underlying data array
+  # corresponding to the given multi-dimensional indices.
   private def self.indices_to_flat_index(indices : ::Array(Int32), shape : ::Array(Int32)) : Int32
     flat_index = 0
     stride = 1
@@ -110,7 +178,10 @@ module Narray
     flat_index
   end
 
-  # Calculates the source indices in the original array for broadcasting
+  # Calculates the source indices in the original array for broadcasting.
+  #
+  # This method maps indices from the target shape to the source shape,
+  # handling broadcasting rules.
   private def self.broadcast_indices(target_indices : ::Array(Int32), source_shape : ::Array(Int32)) : ::Array(Int32)
     ndim_target = target_indices.size
     ndim_source = source_shape.size
@@ -137,7 +208,18 @@ module Narray
   end
 
   class Array(T)
-    # Broadcasts this array to a new shape
+    # Broadcasts this array to a new shape.
+    #
+    # ```
+    # arr = Narray.array([3], [1, 2, 3])
+    # result = arr.broadcast_to([2, 3])
+    # result.shape # => [2, 3]
+    # result.data  # => [1, 2, 3, 1, 2, 3]
+    # ```
+    #
+    # Raises `ArgumentError` if the shapes are incompatible for broadcasting.
+    #
+    # See also: `Narray.broadcast`.
     def broadcast_to(new_shape : ::Array(Int32)) : Array(T)
       Narray.broadcast(self, new_shape)
     end
