@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="narray">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="narray">
+  <title>narray main</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          narray
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="narray/Narray" data-name="narray">
+      <a href="Narray.html">Narray</a>
+      
+        <ul>
+  
+  <li class=" " data-id="narray/Narray/Array" data-name="narray::array(t)">
+      <a href="Narray/Array.html">Array</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="n-array" class="anchor" href="#n-array">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>NArray</h1>
+<p><a href="https://github.com/kojix2/narray/actions/workflows/test.yml"><img src="https://github.com/kojix2/narray/actions/workflows/test.yml/badge.svg" alt="build" /></a></p>
+<p>A multi-dimensional numerical array library for Crystal language. Inspired by NumPy and Numo::NArray, it can be used for scientific computing, data analysis, machine learning, and more.</p>
+<h2><a id="features" class="anchor" href="#features">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Features</h2>
+<ul>
+<li>Support for multi-dimensional arrays (N-dimensional arrays)</li>
+<li>Various array creation functions (zeros, ones, arange, linspace, etc.)</li>
+<li>Array manipulation functions (reshape, transpose, concatenate, etc.)</li>
+<li>Mathematical operations (basic arithmetic operations, element-wise functions)</li>
+<li>Broadcasting support for operations between arrays of different shapes</li>
+<li>Linear algebra functions (matrix multiplication, determinant, inverse, eigenvalues, SVD)</li>
+<li>Statistical functions (mean, variance, standard deviation, etc.)</li>
+</ul>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  narray:
+    github: kojix2/narray</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<h3><a id="creating-arrays" class="anchor" href="#creating-arrays">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Creating Arrays</h3>
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;narray&quot;</span>
+
+<span class="c"># Create arrays with different methods</span>
+zeros <span class="o">=</span> <span class="t">Narray</span>.zeros([<span class="n">2</span>, <span class="n">3</span>])           <span class="c"># 2x3 array filled with zeros</span>
+ones <span class="o">=</span> <span class="t">Narray</span>.ones([<span class="n">2</span>, <span class="n">3</span>])             <span class="c"># 2x3 array filled with ones</span>
+range <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">10</span>, <span class="n">2</span>)        <span class="c"># [0, 2, 4, 6, 8]</span>
+linear <span class="o">=</span> <span class="t">Narray</span>.linspace(<span class="n">0</span>, <span class="n">1</span>, <span class="n">5</span>)      <span class="c"># [0.0, 0.25, 0.5, 0.75, 1.0]</span>
+
+<span class="c"># Create array from existing data</span>
+data <span class="o">=</span> [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>]
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], data)       <span class="c"># 2x3 array with the given data</span></code></pre>
+<h3><a id="array-operations" class="anchor" href="#array-operations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Array Operations</h3>
+<pre><code class="language-crystal"><span class="c"># Basic array information</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+puts arr.shape                          <span class="c"># [2, 3]</span>
+puts arr.ndim                           <span class="c"># 2</span>
+puts arr.size                           <span class="c"># 6</span>
+
+<span class="c"># Accessing elements</span>
+puts arr[[<span class="n">0</span>, <span class="n">0</span>]]                        <span class="c"># 1</span>
+puts arr[[<span class="n">1</span>, <span class="n">2</span>]]                        <span class="c"># 6</span>
+
+<span class="c"># Reshaping arrays</span>
+reshaped <span class="o">=</span> arr.reshape([<span class="n">3</span>, <span class="n">2</span>])          <span class="c"># 3x2 array with the same data</span>
+transposed <span class="o">=</span> arr.transpose              <span class="c"># 3x2 array, transposed</span>
+
+<span class="c"># Combining arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+vertical <span class="o">=</span> <span class="t">Narray</span>.vstack([a, b])        <span class="c"># Stack arrays vertically</span>
+horizontal <span class="o">=</span> <span class="t">Narray</span>.hstack([a, b])      <span class="c"># Stack arrays horizontally</span>
+combined <span class="o">=</span> <span class="t">Narray</span>.concatenate([a, b], <span class="n">0</span>) <span class="c"># Concatenate along first axis</span></code></pre>
+<h3><a id="mathematical-operations" class="anchor" href="#mathematical-operations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Mathematical Operations</h3>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+
+<span class="c"># Element-wise operations</span>
+sum <span class="o">=</span> a <span class="o">+</span> b                             <span class="c"># Element-wise addition</span>
+diff <span class="o">=</span> a <span class="o">-</span> b                            <span class="c"># Element-wise subtraction</span>
+product <span class="o">=</span> a <span class="o">*</span> b                         <span class="c"># Element-wise multiplication</span>
+quotient <span class="o">=</span> a <span class="o">/</span> b                        <span class="c"># Element-wise division</span>
+
+<span class="c"># Element-wise operations (in-place)</span>
+a.add!(b)                               <span class="c"># Element-wise addition (in-place)</span>
+a.subtract!(b)                          <span class="c"># Element-wise subtraction (in-place)</span>
+a.multiply!(b)                          <span class="c"># Element-wise multiplication (in-place)</span>
+a.divide!(b)                            <span class="c"># Element-wise division (in-place)</span>
+
+<span class="c"># Scalar operations</span>
+scaled <span class="o">=</span> a <span class="o">*</span> <span class="n">2</span>                          <span class="c"># Multiply each element by 2</span>
+offset <span class="o">=</span> a <span class="o">+</span> <span class="n">5</span>                          <span class="c"># Add 5 to each element</span>
+
+<span class="c"># Scalar operations (in-place)</span>
+a.add!(<span class="n">5</span>)                               <span class="c"># Add 5 to each element (in-place)</span>
+a.multiply!(<span class="n">2</span>)                          <span class="c"># Multiply each element by 2 (in-place)</span>
+
+<span class="c"># Broadcasting operations</span>
+row <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])   <span class="c"># 1D array with shape [3]</span>
+column <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]) <span class="c"># 2D array with shape [3, 1]</span>
+result <span class="o">=</span> row <span class="o">+</span> column                   <span class="c"># Broadcasting: result has shape [3, 3]</span>
+
+<span class="c"># You can also broadcast in-place operations</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">2</span>], [<span class="n">10</span>, <span class="n">20</span>])      <span class="c"># 1D array with shape [2]</span>
+a.add!(b)                               <span class="c"># Broadcasting: a becomes [[11, 22], [13, 24]]</span>
+
+<span class="c"># Matrix operations</span>
+dot_product <span class="o">=</span> <span class="t">Narray</span>.dot(a, b)          <span class="c"># Matrix multiplication</span>
+det <span class="o">=</span> <span class="t">Narray</span>.det(a)                     <span class="c"># Matrix determinant</span>
+inv <span class="o">=</span> <span class="t">Narray</span>.inv(a)                     <span class="c"># Matrix inverse</span>
+eigenvalues, eigenvectors <span class="o">=</span> <span class="t">Narray</span>.eig(a) <span class="c"># Eigenvalues and eigenvectors</span>
+u, s, vt <span class="o">=</span> <span class="t">Narray</span>.svd(a)                <span class="c"># Singular Value Decomposition</span>
+
+<span class="c"># Statistical operations</span>
+puts a.sum                              <span class="c"># Sum of all elements</span>
+puts a.mean                             <span class="c"># Mean value</span>
+puts a.min                              <span class="c"># Minimum value</span>
+puts a.max                              <span class="c"># Maximum value</span>
+puts a.std                              <span class="c"># Standard deviation</span></code></pre>
+<h2><a id="current-implementation-status" class="anchor" href="#current-implementation-status">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Current Implementation Status</h2>
+<ul>
+<li>✅ Basic multi-dimensional array class</li>
+<li>✅ Array manipulation functions (reshape, transpose, concatenate)</li>
+<li>✅ Mathematical operations (arithmetic, statistics)</li>
+<li>✅ Broadcasting support for operations between arrays of different shapes</li>
+<li>✅ Basic linear algebra (dot product)</li>
+<li>✅ Advanced linear algebra (determinant, inverse, eigenvalues, SVD)</li>
+<li>🔄 Advanced features (in progress)</li>
+</ul>
+<h2><a id="future-development" class="anchor" href="#future-development">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Future Development</h2>
+<p>This library is being developed incrementally:</p>
+<ol>
+<li>✅ Implementation of basic multi-dimensional array class</li>
+<li>✅ Implementation of array manipulation functions</li>
+<li>✅ Implementation of mathematical operations</li>
+<li>✅ Implementation of advanced linear algebra functions
+<ul>
+<li>✅ Inverse matrices, determinants</li>
+<li>✅ Eigenvalues, eigenvectors</li>
+<li>✅ Matrix decompositions (SVD)</li>
+</ul>
+</li>
+<li>🔄 Implementation of advanced features
+<ul>
+<li>Fourier transforms</li>
+<li>Random number generation</li>
+<li>Interpolation, extrapolation</li>
+</ul>
+</li>
+</ol>
+<h2><a id="verification" class="anchor" href="#verification">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Verification</h2>
+<p>The test suite includes automatic verification against NumPy for linear algebra functions. The tests run Python code directly from Crystal to compare results with NumPy, ensuring numerical accuracy and consistency.</p>
+<p>This approach allows for continuous verification of:</p>
+<ul>
+<li>Determinant calculation</li>
+<li>Matrix inversion</li>
+<li>Eigenvalue decomposition</li>
+<li>Singular Value Decomposition (SVD)</li>
+</ul>
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+<ol>
+<li>Fork it (<a href="https://github.com/kojix2/narray/fork">https://github.com/kojix2/narray/fork</a>)</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create a new Pull Request</li>
+<li>Consider adding verification scripts for new functionality</li>
+</ol>
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+<ul>
+<li><a href="https://github.com/kojix2">kojix2</a> - creator and maintainer</li>
+</ul>
+</div>
+</body>
+</html>

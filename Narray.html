@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="narray">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="narray">
+  <title>Narray - narray main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          narray
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="narray/Narray" data-name="narray">
+      <a href="Narray.html">Narray</a>
+      
+        <ul>
+  
+  <li class=" " data-id="narray/Narray/Array" data-name="narray::array(t)">
+      <a href="Narray/Array.html">Array</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Narray
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Operations for NArray</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L6" target="_blank">
+        narray.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L2" target="_blank">
+        narray/broadcast.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L2" target="_blank">
+        narray/linalg.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L2" target="_blank">
+        narray/math.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L2" target="_blank">
+        narray/operations.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3ANumber%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.arange</strong>(start : Number, stop : Number, step : Number, type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
+        
+          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval with the specified type</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3D1%29-class-method" class="signature"><strong>.arange</strong>(start : Number, stop : Number, step = <span class="n">1</span>)</a>
+        
+          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method" class="signature"><strong>.array</strong>(shape : ::Array(Int32), data : ::Array(T)) forall T</a>
+        
+          <div class="summary"><p>Creates a new array with the given shape and data</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.broadcast</strong>(array : Array(T), new_shape : ::Array(Int32)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Broadcasts an array to a new shape The new shape must be broadcast compatible with the original shape</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#broadcast_shapes%28shape1%3A%3A%3AArray%28Int32%29%2Cshape2%3A%3A%3AArray%28Int32%29%29%3A%3A%3AArray%28Int32%29%7CNil-class-method" class="signature"><strong>.broadcast_shapes</strong>(shape1 : ::Array(Int32), shape2 : ::Array(Int32)) : ::Array(Int32) | Nil</a>
+        
+          <div class="summary"><p>Checks if two shapes are broadcast compatible Returns the resulting shape if compatible, nil otherwise</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#can_broadcast%3F%28from_shape%3A%3A%3AArray%28Int32%29%2Cto_shape%3A%3A%3AArray%28Int32%29%29%3ABool-class-method" class="signature"><strong>.can_broadcast?</strong>(from_shape : ::Array(Int32), to_shape : ::Array(Int32)) : Bool</a>
+        
+          <div class="summary"><p>Checks if a shape can be broadcast to another shape</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.concatenate</strong>(arrays : ::Array(Array(T)), axis = <span class="n">0</span>) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Concatenates arrays along the specified axis</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#det%28a%3AArray%28T%29%29%3AFloat64forallT-class-method" class="signature"><strong>.det</strong>(a : Array(T)) : Float64 forall T</a>
+        
+          <div class="summary"><p>Computes the determinant of a square matrix</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#determinant%28a%3AArray%28T%29%29%3AFloat64forallT-class-method" class="signature"><strong>.determinant</strong>(a : Array(T)) : Float64 forall T</a>
+        
+          <div class="summary"><p>Alias for determinant</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dot%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method" class="signature"><strong>.dot</strong>(a : Array(T), b : Array(U)) : Array(Float64) forall T, U</a>
+        
+          <div class="summary"><p>Matrix multiplication (dot product)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#dot%28a%3AArray%28T%29%2Cb%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.dot</strong>(a : Array(T), b : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Original dot product for same type (for backward compatibility)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eig%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.eig</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T</a>
+        
+          <div class="summary"><p>Computes the eigenvalues and eigenvectors of a square matrix Returns a tuple with eigenvalues and eigenvectors</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eigen%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.eigen</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T</a>
+        
+          <div class="summary"><p>Alias for eigenvalues and eigenvectors</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.hstack</strong>(arrays : ::Array(Array(T))) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Stacks arrays horizontally (along the second axis)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inv%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.inv</strong>(a : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the inverse of a square matrix</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inverse%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.inverse</strong>(a : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Alias for inverse</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3AInt32%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.linspace</strong>(start : Number, stop : Number, num : Int32, type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
+        
+          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval with the specified type</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3D50%29-class-method" class="signature"><strong>.linspace</strong>(start : Number, stop : Number, num = <span class="n">50</span>)</a>
+        
+          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#matmul%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method" class="signature"><strong>.matmul</strong>(a : Array(T), b : Array(U)) : Array(Float64) forall T, U</a>
+        
+          <div class="summary"><p>Matrix multiplication (matmul)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#matmul%28a%3AArray%28T%29%2Cb%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.matmul</strong>(a : Array(T), b : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Original matmul for same type (for backward compatibility)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.ones</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
+        
+          <div class="summary"><p>Creates a new array filled with ones with the specified type</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ones%28shape%3A%3A%3AArray%28Int32%29%29-class-method" class="signature"><strong>.ones</strong>(shape : ::Array(Int32))</a>
+        
+          <div class="summary"><p>Creates a new array filled with ones</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#svd%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.svd</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64), Array(Float64)) forall T</a>
+        
+          <div class="summary"><p>Computes the singular value decomposition (SVD) of a matrix Returns a tuple with U, S, and V^T matrices such that A = U * S * V^T where U and V are orthogonal matrices and S is a diagonal matrix of singular values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#vstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.vstack</strong>(arrays : ::Array(Array(T))) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Stacks arrays vertically (along the first axis)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.zeros</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
+        
+          <div class="summary"><p>Creates a new array filled with zeros with the specified type</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#zeros%28shape%3A%3A%3AArray%28Int32%29%29-class-method" class="signature"><strong>.zeros</strong>(shape : ::Array(Int32))</a>
+        
+          <div class="summary"><p>Creates a new array filled with zeros</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="arange(start:Number,stop:Number,step:Number,type:T.class)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>arange</strong>(start : Number, stop : Number, step : Number, type : <span class="t">T</span>.<span class="k">class</span>) forall T
+
+        <a class="method-permalink" href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3ANumber%2Ctype%3AT.class%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array with evenly spaced values within a given interval with the specified type</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L191" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="arange(start:Number,stop:Number,step=1)-class-method">
+      <div class="signature">
+        
+        def self.<strong>arange</strong>(start : Number, stop : Number, step = <span class="n">1</span>)
+
+        <a class="method-permalink" href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3D1%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array with evenly spaced values within a given interval</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L177" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="array(shape:::Array(Int32),data:::Array(T))forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>array</strong>(shape : ::Array(Int32), data : ::Array(T)) forall T
+
+        <a class="method-permalink" href="#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array with the given shape and data</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L148" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="broadcast(array:Array(T),new_shape:::Array(Int32)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>broadcast</strong>(array : <a href="Narray/Array.html">Array</a>(T), new_shape : ::Array(Int32)) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Broadcasts an array to a new shape
+The new shape must be broadcast compatible with the original shape</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L40" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="broadcast_shapes(shape1:::Array(Int32),shape2:::Array(Int32)):::Array(Int32)|Nil-class-method">
+      <div class="signature">
+        
+        def self.<strong>broadcast_shapes</strong>(shape1 : ::Array(Int32), shape2 : ::Array(Int32)) : ::Array(Int32) | Nil
+
+        <a class="method-permalink" href="#broadcast_shapes%28shape1%3A%3A%3AArray%28Int32%29%2Cshape2%3A%3A%3AArray%28Int32%29%29%3A%3A%3AArray%28Int32%29%7CNil-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Checks if two shapes are broadcast compatible
+Returns the resulting shape if compatible, nil otherwise</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="can_broadcast?(from_shape:::Array(Int32),to_shape:::Array(Int32)):Bool-class-method">
+      <div class="signature">
+        
+        def self.<strong>can_broadcast?</strong>(from_shape : ::Array(Int32), to_shape : ::Array(Int32)) : Bool
+
+        <a class="method-permalink" href="#can_broadcast%3F%28from_shape%3A%3A%3AArray%28Int32%29%2Cto_shape%3A%3A%3AArray%28Int32%29%29%3ABool-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Checks if a shape can be broadcast to another shape</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L74" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="concatenate(arrays:::Array(Array(T)),axis=0):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>concatenate</strong>(arrays : ::Array(<a href="Narray/Array.html">Array</a>(T)), axis = <span class="n">0</span>) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Concatenates arrays along the specified axis</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L150" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="det(a:Array(T)):Float64forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>det</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : Float64 forall T
+
+        <a class="method-permalink" href="#det%28a%3AArray%28T%29%29%3AFloat64forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the determinant of a square matrix</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L4" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="determinant(a:Array(T)):Float64forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>determinant</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : Float64 forall T
+
+        <a class="method-permalink" href="#determinant%28a%3AArray%28T%29%29%3AFloat64forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Alias for determinant</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L88" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dot(a:Array(T),b:Array(U)):Array(Float64)forallT,U-class-method">
+      <div class="signature">
+        
+        def self.<strong>dot</strong>(a : <a href="Narray/Array.html">Array</a>(T), b : <a href="Narray/Array.html">Array</a>(U)) : <a href="Narray/Array.html">Array</a>(Float64) forall T, U
+
+        <a class="method-permalink" href="#dot%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Matrix multiplication (dot product)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L460" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="dot(a:Array(T),b:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>dot</strong>(a : <a href="Narray/Array.html">Array</a>(T), b : <a href="Narray/Array.html">Array</a>(T)) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#dot%28a%3AArray%28T%29%2Cb%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Original dot product for same type (for backward compatibility)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L493" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eig(a:Array(T)):Tuple(Array(Float64),Array(Float64))forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>eig</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : Tuple(<a href="Narray/Array.html">Array</a>(Float64), <a href="Narray/Array.html">Array</a>(Float64)) forall T
+
+        <a class="method-permalink" href="#eig%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the eigenvalues and eigenvectors of a square matrix
+Returns a tuple with eigenvalues and eigenvectors</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L208" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eigen(a:Array(T)):Tuple(Array(Float64),Array(Float64))forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>eigen</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : Tuple(<a href="Narray/Array.html">Array</a>(Float64), <a href="Narray/Array.html">Array</a>(Float64)) forall T
+
+        <a class="method-permalink" href="#eigen%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Alias for eigenvalues and eigenvectors</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L489" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hstack(arrays:::Array(Array(T))):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>hstack</strong>(arrays : ::Array(<a href="Narray/Array.html">Array</a>(T))) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#hstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Stacks arrays horizontally (along the second axis)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L282" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inv(a:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>inv</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : <a href="Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#inv%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the inverse of a square matrix</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L93" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inverse(a:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>inverse</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : <a href="Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#inverse%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Alias for inverse</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L202" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="linspace(start:Number,stop:Number,num:Int32,type:T.class)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>linspace</strong>(start : Number, stop : Number, num : Int32, type : <span class="t">T</span>.<span class="k">class</span>) forall T
+
+        <a class="method-permalink" href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3AInt32%2Ctype%3AT.class%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array with evenly spaced values over a specified interval with the specified type</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L216" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="linspace(start:Number,stop:Number,num=50)-class-method">
+      <div class="signature">
+        
+        def self.<strong>linspace</strong>(start : Number, stop : Number, num = <span class="n">50</span>)
+
+        <a class="method-permalink" href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3D50%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array with evenly spaced values over a specified interval</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L205" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="matmul(a:Array(T),b:Array(U)):Array(Float64)forallT,U-class-method">
+      <div class="signature">
+        
+        def self.<strong>matmul</strong>(a : <a href="Narray/Array.html">Array</a>(T), b : <a href="Narray/Array.html">Array</a>(U)) : <a href="Narray/Array.html">Array</a>(Float64) forall T, U
+
+        <a class="method-permalink" href="#matmul%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Matrix multiplication (matmul)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L526" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="matmul(a:Array(T),b:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>matmul</strong>(a : <a href="Narray/Array.html">Array</a>(T), b : <a href="Narray/Array.html">Array</a>(T)) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#matmul%28a%3AArray%28T%29%2Cb%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Original matmul for same type (for backward compatibility)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L531" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ones(shape:::Array(Int32),type:T.class)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>ones</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T
+
+        <a class="method-permalink" href="#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array filled with ones with the specified type</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L171" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ones(shape:::Array(Int32))-class-method">
+      <div class="signature">
+        
+        def self.<strong>ones</strong>(shape : ::Array(Int32))
+
+        <a class="method-permalink" href="#ones%28shape%3A%3A%3AArray%28Int32%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array filled with ones</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L165" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="svd(a:Array(T)):Tuple(Array(Float64),Array(Float64),Array(Float64))forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>svd</strong>(a : <a href="Narray/Array.html">Array</a>(T)) : Tuple(<a href="Narray/Array.html">Array</a>(Float64), <a href="Narray/Array.html">Array</a>(Float64), <a href="Narray/Array.html">Array</a>(Float64)) forall T
+
+        <a class="method-permalink" href="#svd%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%2CArray%28Float64%29%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the singular value decomposition (SVD) of a matrix
+Returns a tuple with U, S, and V^T matrices such that A = U * S * V^T
+where U and V are orthogonal matrices and S is a diagonal matrix of singular values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L496" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="vstack(arrays:::Array(Array(T))):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>vstack</strong>(arrays : ::Array(<a href="Narray/Array.html">Array</a>(T))) : <a href="Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#vstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Stacks arrays vertically (along the first axis)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L260" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="zeros(shape:::Array(Int32),type:T.class)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>zeros</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T
+
+        <a class="method-permalink" href="#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array filled with zeros with the specified type</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L159" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="zeros(shape:::Array(Int32))-class-method">
+      <div class="signature">
+        
+        def self.<strong>zeros</strong>(shape : ::Array(Int32))
+
+        <a class="method-permalink" href="#zeros%28shape%3A%3A%3AArray%28Int32%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new array filled with zeros</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L153" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="narray">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="narray">
+  <title>Narray::Array(T) - narray main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          narray
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="narray/Narray" data-name="narray">
+      <a href="../Narray.html">Narray</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="narray/Narray/Array" data-name="narray::array(t)">
+      <a href="../Narray/Array.html">Array</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Narray::<wbr>Array(T)
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Narray/Array.html">Narray::Array(T)</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Main class for multi-dimensional arrays</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L10" target="_blank">
+        narray.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L139" target="_blank">
+        narray/broadcast.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L3" target="_blank">
+        narray/math.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L3" target="_blank">
+        narray/operations.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29-class-method" class="signature"><strong>.new</strong>(shape : ::Array(Int32), data : ::Array(T))</a>
+        
+          <div class="summary"><p>Creates a new NArray with the given shape and data</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#*</strong>(other : Array(T)) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise multiplication</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2A%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#*</strong>(scalar : Number) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise multiplication with a scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#+</strong>(other : Array(T)) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise addition</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%2B%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#+</strong>(scalar : Number) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise addition with a scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#-</strong>(other : Array(T)) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise subtraction</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#-%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#-</strong>(scalar : Number) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise subtraction with a scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#--instance-method" class="signature"><strong>#-</strong></a>
+        
+          <div class="summary"><p>Element-wise negation</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#/</strong>(other : Array(T)) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise division</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#/%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#/</strong>(scalar : Number) : Array(T)</a>
+        
+          <div class="summary"><p>Element-wise division with a scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%28indices%3A%3A%3AArray%28Int32%29%29%3AT-instance-method" class="signature"><strong>#[]</strong>(indices : ::Array(Int32)) : T</a>
+        
+          <div class="summary"><p>Returns the element at the given indices</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3D%28indices%3A%3A%3AArray%28Int32%29%2Cvalue%3AT%29-instance-method" class="signature"><strong>#[]=</strong>(indices : ::Array(Int32), value : T)</a>
+        
+          <div class="summary"><p>Sets the element at the given indices</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#add!</strong>(other : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise addition in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#add%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#add!</strong>(scalar : Number) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise addition with a scalar in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#broadcast_to%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#broadcast_to</strong>(new_shape : ::Array(Int32)) : Array(T)</a>
+        
+          <div class="summary"><p>Broadcasts this array to a new shape</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#data%3A%3A%3AArray%28T%29-instance-method" class="signature"><strong>#data</strong> : ::Array(T)</a>
+        
+          <div class="summary"><p>The underlying data storage</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#divide!</strong>(other : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise division in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#divide%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#divide!</strong>(scalar : Number) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise division with a scalar in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Returns a detailed string representation of the array for debugging</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#max%3AT-instance-method" class="signature"><strong>#max</strong> : T</a>
+        
+          <div class="summary"><p>Maximum value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mean%3AFloat64-instance-method" class="signature"><strong>#mean</strong> : Float64</a>
+        
+          <div class="summary"><p>Mean of all elements</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#min%3AT-instance-method" class="signature"><strong>#min</strong> : T</a>
+        
+          <div class="summary"><p>Minimum value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#multiply!</strong>(other : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise multiplication in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#multiply%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#multiply!</strong>(scalar : Number) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise multiplication with a scalar in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ndim%3AInt32-instance-method" class="signature"><strong>#ndim</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the number of dimensions of the array</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reshape%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#reshape</strong>(new_shape : ::Array(Int32)) : Array(T)</a>
+        
+          <div class="summary"><p>Reshapes the array to the new shape The total number of elements must remain the same</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reshape%21%28new_shape%3A%3A%3AArray%28Int32%29%29%3Aself-instance-method" class="signature"><strong>#reshape!</strong>(new_shape : ::Array(Int32)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Reshapes the array to the new shape in-place The total number of elements must remain the same</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#shape%3A%3A%3AArray%28Int32%29-instance-method" class="signature"><strong>#shape</strong> : ::Array(Int32)</a>
+        
+          <div class="summary"><p>The shape of the array (dimensions)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#size%3AInt32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the total number of elements in the array</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#std%3AFloat64-instance-method" class="signature"><strong>#std</strong> : Float64</a>
+        
+          <div class="summary"><p>Standard deviation</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#subtract!</strong>(other : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise subtraction in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subtract%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#subtract!</strong>(scalar : Number) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Element-wise subtraction with a scalar in-place</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sum%3AT-instance-method" class="signature"><strong>#sum</strong> : T</a>
+        
+          <div class="summary"><p>Sum of all elements</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_s%28io%3AIO%29-instance-method" class="signature"><strong>#to_s</strong>(io : IO)</a>
+        
+          <div class="summary"><p>Returns a string representation of the array</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#transpose%3AArray%28T%29-instance-method" class="signature"><strong>#transpose</strong> : Array(T)</a>
+        
+          <div class="summary"><p>Returns the transpose of the array For 1D arrays, this returns a copy of the array For 2D arrays, this swaps rows and columns For higher dimensions, this reverses the order of dimensions</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#transpose%21%3Aself-instance-method" class="signature"><strong>#transpose!</strong> : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Transposes the array in-place For 1D arrays, this does nothing For 2D arrays, this swaps rows and columns For higher dimensions, this reverses the order of dimensions Note: This method creates a new data array and updates the shape</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(shape:::Array(Int32),data:::Array(T))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(shape : ::Array(Int32), data : ::Array(T))
+
+        <a class="method-permalink" href="#new%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new NArray with the given shape and data</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L18" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="*(other:Array(T)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>*</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise multiplication</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L209" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="*(scalar:Number):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>*</strong>(scalar : Number) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#%2A%28scalar%3ANumber%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise multiplication with a scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L242" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(other:Array(T)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise addition</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L5" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="+(scalar:Number):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>+</strong>(scalar : Number) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#%2B%28scalar%3ANumber%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise addition with a scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L38" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(other:Array(T)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#-%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise subtraction</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L107" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="-(scalar:Number):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>(scalar : Number) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#-%28scalar%3ANumber%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise subtraction with a scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L140" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="--instance-method">
+      <div class="signature">
+        
+        def <strong>-</strong>
+
+        <a class="method-permalink" href="#--instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise negation</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L419" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="/(other:Array(T)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>/</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise division</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L311" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="/(scalar:Number):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>/</strong>(scalar : Number) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#/%28scalar%3ANumber%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise division with a scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L346" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[](indices:::Array(Int32)):T-instance-method">
+      <div class="signature">
+        
+        def <strong>[]</strong>(indices : ::Array(Int32)) : T
+
+        <a class="method-permalink" href="#%5B%5D%28indices%3A%3A%3AArray%28Int32%29%29%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the element at the given indices</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L37" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(indices:::Array(Int32),value:T)-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(indices : ::Array(Int32), value : T)
+
+        <a class="method-permalink" href="#%5B%5D%3D%28indices%3A%3A%3AArray%28Int32%29%2Cvalue%3AT%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the element at the given indices</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L56" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add!(other:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add!</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add%21%28other%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise addition in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L51" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="add!(scalar:Number):self-instance-method">
+      <div class="signature">
+        
+        def <strong>add!</strong>(scalar : Number) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#add%21%28scalar%3ANumber%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise addition with a scalar in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L97" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="broadcast_to(new_shape:::Array(Int32)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>broadcast_to</strong>(new_shape : ::Array(Int32)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#broadcast_to%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Broadcasts this array to a new shape</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="data:::Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>data</strong> : ::Array(T)
+
+        <a class="method-permalink" href="#data%3A%3A%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The underlying data storage</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L15" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="divide!(other:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>divide!</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise division in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L359" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="divide!(scalar:Number):self-instance-method">
+      <div class="signature">
+        
+        def <strong>divide!</strong>(scalar : Number) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#divide%21%28scalar%3ANumber%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise division with a scalar in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L409" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="inspect(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>inspect</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#inspect%28io%3AIO%29%3ANil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a detailed string representation of the array for debugging</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L97" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="max:T-instance-method">
+      <div class="signature">
+        
+        def <strong>max</strong> : T
+
+        <a class="method-permalink" href="#max%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Maximum value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L447" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mean:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>mean</strong> : Float64
+
+        <a class="method-permalink" href="#mean%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Mean of all elements</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L437" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="min:T-instance-method">
+      <div class="signature">
+        
+        def <strong>min</strong> : T
+
+        <a class="method-permalink" href="#min%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Minimum value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L442" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="multiply!(other:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>multiply!</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise multiplication in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L255" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="multiply!(scalar:Number):self-instance-method">
+      <div class="signature">
+        
+        def <strong>multiply!</strong>(scalar : Number) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#multiply%21%28scalar%3ANumber%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise multiplication with a scalar in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L301" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ndim:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>ndim</strong> : Int32
+
+        <a class="method-permalink" href="#ndim%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of dimensions of the array</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L27" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reshape(new_shape:::Array(Int32)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>reshape</strong>(new_shape : ::Array(Int32)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#reshape%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reshapes the array to the new shape
+The total number of elements must remain the same</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reshape!(new_shape:::Array(Int32)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>reshape!</strong>(new_shape : ::Array(Int32)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#reshape%21%28new_shape%3A%3A%3AArray%28Int32%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reshapes the array to the new shape in-place
+The total number of elements must remain the same</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L19" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="shape:::Array(Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>shape</strong> : ::Array(Int32)
+
+        <a class="method-permalink" href="#shape%3A%3A%3AArray%28Int32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The shape of the array (dimensions)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="size:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>size</strong> : Int32
+
+        <a class="method-permalink" href="#size%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the total number of elements in the array</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L32" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="std:Float64-instance-method">
+      <div class="signature">
+        
+        def <strong>std</strong> : Float64
+
+        <a class="method-permalink" href="#std%3AFloat64-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Standard deviation</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L452" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract!(other:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract!</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise subtraction in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L153" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subtract!(scalar:Number):self-instance-method">
+      <div class="signature">
+        
+        def <strong>subtract!</strong>(scalar : Number) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#subtract%21%28scalar%3ANumber%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Element-wise subtraction with a scalar in-place</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L199" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sum:T-instance-method">
+      <div class="signature">
+        
+        def <strong>sum</strong> : T
+
+        <a class="method-permalink" href="#sum%3AT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sum of all elements</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L432" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_s(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_s</strong>(io : IO)
+
+        <a class="method-permalink" href="#to_s%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a string representation of the array</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L88" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="transpose:Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>transpose</strong> : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#transpose%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the transpose of the array
+For 1D arrays, this returns a copy of the array
+For 2D arrays, this swaps rows and columns
+For higher dimensions, this reverses the order of dimensions</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="transpose!:self-instance-method">
+      <div class="signature">
+        
+        def <strong>transpose!</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#transpose%21%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Transposes the array in-place
+For 1D arrays, this does nothing
+For 2D arrays, this swaps rows and columns
+For higher dimensions, this reverses the order of dimensions
+Note: This method creates a new data array and updates the shape</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
