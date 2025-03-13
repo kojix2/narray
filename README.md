@@ -8,6 +8,7 @@ A multi-dimensional numerical array library for Crystal language. Inspired by Nu
 - Various array creation functions (zeros, ones, arange, linspace, etc.)
 - Array manipulation functions (reshape, transpose, concatenate, etc.)
 - Mathematical operations (basic arithmetic operations, element-wise functions)
+- Broadcasting support for operations between arrays of different shapes
 - Linear algebra functions (matrix multiplication)
 - Statistical functions (mean, variance, standard deviation, etc.)
 
@@ -92,6 +93,16 @@ offset = a + 5                          # Add 5 to each element
 a.add!(5)                               # Add 5 to each element (in-place)
 a.multiply!(2)                          # Multiply each element by 2 (in-place)
 
+# Broadcasting operations
+row = Narray.array([1, 3], [1, 2, 3])   # 1D array with shape [3]
+column = Narray.array([3, 1], [1, 2, 3]) # 2D array with shape [3, 1]
+result = row + column                   # Broadcasting: result has shape [3, 3]
+
+# You can also broadcast in-place operations
+a = Narray.array([2, 2], [1, 2, 3, 4])
+b = Narray.array([1, 2], [10, 20])      # 1D array with shape [2]
+a.add!(b)                               # Broadcasting: a becomes [[11, 22], [13, 24]]
+
 # Matrix operations
 dot_product = Narray.dot(a, b)          # Matrix multiplication
 
@@ -108,6 +119,7 @@ puts a.std                              # Standard deviation
 - ✅ Basic multi-dimensional array class
 - ✅ Array manipulation functions (reshape, transpose, concatenate)
 - ✅ Mathematical operations (arithmetic, statistics)
+- ✅ Broadcasting support for operations between arrays of different shapes
 - ✅ Basic linear algebra (dot product)
 - 🔄 Advanced linear algebra (in progress)
 - 🔄 Advanced features (in progress)

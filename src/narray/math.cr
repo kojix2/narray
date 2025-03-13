@@ -3,20 +3,35 @@ module Narray
   class Array(T)
     # Element-wise addition
     def +(other : Array(T)) : Array(T)
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot add arrays with different shapes: #{shape} and #{other.shape}")
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        new_data = ::Array(T).new(size) { T.zero }
+
+        # Add each element
+        size.times do |i|
+          new_data[i] = data[i] + other.data[i]
+        end
+
+        Array(T).new(shape.dup, new_data)
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # Shapes are compatible for broadcasting
+        # Broadcast both arrays to the result shape
+        broadcasted_self = Narray.broadcast(self, result_shape)
+        broadcasted_other = Narray.broadcast(other, result_shape)
+
+        # Add the broadcasted arrays
+        new_data = ::Array(T).new(result_shape.product) { T.zero }
+
+        result_shape.product.times do |i|
+          new_data[i] = broadcasted_self.data[i] + broadcasted_other.data[i]
+        end
+
+        Array(T).new(result_shape, new_data)
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot add arrays with incompatible shapes: #{shape} and #{other.shape}")
       end
-
-      # Create a new array with the same shape
-      new_data = ::Array(T).new(size) { T.zero }
-
-      # Add each element
-      size.times do |i|
-        new_data[i] = data[i] + other.data[i]
-      end
-
-      Array(T).new(shape.dup, new_data)
     end
 
     # Element-wise addition with a scalar
@@ -34,17 +49,48 @@ module Narray
 
     # Element-wise addition in-place
     def add!(other : Array(T)) : self
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot add arrays with different shapes: #{shape} and #{other.shape}")
-      end
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        # Add each element in-place
+        size.times do |i|
+          @data[i] += other.data[i]
+        end
 
-      # Add each element in-place
-      size.times do |i|
-        @data[i] += other.data[i]
-      end
+        self
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # If the result shape is different from our shape, we need to create a new array
+        # This is because we can't modify our shape in-place if broadcasting changes it
+        if result_shape != shape
+          # Create a new array with the broadcasted result
+          broadcasted_self = Narray.broadcast(self, result_shape)
+          broadcasted_other = Narray.broadcast(other, result_shape)
 
-      self
+          # Add the broadcasted arrays
+          result_shape.product.times do |i|
+            broadcasted_self.data[i] += broadcasted_other.data[i]
+          end
+
+          # Replace our data and shape with the new ones
+          @data = broadcasted_self.data
+          @shape = result_shape
+
+          self
+        else
+          # Our shape is the result shape, so we can broadcast the other array to our shape
+          broadcasted_other = Narray.broadcast(other, shape)
+
+          # Add the broadcasted array to our data in-place
+          size.times do |i|
+            @data[i] += broadcasted_other.data[i]
+          end
+
+          self
+        end
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot add arrays with incompatible shapes: #{shape} and #{other.shape}")
+      end
     end
 
     # Element-wise addition with a scalar in-place
@@ -59,20 +105,35 @@ module Narray
 
     # Element-wise subtraction
     def -(other : Array(T)) : Array(T)
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot subtract arrays with different shapes: #{shape} and #{other.shape}")
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        new_data = ::Array(T).new(size) { T.zero }
+
+        # Subtract each element
+        size.times do |i|
+          new_data[i] = data[i] - other.data[i]
+        end
+
+        Array(T).new(shape.dup, new_data)
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # Shapes are compatible for broadcasting
+        # Broadcast both arrays to the result shape
+        broadcasted_self = Narray.broadcast(self, result_shape)
+        broadcasted_other = Narray.broadcast(other, result_shape)
+
+        # Subtract the broadcasted arrays
+        new_data = ::Array(T).new(result_shape.product) { T.zero }
+
+        result_shape.product.times do |i|
+          new_data[i] = broadcasted_self.data[i] - broadcasted_other.data[i]
+        end
+
+        Array(T).new(result_shape, new_data)
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot subtract arrays with incompatible shapes: #{shape} and #{other.shape}")
       end
-
-      # Create a new array with the same shape
-      new_data = ::Array(T).new(size) { T.zero }
-
-      # Subtract each element
-      size.times do |i|
-        new_data[i] = data[i] - other.data[i]
-      end
-
-      Array(T).new(shape.dup, new_data)
     end
 
     # Element-wise subtraction with a scalar
@@ -90,17 +151,48 @@ module Narray
 
     # Element-wise subtraction in-place
     def subtract!(other : Array(T)) : self
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot subtract arrays with different shapes: #{shape} and #{other.shape}")
-      end
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        # Subtract each element in-place
+        size.times do |i|
+          @data[i] -= other.data[i]
+        end
 
-      # Subtract each element in-place
-      size.times do |i|
-        @data[i] -= other.data[i]
-      end
+        self
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # If the result shape is different from our shape, we need to create a new array
+        # This is because we can't modify our shape in-place if broadcasting changes it
+        if result_shape != shape
+          # Create a new array with the broadcasted result
+          broadcasted_self = Narray.broadcast(self, result_shape)
+          broadcasted_other = Narray.broadcast(other, result_shape)
 
-      self
+          # Subtract the broadcasted arrays
+          result_shape.product.times do |i|
+            broadcasted_self.data[i] -= broadcasted_other.data[i]
+          end
+
+          # Replace our data and shape with the new ones
+          @data = broadcasted_self.data
+          @shape = result_shape
+
+          self
+        else
+          # Our shape is the result shape, so we can broadcast the other array to our shape
+          broadcasted_other = Narray.broadcast(other, shape)
+
+          # Subtract the broadcasted array from our data in-place
+          size.times do |i|
+            @data[i] -= broadcasted_other.data[i]
+          end
+
+          self
+        end
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot subtract arrays with incompatible shapes: #{shape} and #{other.shape}")
+      end
     end
 
     # Element-wise subtraction with a scalar in-place
@@ -115,20 +207,35 @@ module Narray
 
     # Element-wise multiplication
     def *(other : Array(T)) : Array(T)
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot multiply arrays with different shapes: #{shape} and #{other.shape}")
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        new_data = ::Array(T).new(size) { T.zero }
+
+        # Multiply each element
+        size.times do |i|
+          new_data[i] = data[i] * other.data[i]
+        end
+
+        Array(T).new(shape.dup, new_data)
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # Shapes are compatible for broadcasting
+        # Broadcast both arrays to the result shape
+        broadcasted_self = Narray.broadcast(self, result_shape)
+        broadcasted_other = Narray.broadcast(other, result_shape)
+
+        # Multiply the broadcasted arrays
+        new_data = ::Array(T).new(result_shape.product) { T.zero }
+
+        result_shape.product.times do |i|
+          new_data[i] = broadcasted_self.data[i] * broadcasted_other.data[i]
+        end
+
+        Array(T).new(result_shape, new_data)
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot multiply arrays with incompatible shapes: #{shape} and #{other.shape}")
       end
-
-      # Create a new array with the same shape
-      new_data = ::Array(T).new(size) { T.zero }
-
-      # Multiply each element
-      size.times do |i|
-        new_data[i] = data[i] * other.data[i]
-      end
-
-      Array(T).new(shape.dup, new_data)
     end
 
     # Element-wise multiplication with a scalar
@@ -146,17 +253,48 @@ module Narray
 
     # Element-wise multiplication in-place
     def multiply!(other : Array(T)) : self
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot multiply arrays with different shapes: #{shape} and #{other.shape}")
-      end
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        # Multiply each element in-place
+        size.times do |i|
+          @data[i] *= other.data[i]
+        end
 
-      # Multiply each element in-place
-      size.times do |i|
-        @data[i] *= other.data[i]
-      end
+        self
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # If the result shape is different from our shape, we need to create a new array
+        # This is because we can't modify our shape in-place if broadcasting changes it
+        if result_shape != shape
+          # Create a new array with the broadcasted result
+          broadcasted_self = Narray.broadcast(self, result_shape)
+          broadcasted_other = Narray.broadcast(other, result_shape)
 
-      self
+          # Multiply the broadcasted arrays
+          result_shape.product.times do |i|
+            broadcasted_self.data[i] *= broadcasted_other.data[i]
+          end
+
+          # Replace our data and shape with the new ones
+          @data = broadcasted_self.data
+          @shape = result_shape
+
+          self
+        else
+          # Our shape is the result shape, so we can broadcast the other array to our shape
+          broadcasted_other = Narray.broadcast(other, shape)
+
+          # Multiply the broadcasted array with our data in-place
+          size.times do |i|
+            @data[i] *= broadcasted_other.data[i]
+          end
+
+          self
+        end
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot multiply arrays with incompatible shapes: #{shape} and #{other.shape}")
+      end
     end
 
     # Element-wise multiplication with a scalar in-place
@@ -171,20 +309,37 @@ module Narray
 
     # Element-wise division
     def /(other : Array(T)) : Array(T)
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot divide arrays with different shapes: #{shape} and #{other.shape}")
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        new_data = ::Array(T).new(size) { T.zero }
+
+        # Divide each element
+        size.times do |i|
+          new_data[i] = T.new((data[i] / other.data[i]).to_f)
+        end
+
+        Array(T).new(shape.dup, new_data)
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # Shapes are compatible for broadcasting
+        # Broadcast both arrays to the result shape
+        broadcasted_self = Narray.broadcast(self, result_shape)
+        broadcasted_other = Narray.broadcast(other, result_shape)
+
+        # Divide the broadcasted arrays
+        new_data = ::Array(T).new(result_shape.product) { T.zero }
+
+        result_shape.product.times do |i|
+          # Ensure floating point division by converting to Float64 first
+          value = (broadcasted_self.data[i].to_f64 / broadcasted_other.data[i].to_f64)
+          new_data[i] = T.new(value)
+        end
+
+        Array(T).new(result_shape, new_data)
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot divide arrays with incompatible shapes: #{shape} and #{other.shape}")
       end
-
-      # Create a new array with the same shape
-      new_data = ::Array(T).new(size) { T.zero }
-
-      # Divide each element
-      size.times do |i|
-        new_data[i] = T.new((data[i] / other.data[i]).to_f)
-      end
-
-      Array(T).new(shape.dup, new_data)
     end
 
     # Element-wise division with a scalar
@@ -202,17 +357,52 @@ module Narray
 
     # Element-wise division in-place
     def divide!(other : Array(T)) : self
-      # Check that shapes match
-      if shape != other.shape
-        raise ArgumentError.new("Cannot divide arrays with different shapes: #{shape} and #{other.shape}")
-      end
+      # Check if shapes are compatible for broadcasting
+      if shape == other.shape
+        # Shapes match exactly, no broadcasting needed
+        # Divide each element in-place
+        size.times do |i|
+          @data[i] = T.new((@data[i] / other.data[i]).to_f)
+        end
 
-      # Divide each element in-place
-      size.times do |i|
-        @data[i] = T.new((@data[i] / other.data[i]).to_f)
-      end
+        self
+      elsif result_shape = Narray.broadcast_shapes(shape, other.shape)
+        # If the result shape is different from our shape, we need to create a new array
+        # This is because we can't modify our shape in-place if broadcasting changes it
+        if result_shape != shape
+          # Create a new array with the broadcasted result
+          broadcasted_self = Narray.broadcast(self, result_shape)
+          broadcasted_other = Narray.broadcast(other, result_shape)
 
-      self
+          # Divide the broadcasted arrays
+          result_shape.product.times do |i|
+            # Ensure floating point division by converting to Float64 first
+            value = (broadcasted_self.data[i].to_f64 / broadcasted_other.data[i].to_f64)
+            broadcasted_self.data[i] = T.new(value)
+          end
+
+          # Replace our data and shape with the new ones
+          @data = broadcasted_self.data
+          @shape = result_shape
+
+          self
+        else
+          # Our shape is the result shape, so we can broadcast the other array to our shape
+          broadcasted_other = Narray.broadcast(other, shape)
+
+          # Divide our data by the broadcasted array in-place
+          size.times do |i|
+            # Ensure floating point division by converting to Float64 first
+            value = (@data[i].to_f64 / broadcasted_other.data[i].to_f64)
+            @data[i] = T.new(value)
+          end
+
+          self
+        end
+      else
+        # Shapes are not compatible for broadcasting
+        raise ArgumentError.new("Cannot divide arrays with incompatible shapes: #{shape} and #{other.shape}")
+      end
     end
 
     # Element-wise division with a scalar in-place

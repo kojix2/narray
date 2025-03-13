@@ -23,7 +23,7 @@ describe Narray do
       a = Narray.array([2, 2], [1, 2, 3, 4])
       b = Narray.array([3, 2], [5, 6, 7, 8, 9, 10])
 
-      expect_raises(ArgumentError, /Cannot add arrays with different shapes/) do
+      expect_raises(ArgumentError, /Cannot add arrays with incompatible shapes/) do
         a + b
       end
     end
@@ -59,7 +59,7 @@ describe Narray do
       a = Narray.array([2, 2], [1, 2, 3, 4])
       b = Narray.array([3, 2], [5, 6, 7, 8, 9, 10])
 
-      expect_raises(ArgumentError, /Cannot add arrays with different shapes/) do
+      expect_raises(ArgumentError, /Cannot add arrays with incompatible shapes/) do
         a.add!(b)
       end
     end
@@ -114,7 +114,7 @@ describe Narray do
       a = Narray.array([2, 2], [5, 6, 7, 8])
       b = Narray.array([3, 2], [1, 2, 3, 4, 5, 6])
 
-      expect_raises(ArgumentError, /Cannot subtract arrays with different shapes/) do
+      expect_raises(ArgumentError, /Cannot subtract arrays with incompatible shapes/) do
         a.subtract!(b)
       end
     end
@@ -169,7 +169,7 @@ describe Narray do
       a = Narray.array([2, 2], [1, 2, 3, 4])
       b = Narray.array([3, 2], [5, 6, 7, 8, 9, 10])
 
-      expect_raises(ArgumentError, /Cannot multiply arrays with different shapes/) do
+      expect_raises(ArgumentError, /Cannot multiply arrays with incompatible shapes/) do
         a.multiply!(b)
       end
     end
@@ -224,7 +224,7 @@ describe Narray do
       a = Narray.array([2, 2], [10, 12, 14, 16])
       b = Narray.array([3, 2], [2, 3, 2, 4, 5, 6])
 
-      expect_raises(ArgumentError, /Cannot divide arrays with different shapes/) do
+      expect_raises(ArgumentError, /Cannot divide arrays with incompatible shapes/) do
         a.divide!(b)
       end
     end
