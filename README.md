@@ -1,5 +1,7 @@
 # NArray
 
+[![build](https://github.com/kojix2/narray/actions/workflows/test.yml/badge.svg)](https://github.com/kojix2/narray/actions/workflows/test.yml)
+
 A multi-dimensional numerical array library for Crystal language. Inspired by NumPy and Numo::NArray, it can be used for scientific computing, data analysis, machine learning, and more.
 
 ## Features
