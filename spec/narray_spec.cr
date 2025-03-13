@@ -146,4 +146,30 @@ describe Narray do
       arr.to_s.should eq("Narray.array([2, 2], [1, 2, 3, 4])")
     end
   end
+
+  describe "#inspect" do
+    it "returns a detailed string representation of a small array" do
+      arr = Narray.array([2, 2], [1, 2, 3, 4])
+      inspect_str = arr.inspect
+
+      # Check that the inspect string contains all the required information
+      inspect_str.should contain("Narray::Array(Int32)")
+      inspect_str.should contain("shape=[2, 2]")
+      inspect_str.should contain("ndim=2")
+      inspect_str.should contain("size=4")
+      inspect_str.should contain("data=[1, 2, 3, 4]")
+    end
+
+    it "truncates the data for large arrays" do
+      # Create a large array
+      data = (1..30).to_a
+      arr = Narray.array([30], data)
+      inspect_str = arr.inspect
+
+      # Check that the inspect string contains truncated data
+      inspect_str.should contain("... (10 more elements) ...")
+      inspect_str.should contain("1, 2, 3, 4, 5, 6, 7, 8, 9, 10")
+      inspect_str.should contain("21, 22, 23, 24, 25, 26, 27, 28, 29, 30")
+    end
+  end
 end

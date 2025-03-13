@@ -92,6 +92,56 @@ module Narray
       io << data.inspect
       io << ")"
     end
+
+    # Returns a detailed string representation of the array for debugging
+    def inspect(io : IO) : Nil
+      io << "Narray::Array("
+      io << T.name
+      io << ")["
+
+      # Print shape
+      io << "shape="
+      io << shape.inspect
+      io << ", "
+
+      # Print dimensions
+      io << "ndim="
+      io << ndim
+      io << ", "
+
+      # Print size
+      io << "size="
+      io << size
+      io << ", "
+
+      # Print data
+      io << "data="
+
+      # For large arrays, only show a subset of the data
+      if size <= 20
+        io << data.inspect
+      else
+        # Show first 10 and last 10 elements
+        first_elements = data[0...10]
+        last_elements = data[(size - 10)...size]
+
+        io << "["
+        first_elements.each_with_index do |elem, i|
+          io << elem
+          io << ", " if i < first_elements.size - 1
+        end
+
+        io << ", ... (#{size - 20} more elements) ... , "
+
+        last_elements.each_with_index do |elem, i|
+          io << elem
+          io << ", " if i < last_elements.size - 1
+        end
+        io << "]"
+      end
+
+      io << "]"
+    end
   end
 
   # Creates a new array with the given shape and data
