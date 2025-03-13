@@ -78,9 +78,19 @@ diff = a - b                            # Element-wise subtraction
 product = a * b                         # Element-wise multiplication
 quotient = a / b                        # Element-wise division
 
+# Element-wise operations (in-place)
+a.add!(b)                               # Element-wise addition (in-place)
+a.subtract!(b)                          # Element-wise subtraction (in-place)
+a.multiply!(b)                          # Element-wise multiplication (in-place)
+a.divide!(b)                            # Element-wise division (in-place)
+
 # Scalar operations
 scaled = a * 2                          # Multiply each element by 2
 offset = a + 5                          # Add 5 to each element
+
+# Scalar operations (in-place)
+a.add!(5)                               # Add 5 to each element (in-place)
+a.multiply!(2)                          # Multiply each element by 2 (in-place)
 
 # Matrix operations
 dot_product = Narray.dot(a, b)          # Matrix multiplication

@@ -29,6 +29,42 @@ describe Narray do
     end
   end
 
+  describe "Array#add!" do
+    it "adds two arrays element-wise in-place" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      b = Narray.array([2, 2], [5, 6, 7, 8])
+      result = a.add!(b)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([6, 8, 10, 12])
+    end
+
+    it "adds a scalar to an array in-place" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      result = a.add!(5)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([6, 7, 8, 9])
+    end
+
+    it "raises an error when adding arrays with different shapes" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      b = Narray.array([3, 2], [5, 6, 7, 8, 9, 10])
+
+      expect_raises(ArgumentError, /Cannot add arrays with different shapes/) do
+        a.add!(b)
+      end
+    end
+  end
+
   describe "Array#-" do
     it "subtracts two arrays element-wise" do
       a = Narray.array([2, 2], [5, 6, 7, 8])
@@ -45,6 +81,42 @@ describe Narray do
 
       b.shape.should eq([2, 2])
       b.data.should eq([2, 3, 4, 5])
+    end
+  end
+
+  describe "Array#subtract!" do
+    it "subtracts two arrays element-wise in-place" do
+      a = Narray.array([2, 2], [5, 6, 7, 8])
+      b = Narray.array([2, 2], [1, 2, 3, 4])
+      result = a.subtract!(b)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([4, 4, 4, 4])
+    end
+
+    it "subtracts a scalar from an array in-place" do
+      a = Narray.array([2, 2], [5, 6, 7, 8])
+      result = a.subtract!(3)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([2, 3, 4, 5])
+    end
+
+    it "raises an error when subtracting arrays with different shapes" do
+      a = Narray.array([2, 2], [5, 6, 7, 8])
+      b = Narray.array([3, 2], [1, 2, 3, 4, 5, 6])
+
+      expect_raises(ArgumentError, /Cannot subtract arrays with different shapes/) do
+        a.subtract!(b)
+      end
     end
   end
 
@@ -67,6 +139,42 @@ describe Narray do
     end
   end
 
+  describe "Array#multiply!" do
+    it "multiplies two arrays element-wise in-place" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      b = Narray.array([2, 2], [5, 6, 7, 8])
+      result = a.multiply!(b)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([5, 12, 21, 32])
+    end
+
+    it "multiplies an array by a scalar in-place" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      result = a.multiply!(2)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([2, 4, 6, 8])
+    end
+
+    it "raises an error when multiplying arrays with different shapes" do
+      a = Narray.array([2, 2], [1, 2, 3, 4])
+      b = Narray.array([3, 2], [5, 6, 7, 8, 9, 10])
+
+      expect_raises(ArgumentError, /Cannot multiply arrays with different shapes/) do
+        a.multiply!(b)
+      end
+    end
+  end
+
   describe "Array#/" do
     it "divides two arrays element-wise" do
       a = Narray.array([2, 2], [10, 12, 14, 16])
@@ -83,6 +191,42 @@ describe Narray do
 
       b.shape.should eq([2, 2])
       b.data.should eq([1, 2, 3, 4])
+    end
+  end
+
+  describe "Array#divide!" do
+    it "divides two arrays element-wise in-place" do
+      a = Narray.array([2, 2], [10, 12, 14, 16])
+      b = Narray.array([2, 2], [2, 3, 2, 4])
+      result = a.divide!(b)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([5, 4, 7, 4])
+    end
+
+    it "divides an array by a scalar in-place" do
+      a = Narray.array([2, 2], [2, 4, 6, 8])
+      result = a.divide!(2)
+
+      # Check that the result is the same object
+      result.should be(a)
+
+      # Check that the array was modified in-place
+      a.shape.should eq([2, 2])
+      a.data.should eq([1, 2, 3, 4])
+    end
+
+    it "raises an error when dividing arrays with different shapes" do
+      a = Narray.array([2, 2], [10, 12, 14, 16])
+      b = Narray.array([3, 2], [2, 3, 2, 4, 5, 6])
+
+      expect_raises(ArgumentError, /Cannot divide arrays with different shapes/) do
+        a.divide!(b)
+      end
     end
   end
 

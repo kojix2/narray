@@ -31,6 +31,50 @@ describe Narray do
     end
   end
 
+  describe "Array#reshape!" do
+    it "reshapes a 1D array to 2D in-place" do
+      arr = Narray.arange(0, 6)
+      original_data = arr.data.dup
+      result = arr.reshape!([2, 3])
+
+      # Check that the result is the same object
+      result.should be(arr)
+
+      # Check that the shape was updated
+      arr.shape.should eq([2, 3])
+      arr.ndim.should eq(2)
+      arr.size.should eq(6)
+
+      # Check that the data was not changed
+      arr.data.should eq(original_data)
+    end
+
+    it "reshapes a 2D array to 1D in-place" do
+      arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+      original_data = arr.data.dup
+      result = arr.reshape!([6])
+
+      # Check that the result is the same object
+      result.should be(arr)
+
+      # Check that the shape was updated
+      arr.shape.should eq([6])
+      arr.ndim.should eq(1)
+      arr.size.should eq(6)
+
+      # Check that the data was not changed
+      arr.data.should eq(original_data)
+    end
+
+    it "raises an error if the new shape has a different number of elements" do
+      arr = Narray.arange(0, 6)
+
+      expect_raises(ArgumentError, /Cannot reshape/) do
+        arr.reshape!([2, 4])
+      end
+    end
+  end
+
   describe "Array#transpose" do
     it "transposes a 1D array" do
       arr = Narray.arange(0, 3)
@@ -54,6 +98,50 @@ describe Narray do
 
       transposed.shape.should eq([2, 2, 2])
       transposed.data.should eq([1, 5, 3, 7, 2, 6, 4, 8])
+    end
+  end
+
+  describe "Array#transpose!" do
+    it "does nothing for a 1D array" do
+      arr = Narray.arange(0, 3)
+      original_data = arr.data.dup
+      original_shape = arr.shape.dup
+      result = arr.transpose!
+
+      # Check that the result is the same object
+      result.should be(arr)
+
+      # Check that nothing changed
+      arr.shape.should eq(original_shape)
+      arr.data.should eq(original_data)
+    end
+
+    it "transposes a 2D array in-place" do
+      arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+      result = arr.transpose!
+
+      # Check that the result is the same object
+      result.should be(arr)
+
+      # Check that the shape was updated
+      arr.shape.should eq([3, 2])
+
+      # Check that the data was updated correctly
+      arr.data.should eq([1, 4, 2, 5, 3, 6])
+    end
+
+    it "transposes a 3D array in-place" do
+      arr = Narray.array([2, 2, 2], [1, 2, 3, 4, 5, 6, 7, 8])
+      result = arr.transpose!
+
+      # Check that the result is the same object
+      result.should be(arr)
+
+      # Check that the shape was updated
+      arr.shape.should eq([2, 2, 2])
+
+      # Check that the data was updated correctly
+      arr.data.should eq([1, 5, 3, 7, 2, 6, 4, 8])
     end
   end
 

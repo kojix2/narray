@@ -32,6 +32,31 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
+    # Element-wise addition in-place
+    def add!(other : Array(T)) : self
+      # Check that shapes match
+      if shape != other.shape
+        raise ArgumentError.new("Cannot add arrays with different shapes: #{shape} and #{other.shape}")
+      end
+
+      # Add each element in-place
+      size.times do |i|
+        @data[i] += other.data[i]
+      end
+
+      self
+    end
+
+    # Element-wise addition with a scalar in-place
+    def add!(scalar : Number) : self
+      # Add scalar to each element in-place
+      size.times do |i|
+        @data[i] += T.new(scalar)
+      end
+
+      self
+    end
+
     # Element-wise subtraction
     def -(other : Array(T)) : Array(T)
       # Check that shapes match
@@ -61,6 +86,31 @@ module Narray
       end
 
       Array(T).new(shape.dup, new_data)
+    end
+
+    # Element-wise subtraction in-place
+    def subtract!(other : Array(T)) : self
+      # Check that shapes match
+      if shape != other.shape
+        raise ArgumentError.new("Cannot subtract arrays with different shapes: #{shape} and #{other.shape}")
+      end
+
+      # Subtract each element in-place
+      size.times do |i|
+        @data[i] -= other.data[i]
+      end
+
+      self
+    end
+
+    # Element-wise subtraction with a scalar in-place
+    def subtract!(scalar : Number) : self
+      # Subtract scalar from each element in-place
+      size.times do |i|
+        @data[i] -= T.new(scalar)
+      end
+
+      self
     end
 
     # Element-wise multiplication
@@ -94,6 +144,31 @@ module Narray
       Array(T).new(shape.dup, new_data)
     end
 
+    # Element-wise multiplication in-place
+    def multiply!(other : Array(T)) : self
+      # Check that shapes match
+      if shape != other.shape
+        raise ArgumentError.new("Cannot multiply arrays with different shapes: #{shape} and #{other.shape}")
+      end
+
+      # Multiply each element in-place
+      size.times do |i|
+        @data[i] *= other.data[i]
+      end
+
+      self
+    end
+
+    # Element-wise multiplication with a scalar in-place
+    def multiply!(scalar : Number) : self
+      # Multiply each element by scalar in-place
+      size.times do |i|
+        @data[i] *= T.new(scalar)
+      end
+
+      self
+    end
+
     # Element-wise division
     def /(other : Array(T)) : Array(T)
       # Check that shapes match
@@ -123,6 +198,31 @@ module Narray
       end
 
       Array(T).new(shape.dup, new_data)
+    end
+
+    # Element-wise division in-place
+    def divide!(other : Array(T)) : self
+      # Check that shapes match
+      if shape != other.shape
+        raise ArgumentError.new("Cannot divide arrays with different shapes: #{shape} and #{other.shape}")
+      end
+
+      # Divide each element in-place
+      size.times do |i|
+        @data[i] = T.new((@data[i] / other.data[i]).to_f)
+      end
+
+      self
+    end
+
+    # Element-wise division with a scalar in-place
+    def divide!(scalar : Number) : self
+      # Divide each element by scalar in-place
+      size.times do |i|
+        @data[i] = T.new((@data[i] / T.new(scalar)).to_f)
+      end
+
+      self
     end
 
     # Element-wise negation

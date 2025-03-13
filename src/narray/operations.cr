@@ -14,6 +14,20 @@ module Narray
       Array(T).new(new_shape, data.dup)
     end
 
+    # Reshapes the array to the new shape in-place
+    # The total number of elements must remain the same
+    def reshape!(new_shape : ::Array(Int32)) : self
+      # Validate that the new shape has the same number of elements
+      new_size = new_shape.product
+      if new_size != size
+        raise ArgumentError.new("Cannot reshape array of size #{size} into shape #{new_shape} with size #{new_size}")
+      end
+
+      # Update the shape in-place
+      @shape = new_shape.dup
+      self
+    end
+
     # Returns the transpose of the array
     # For 1D arrays, this returns a copy of the array
     # For 2D arrays, this swaps rows and columns
@@ -68,6 +82,67 @@ module Narray
 
         Array(T).new(new_shape, new_data)
       end
+    end
+
+    # Transposes the array in-place
+    # For 1D arrays, this does nothing
+    # For 2D arrays, this swaps rows and columns
+    # For higher dimensions, this reverses the order of dimensions
+    # Note: This method creates a new data array and updates the shape
+    def transpose! : self
+      case ndim
+      when 0, 1
+        # For 0D or 1D arrays, do nothing
+        return self
+      when 2
+        # For 2D arrays, swap rows and columns
+        rows, cols = shape
+        new_shape = [cols, rows]
+        new_data = ::Array(T).new(size) { T.zero }
+
+        rows.times do |i|
+          cols.times do |j|
+            new_data[j * rows + i] = data[i * cols + j]
+          end
+        end
+
+        @shape = new_shape
+        @data = new_data
+      else
+        # For higher dimensions, reverse the order of dimensions
+        new_shape = shape.reverse
+        new_data = ::Array(T).new(size) { T.zero }
+
+        # Create a mapping from old indices to new indices
+        indices = ::Array(Int32).new(ndim, 0)
+        size.times do |i|
+          # Convert flat index to multi-dimensional indices
+          flat_idx = i
+          stride = 1
+          indices.size.times do |dim|
+            indices[dim] = (flat_idx // stride) % shape[dim]
+            stride *= shape[dim]
+          end
+
+          # Reverse the indices for transposition
+          reversed_indices = indices.reverse
+
+          # Convert back to flat index for the new array
+          new_flat_idx = 0
+          stride = 1
+          reversed_indices.size.times do |dim|
+            new_flat_idx += reversed_indices[dim] * stride
+            stride *= new_shape[dim]
+          end
+
+          new_data[new_flat_idx] = data[i]
+        end
+
+        @shape = new_shape
+        @data = new_data
+      end
+
+      self
     end
   end
 
