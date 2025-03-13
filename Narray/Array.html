@@ -100,7 +100,10 @@
     Overview
   </h2>
 
-  <p>Main class for multi-dimensional arrays</p>
+  <p>Main class for multi-dimensional arrays.</p>
+<p>This class represents a multi-dimensional array with elements of type T.
+It provides methods for accessing and manipulating array elements, as well as
+various mathematical operations.</p>
 
 
 
@@ -125,28 +128,28 @@
   </h2>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L10" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L27" target="_blank">
         narray.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L139" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L210" target="_blank">
         narray/broadcast.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L3" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L9" target="_blank">
         narray/math.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L3" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L8" target="_blank">
         narray/operations.cr
       </a>
     
@@ -170,7 +173,7 @@
       <li class="entry-summary">
         <a href="#new%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29-class-method" class="signature"><strong>.new</strong>(shape : ::Array(Int32), data : ::Array(T))</a>
         
-          <div class="summary"><p>Creates a new NArray with the given shape and data</p></div>
+          <div class="summary"><p>Creates a new NArray with the given shape and data.</p></div>
         
       </li>
     
@@ -195,245 +198,245 @@
       <li class="entry-summary">
         <a href="#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#*</strong>(other : Array(T)) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise multiplication</p></div>
+          <div class="summary"><p>Performs element-wise multiplication of two arrays.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#%2A%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#*</strong>(scalar : Number) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise multiplication with a scalar</p></div>
+          <div class="summary"><p>Performs element-wise multiplication of an array and a scalar.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#+</strong>(other : Array(T)) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise addition</p></div>
+          <div class="summary"><p>Performs element-wise addition of two arrays.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#%2B%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#+</strong>(scalar : Number) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise addition with a scalar</p></div>
+          <div class="summary"><p>Performs element-wise addition of an array and a scalar.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#-%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#-</strong>(other : Array(T)) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise subtraction</p></div>
+          <div class="summary"><p>Performs element-wise subtraction of two arrays.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#-%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#-</strong>(scalar : Number) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise subtraction with a scalar</p></div>
+          <div class="summary"><p>Performs element-wise subtraction of an array and a scalar.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#--instance-method" class="signature"><strong>#-</strong></a>
         
-          <div class="summary"><p>Element-wise negation</p></div>
+          <div class="summary"><p>Performs element-wise negation of an array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#/</strong>(other : Array(T)) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise division</p></div>
+          <div class="summary"><p>Performs element-wise division of two arrays.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#/%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#/</strong>(scalar : Number) : Array(T)</a>
         
-          <div class="summary"><p>Element-wise division with a scalar</p></div>
+          <div class="summary"><p>Performs element-wise division of an array and a scalar.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#%5B%5D%28indices%3A%3A%3AArray%28Int32%29%29%3AT-instance-method" class="signature"><strong>#[]</strong>(indices : ::Array(Int32)) : T</a>
         
-          <div class="summary"><p>Returns the element at the given indices</p></div>
+          <div class="summary"><p>Returns the element at the given indices.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#%5B%5D%3D%28indices%3A%3A%3AArray%28Int32%29%2Cvalue%3AT%29-instance-method" class="signature"><strong>#[]=</strong>(indices : ::Array(Int32), value : T)</a>
         
-          <div class="summary"><p>Sets the element at the given indices</p></div>
+          <div class="summary"><p>Sets the element at the given indices.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#add%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#add!</strong>(other : Array(T)) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise addition in-place</p></div>
+          <div class="summary"><p>Performs element-wise addition of two arrays in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#add%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#add!</strong>(scalar : Number) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise addition with a scalar in-place</p></div>
+          <div class="summary"><p>Performs element-wise addition of an array and a scalar in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#broadcast_to%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#broadcast_to</strong>(new_shape : ::Array(Int32)) : Array(T)</a>
         
-          <div class="summary"><p>Broadcasts this array to a new shape</p></div>
+          <div class="summary"><p>Broadcasts this array to a new shape.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#data%3A%3A%3AArray%28T%29-instance-method" class="signature"><strong>#data</strong> : ::Array(T)</a>
         
-          <div class="summary"><p>The underlying data storage</p></div>
+          <div class="summary"><p>The underlying data storage.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#divide!</strong>(other : Array(T)) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise division in-place</p></div>
+          <div class="summary"><p>Performs element-wise division of two arrays in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#divide%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#divide!</strong>(scalar : Number) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise division with a scalar in-place</p></div>
+          <div class="summary"><p>Performs element-wise division of an array and a scalar in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
-          <div class="summary"><p>Returns a detailed string representation of the array for debugging</p></div>
+          <div class="summary"><p>Returns a detailed string representation of the array for debugging.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#max%3AT-instance-method" class="signature"><strong>#max</strong> : T</a>
         
-          <div class="summary"><p>Maximum value</p></div>
+          <div class="summary"><p>Returns the maximum value in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#mean%3AFloat64-instance-method" class="signature"><strong>#mean</strong> : Float64</a>
         
-          <div class="summary"><p>Mean of all elements</p></div>
+          <div class="summary"><p>Computes the mean (average) of all elements in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#min%3AT-instance-method" class="signature"><strong>#min</strong> : T</a>
         
-          <div class="summary"><p>Minimum value</p></div>
+          <div class="summary"><p>Returns the minimum value in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#multiply!</strong>(other : Array(T)) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise multiplication in-place</p></div>
+          <div class="summary"><p>Performs element-wise multiplication of two arrays in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#multiply%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#multiply!</strong>(scalar : Number) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise multiplication with a scalar in-place</p></div>
+          <div class="summary"><p>Performs element-wise multiplication of an array and a scalar in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#ndim%3AInt32-instance-method" class="signature"><strong>#ndim</strong> : Int32</a>
         
-          <div class="summary"><p>Returns the number of dimensions of the array</p></div>
+          <div class="summary"><p>Returns the number of dimensions of the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#reshape%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#reshape</strong>(new_shape : ::Array(Int32)) : Array(T)</a>
         
-          <div class="summary"><p>Reshapes the array to the new shape The total number of elements must remain the same</p></div>
+          <div class="summary"><p>Reshapes the array to the new shape.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#reshape%21%28new_shape%3A%3A%3AArray%28Int32%29%29%3Aself-instance-method" class="signature"><strong>#reshape!</strong>(new_shape : ::Array(Int32)) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Reshapes the array to the new shape in-place The total number of elements must remain the same</p></div>
+          <div class="summary"><p>Reshapes the array to the new shape in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#shape%3A%3A%3AArray%28Int32%29-instance-method" class="signature"><strong>#shape</strong> : ::Array(Int32)</a>
         
-          <div class="summary"><p>The shape of the array (dimensions)</p></div>
+          <div class="summary"><p>The shape of the array (dimensions).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#size%3AInt32-instance-method" class="signature"><strong>#size</strong> : Int32</a>
         
-          <div class="summary"><p>Returns the total number of elements in the array</p></div>
+          <div class="summary"><p>Returns the total number of elements in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#std%3AFloat64-instance-method" class="signature"><strong>#std</strong> : Float64</a>
         
-          <div class="summary"><p>Standard deviation</p></div>
+          <div class="summary"><p>Computes the standard deviation of all elements in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#subtract!</strong>(other : Array(T)) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise subtraction in-place</p></div>
+          <div class="summary"><p>Performs element-wise subtraction of two arrays in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#subtract%21%28scalar%3ANumber%29%3Aself-instance-method" class="signature"><strong>#subtract!</strong>(scalar : Number) : <span class="k">self</span></a>
         
-          <div class="summary"><p>Element-wise subtraction with a scalar in-place</p></div>
+          <div class="summary"><p>Performs element-wise subtraction of an array and a scalar in-place.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#sum%3AT-instance-method" class="signature"><strong>#sum</strong> : T</a>
         
-          <div class="summary"><p>Sum of all elements</p></div>
+          <div class="summary"><p>Computes the sum of all elements in the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#to_s%28io%3AIO%29-instance-method" class="signature"><strong>#to_s</strong>(io : IO)</a>
         
-          <div class="summary"><p>Returns a string representation of the array</p></div>
+          <div class="summary"><p>Returns a string representation of the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#transpose%3AArray%28T%29-instance-method" class="signature"><strong>#transpose</strong> : Array(T)</a>
         
-          <div class="summary"><p>Returns the transpose of the array For 1D arrays, this returns a copy of the array For 2D arrays, this swaps rows and columns For higher dimensions, this reverses the order of dimensions</p></div>
+          <div class="summary"><p>Returns the transpose of the array.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#transpose%21%3Aself-instance-method" class="signature"><strong>#transpose!</strong> : <span class="k">self</span></a>
         
-          <div class="summary"><p>Transposes the array in-place For 1D arrays, this does nothing For 2D arrays, this swaps rows and columns For higher dimensions, this reverses the order of dimensions Note: This method creates a new data array and updates the shape</p></div>
+          <div class="summary"><p>Transposes the array in-place.</p></div>
         
       </li>
     
@@ -491,13 +494,19 @@
       
         <div class="doc">
           
-          <p>Creates a new NArray with the given shape and data</p>
+          <p>Creates a new NArray with the given shape and data.</p>
+<p>The data array must have the same number of elements as the product of the shape dimensions.
+Elements are stored in row-major order (C-style).</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Array</span>(<span class="t">Int32</span>).new([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+arr.shape <span class="c"># =&gt; [2, 2]</span>
+arr.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the data size does not match the shape.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -528,13 +537,30 @@
       
         <div class="doc">
           
-          <p>Element-wise multiplication</p>
+          <p>Performs element-wise multiplication of two arrays.</p>
+<p>If the shapes match exactly, multiplies corresponding elements.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then multiplies corresponding elements.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+c <span class="o">=</span> a <span class="o">*</span> b
+c.shape <span class="c"># =&gt; [2, 2]</span>
+c.data  <span class="c"># =&gt; [5, 12, 21, 32]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+c <span class="o">=</span> a <span class="o">*</span> b
+c.shape <span class="c"># =&gt; [2, 3]</span>
+c.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#multiply!</a></code>, <code><a href="../Narray/Array.html#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#/</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L209" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L370" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -549,13 +575,19 @@
       
         <div class="doc">
           
-          <p>Element-wise multiplication with a scalar</p>
+          <p>Performs element-wise multiplication of an array and a scalar.</p>
+<p>Multiplies each element of the array by the scalar.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> a <span class="o">*</span> <span class="n">2</span>
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#multiply!</a></code>, <code><a href="../Narray/Array.html#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#/</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L242" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L414" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -570,13 +602,30 @@
       
         <div class="doc">
           
-          <p>Element-wise addition</p>
+          <p>Performs element-wise addition of two arrays.</p>
+<p>If the shapes match exactly, adds corresponding elements.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then adds corresponding elements.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+c <span class="o">=</span> a <span class="o">+</span> b
+c.shape <span class="c"># =&gt; [2, 2]</span>
+c.data  <span class="c"># =&gt; [6, 8, 10, 12]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+c <span class="o">=</span> a <span class="o">+</span> b
+c.shape <span class="c"># =&gt; [2, 3]</span>
+c.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#add%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#add!</a></code>, <code><a href="../Narray/Array.html#--instance-method">Array#-</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -591,13 +640,19 @@
       
         <div class="doc">
           
-          <p>Element-wise addition with a scalar</p>
+          <p>Performs element-wise addition of an array and a scalar.</p>
+<p>Adds the scalar to each element of the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> a <span class="o">+</span> <span class="n">5</span>
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#add%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#add!</a></code>, <code><a href="../Narray/Array.html#--instance-method">Array#-</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -612,13 +667,30 @@
       
         <div class="doc">
           
-          <p>Element-wise subtraction</p>
+          <p>Performs element-wise subtraction of two arrays.</p>
+<p>If the shapes match exactly, subtracts corresponding elements.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then subtracts corresponding elements.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+c <span class="o">=</span> a <span class="o">-</span> b
+c.shape <span class="c"># =&gt; [2, 2]</span>
+c.data  <span class="c"># =&gt; [4, 4, 4, 4]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">5</span>, <span class="n">10</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+c <span class="o">=</span> a <span class="o">-</span> b
+c.shape <span class="c"># =&gt; [2, 3]</span>
+c.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#subtract!</a></code>, <code><a href="../Narray/Array.html#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#+</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L107" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -633,13 +705,19 @@
       
         <div class="doc">
           
-          <p>Element-wise subtraction with a scalar</p>
+          <p>Performs element-wise subtraction of an array and a scalar.</p>
+<p>Subtracts the scalar from each element of the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+b <span class="o">=</span> a <span class="o">-</span> <span class="n">3</span>
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#subtract!</a></code>, <code><a href="../Narray/Array.html#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#+</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L140" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L246" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -654,13 +732,18 @@
       
         <div class="doc">
           
-          <p>Element-wise negation</p>
+          <p>Performs element-wise negation of an array.</p>
+<p>Returns a new array with each element negated.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="o">-</span>a
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [-1, -2, -3, -4]</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L419" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L698" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -675,13 +758,30 @@
       
         <div class="doc">
           
-          <p>Element-wise division</p>
+          <p>Performs element-wise division of two arrays.</p>
+<p>If the shapes match exactly, divides corresponding elements.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then divides corresponding elements.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">10</span>, <span class="n">12</span>, <span class="n">14</span>, <span class="n">16</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">4</span>])
+c <span class="o">=</span> a <span class="o">/</span> b
+c.shape <span class="c"># =&gt; [2, 2]</span>
+c.data  <span class="c"># =&gt; [5, 4, 7, 4]</span>
+
+<span class="c"># Broadcasting example with floating-point division</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">6.0</span>, <span class="n">9.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>])
+c <span class="o">=</span> a <span class="o">/</span> b
+c.shape <span class="c"># =&gt; [2, 3]</span>
+c.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#divide!</a></code>, <code><a href="../Narray/Array.html#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#*</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L311" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L538" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -696,13 +796,19 @@
       
         <div class="doc">
           
-          <p>Element-wise division with a scalar</p>
+          <p>Performs element-wise division of an array and a scalar.</p>
+<p>Divides each element of the array by the scalar.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">4</span>, <span class="n">6</span>, <span class="n">8</span>])
+b <span class="o">=</span> a <span class="o">/</span> <span class="n">2</span>
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#divide!</a></code>, <code><a href="../Narray/Array.html#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#*</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L346" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L584" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -717,13 +823,19 @@
       
         <div class="doc">
           
-          <p>Returns the element at the given indices</p>
+          <p>Returns the element at the given indices.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+arr[[<span class="n">0</span>, <span class="n">0</span>]] <span class="c"># =&gt; 1</span>
+arr[[<span class="n">0</span>, <span class="n">1</span>]] <span class="c"># =&gt; 2</span>
+arr[[<span class="n">1</span>, <span class="n">2</span>]] <span class="c"># =&gt; 6</span></code></pre>
+<p>Raises <code>IndexError</code> if the number of indices does not match the number of dimensions.
+Raises <code>IndexError</code> if any index is out of bounds.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -738,13 +850,20 @@
       
         <div class="doc">
           
-          <p>Sets the element at the given indices</p>
+          <p>Sets the element at the given indices.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.zeros([<span class="n">2</span>, <span class="n">3</span>], <span class="t">Int32</span>)
+arr[[<span class="n">0</span>, <span class="n">0</span>]] <span class="o">=</span> <span class="n">1</span>
+arr[[<span class="n">0</span>, <span class="n">1</span>]] <span class="o">=</span> <span class="n">2</span>
+arr[[<span class="n">1</span>, <span class="n">2</span>]] <span class="o">=</span> <span class="n">3</span>
+arr.data <span class="c"># =&gt; [1, 2, 0, 0, 0, 3]</span></code></pre>
+<p>Raises <code>IndexError</code> if the number of indices does not match the number of dimensions.
+Raises <code>IndexError</code> if any index is out of bounds.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L56" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -759,13 +878,29 @@
       
         <div class="doc">
           
-          <p>Element-wise addition in-place</p>
+          <p>Performs element-wise addition of two arrays in-place.</p>
+<p>If the shapes match exactly, adds corresponding elements in-place.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then adds corresponding elements in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+a.add!(b)
+a.data <span class="c"># =&gt; [6, 8, 10, 12]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+a.add!(b)
+a.shape <span class="c"># =&gt; [2, 3]</span>
+a.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#+</a></code>, <code><a href="../Narray/Array.html#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#subtract!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L113" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -780,13 +915,18 @@
       
         <div class="doc">
           
-          <p>Element-wise addition with a scalar in-place</p>
+          <p>Performs element-wise addition of an array and a scalar in-place.</p>
+<p>Adds the scalar to each element of the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.add!(<span class="n">5</span>)
+a.data <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#%2B%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#+</a></code>, <code><a href="../Narray/Array.html#subtract%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#subtract!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L97" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -801,13 +941,19 @@
       
         <div class="doc">
           
-          <p>Broadcasts this array to a new shape</p>
+          <p>Broadcasts this array to a new shape.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+result <span class="o">=</span> arr.broadcast_to([<span class="n">2</span>, <span class="n">3</span>])
+result.shape <span class="c"># =&gt; [2, 3]</span>
+result.data  <span class="c"># =&gt; [1, 2, 3, 1, 2, 3]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are incompatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray.html#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method">Narray.broadcast</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L141" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L223" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -822,13 +968,15 @@
       
         <div class="doc">
           
-          <p>The underlying data storage</p>
+          <p>The underlying data storage.</p>
+<p>Returns a flat array containing all elements of the multi-dimensional array.
+Elements are stored in row-major order (C-style).</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -843,13 +991,29 @@
       
         <div class="doc">
           
-          <p>Element-wise division in-place</p>
+          <p>Performs element-wise division of two arrays in-place.</p>
+<p>If the shapes match exactly, divides corresponding elements in-place.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then divides corresponding elements in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">10</span>, <span class="n">12</span>, <span class="n">14</span>, <span class="n">16</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">4</span>])
+a.divide!(b)
+a.data <span class="c"># =&gt; [5, 4, 7, 4]</span>
+
+<span class="c"># Broadcasting example with floating-point division</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">6.0</span>, <span class="n">9.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>])
+a.divide!(b)
+a.shape <span class="c"># =&gt; [2, 3]</span>
+a.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#/</a></code>, <code><a href="../Narray/Array.html#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#multiply!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L359" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L619" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -864,13 +1028,18 @@
       
         <div class="doc">
           
-          <p>Element-wise division with a scalar in-place</p>
+          <p>Performs element-wise division of an array and a scalar in-place.</p>
+<p>Divides each element of the array by the scalar in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">4</span>, <span class="n">6</span>, <span class="n">8</span>])
+a.divide!(<span class="n">2</span>)
+a.data <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#/%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#/</a></code>, <code><a href="../Narray/Array.html#multiply%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#multiply!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L409" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L679" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -885,13 +1054,17 @@
       
         <div class="doc">
           
-          <p>Returns a detailed string representation of the array for debugging</p>
+          <p>Returns a detailed string representation of the array for debugging.</p>
+<p>For small arrays (size &lt;= 20), all elements are shown.
+For large arrays, only the first 10 and last 10 elements are shown.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+arr.inspect <span class="c"># =&gt; &quot;Narray::Array(Int32)[shape=[2, 2], ndim=2, size=4, data=[1, 2, 3, 4]]&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L97" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L178" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -906,13 +1079,16 @@
       
         <div class="doc">
           
-          <p>Maximum value</p>
+          <p>Returns the maximum value in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">3</span>, <span class="n">1</span>, <span class="n">4</span>, <span class="n">2</span>])
+a.max <span class="c"># =&gt; 4</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#min%3AT-instance-method">Array#min</a></code>, <code><a href="../Narray/Array.html#sum%3AT-instance-method">Array#sum</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L447" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L754" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -927,13 +1103,16 @@
       
         <div class="doc">
           
-          <p>Mean of all elements</p>
+          <p>Computes the mean (average) of all elements in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.mean <span class="c"># =&gt; 2.5</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#sum%3AT-instance-method">Array#sum</a></code>, <code><a href="../Narray/Array.html#std%3AFloat64-instance-method">Array#std</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L437" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L730" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -948,13 +1127,16 @@
       
         <div class="doc">
           
-          <p>Minimum value</p>
+          <p>Returns the minimum value in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">3</span>, <span class="n">1</span>, <span class="n">4</span>, <span class="n">2</span>])
+a.min <span class="c"># =&gt; 1</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#max%3AT-instance-method">Array#max</a></code>, <code><a href="../Narray/Array.html#sum%3AT-instance-method">Array#sum</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L442" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L742" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -969,13 +1151,29 @@
       
         <div class="doc">
           
-          <p>Element-wise multiplication in-place</p>
+          <p>Performs element-wise multiplication of two arrays in-place.</p>
+<p>If the shapes match exactly, multiplies corresponding elements in-place.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then multiplies corresponding elements in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+a.multiply!(b)
+a.data <span class="c"># =&gt; [5, 12, 21, 32]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+a.multiply!(b)
+a.shape <span class="c"># =&gt; [2, 3]</span>
+a.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#*</a></code>, <code><a href="../Narray/Array.html#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#divide!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L255" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L449" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -990,13 +1188,18 @@
       
         <div class="doc">
           
-          <p>Element-wise multiplication with a scalar in-place</p>
+          <p>Performs element-wise multiplication of an array and a scalar in-place.</p>
+<p>Multiplies each element of the array by the scalar in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.multiply!(<span class="n">2</span>)
+a.data <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method">Array#*</a></code>, <code><a href="../Narray/Array.html#divide%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#divide!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L301" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L505" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1011,13 +1214,15 @@
       
         <div class="doc">
           
-          <p>Returns the number of dimensions of the array</p>
+          <p>Returns the number of dimensions of the array.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+arr.ndim <span class="c"># =&gt; 2</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1032,14 +1237,28 @@
       
         <div class="doc">
           
-          <p>Reshapes the array to the new shape
-The total number of elements must remain the same</p>
+          <p>Reshapes the array to the new shape.</p>
+<p>The total number of elements must remain the same.
+Returns a new array with the same data but new shape.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">6</span>)
+reshaped <span class="o">=</span> arr.reshape([<span class="n">2</span>, <span class="n">3</span>])
+reshaped.shape <span class="c"># =&gt; [2, 3]</span>
+reshaped.ndim  <span class="c"># =&gt; 2</span>
+reshaped.size  <span class="c"># =&gt; 6</span>
+reshaped.data  <span class="c"># =&gt; [0, 1, 2, 3, 4, 5]</span>
+
+arr2 <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+reshaped2 <span class="o">=</span> arr2.reshape([<span class="n">6</span>])
+reshaped2.shape <span class="c"># =&gt; [6]</span>
+reshaped2.ndim  <span class="c"># =&gt; 1</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the new shape has a different number of elements.</p>
+<p>See also: <code><a href="../Narray/Array.html#reshape%21%28new_shape%3A%3A%3AArray%28Int32%29%29%3Aself-instance-method">Array#reshape!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1054,14 +1273,23 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Reshapes the array to the new shape in-place
-The total number of elements must remain the same</p>
+          <p>Reshapes the array to the new shape in-place.</p>
+<p>The total number of elements must remain the same.
+Modifies the array's shape in-place, keeping the same data.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">6</span>)
+arr.reshape!([<span class="n">2</span>, <span class="n">3</span>])
+arr.shape <span class="c"># =&gt; [2, 3]</span>
+arr.ndim  <span class="c"># =&gt; 2</span>
+arr.size  <span class="c"># =&gt; 6</span>
+arr.data  <span class="c"># =&gt; [0, 1, 2, 3, 4, 5]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the new shape has a different number of elements.</p>
+<p>See also: <code><a href="../Narray/Array.html#reshape%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method">Array#reshape</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L19" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1076,13 +1304,15 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>The shape of the array (dimensions)</p>
+          <p>The shape of the array (dimensions).</p>
+<p>Returns an array of integers representing the size of each dimension.
+For example, a 2x3 array would have a shape of [2, 3].</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1097,13 +1327,15 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Returns the total number of elements in the array</p>
+          <p>Returns the total number of elements in the array.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+arr.size <span class="c"># =&gt; 6</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1118,13 +1350,19 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Standard deviation</p>
+          <p>Computes the standard deviation of all elements in the array.</p>
+<p>The standard deviation is a measure of the amount of variation or dispersion of a set of values.
+A low standard deviation indicates that the values tend to be close to the mean,
+while a high standard deviation indicates that the values are spread out over a wider range.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.std <span class="c"># =&gt; 1.118... (approximately)</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#mean%3AFloat64-instance-method">Array#mean</a></code>, <code><a href="../Narray/Array.html#sum%3AT-instance-method">Array#sum</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L452" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L770" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1139,13 +1377,29 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Element-wise subtraction in-place</p>
+          <p>Performs element-wise subtraction of two arrays in-place.</p>
+<p>If the shapes match exactly, subtracts corresponding elements in-place.
+If the shapes are compatible for broadcasting, broadcasts the arrays to a common shape
+and then subtracts corresponding elements in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.subtract!(b)
+a.data <span class="c"># =&gt; [4, 4, 4, 4]</span>
+
+<span class="c"># Broadcasting example</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">5</span>, <span class="n">10</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+a.subtract!(b)
+a.shape <span class="c"># =&gt; [2, 3]</span>
+a.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are not compatible for broadcasting.</p>
+<p>See also: <code><a href="../Narray/Array.html#--instance-method">Array#-</a></code>, <code><a href="../Narray/Array.html#add%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#add!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L153" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L281" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1160,13 +1414,18 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Element-wise subtraction with a scalar in-place</p>
+          <p>Performs element-wise subtraction of an array and a scalar in-place.</p>
+<p>Subtracts the scalar from each element of the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+a.subtract!(<span class="n">3</span>)
+a.data <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#--instance-method">Array#-</a></code>, <code><a href="../Narray/Array.html#add%21%28other%3AArray%28T%29%29%3Aself-instance-method">Array#add!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L199" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L337" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1181,13 +1440,16 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Sum of all elements</p>
+          <p>Computes the sum of all elements in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+a.sum <span class="c"># =&gt; 10</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#mean%3AFloat64-instance-method">Array#mean</a></code>, <code><a href="../Narray/Array.html#min%3AT-instance-method">Array#min</a></code>, <code><a href="../Narray/Array.html#max%3AT-instance-method">Array#max</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L432" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L718" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1202,13 +1464,15 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Returns a string representation of the array</p>
+          <p>Returns a string representation of the array.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+arr.to_s <span class="c"># =&gt; &quot;Narray.array([2, 2], [1, 2, 3, 4])&quot;</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L161" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1223,16 +1487,34 @@ The total number of elements must remain the same</p>
       
         <div class="doc">
           
-          <p>Returns the transpose of the array
-For 1D arrays, this returns a copy of the array
-For 2D arrays, this swaps rows and columns
-For higher dimensions, this reverses the order of dimensions</p>
+          <p>Returns the transpose of the array.</p>
+<p>For 1D arrays, this returns a copy of the array.
+For 2D arrays, this swaps rows and columns.
+For higher dimensions, this reverses the order of dimensions.</p>
+<pre><code class="language-crystal"><span class="c"># 1D array</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">3</span>)
+transposed <span class="o">=</span> arr.transpose
+transposed.shape <span class="c"># =&gt; [3]</span>
+transposed.data  <span class="c"># =&gt; [0, 1, 2]</span>
+
+<span class="c"># 2D array</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+transposed <span class="o">=</span> arr.transpose
+transposed.shape <span class="c"># =&gt; [3, 2]</span>
+transposed.data  <span class="c"># =&gt; [1, 4, 2, 5, 3, 6]</span>
+
+<span class="c"># 3D array</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>])
+transposed <span class="o">=</span> arr.transpose
+transposed.shape <span class="c"># =&gt; [2, 2, 2]</span>
+transposed.data  <span class="c"># =&gt; [1, 5, 3, 7, 2, 6, 4, 8]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#transpose%21%3Aself-instance-method">Array#transpose!</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1247,17 +1529,29 @@ For higher dimensions, this reverses the order of dimensions</p>
       
         <div class="doc">
           
-          <p>Transposes the array in-place
-For 1D arrays, this does nothing
-For 2D arrays, this swaps rows and columns
-For higher dimensions, this reverses the order of dimensions
-Note: This method creates a new data array and updates the shape</p>
+          <p>Transposes the array in-place.</p>
+<p>For 1D arrays, this does nothing.
+For 2D arrays, this swaps rows and columns.
+For higher dimensions, this reverses the order of dimensions.
+Note: This method creates a new data array and updates the shape.</p>
+<pre><code class="language-crystal"><span class="c"># 1D array - no change</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">3</span>)
+arr.transpose!
+arr.shape <span class="c"># =&gt; [3]</span>
+arr.data  <span class="c"># =&gt; [0, 1, 2]</span>
+
+<span class="c"># 2D array</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+arr.transpose!
+arr.shape <span class="c"># =&gt; [3, 2]</span>
+arr.data  <span class="c"># =&gt; [1, 4, 2, 5, 3, 6]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#transpose%3AArray%28T%29-instance-method">Array#transpose</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L92" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L172" target="_blank">View source</a>]
         
       </div>
     </div>

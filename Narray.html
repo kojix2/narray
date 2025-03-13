@@ -99,6 +99,12 @@
   </h2>
 
   <p>Operations for NArray</p>
+<p>This module provides various array manipulation operations for NArray, including:</p>
+<ul>
+<li>Reshaping arrays (reshape, reshape!)</li>
+<li>Transposing arrays (transpose, transpose!)</li>
+<li>Concatenating arrays (concatenate, vstack, hstack)</li>
+</ul>
 
 
 
@@ -123,35 +129,35 @@
   </h2>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L6" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L19" target="_blank">
         narray.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L2" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L8" target="_blank">
         narray/broadcast.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L2" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L8" target="_blank">
         narray/linalg.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L2" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L8" target="_blank">
         narray/math.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L2" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L7" target="_blank">
         narray/operations.cr
       </a>
     
@@ -196,70 +202,70 @@
       <li class="entry-summary">
         <a href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3ANumber%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.arange</strong>(start : Number, stop : Number, step : Number, type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
         
-          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval with the specified type</p></div>
+          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval with the specified type.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3D1%29-class-method" class="signature"><strong>.arange</strong>(start : Number, stop : Number, step = <span class="n">1</span>)</a>
         
-          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval</p></div>
+          <div class="summary"><p>Creates a new array with evenly spaced values within a given interval.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method" class="signature"><strong>.array</strong>(shape : ::Array(Int32), data : ::Array(T)) forall T</a>
         
-          <div class="summary"><p>Creates a new array with the given shape and data</p></div>
+          <div class="summary"><p>Creates a new array with the given shape and data.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.broadcast</strong>(array : Array(T), new_shape : ::Array(Int32)) : Array(T) forall T</a>
         
-          <div class="summary"><p>Broadcasts an array to a new shape The new shape must be broadcast compatible with the original shape</p></div>
+          <div class="summary"><p>Broadcasts an array to a new shape.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#broadcast_shapes%28shape1%3A%3A%3AArray%28Int32%29%2Cshape2%3A%3A%3AArray%28Int32%29%29%3A%3A%3AArray%28Int32%29%7CNil-class-method" class="signature"><strong>.broadcast_shapes</strong>(shape1 : ::Array(Int32), shape2 : ::Array(Int32)) : ::Array(Int32) | Nil</a>
         
-          <div class="summary"><p>Checks if two shapes are broadcast compatible Returns the resulting shape if compatible, nil otherwise</p></div>
+          <div class="summary"><p>Checks if two shapes are broadcast compatible and returns the resulting shape.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#can_broadcast%3F%28from_shape%3A%3A%3AArray%28Int32%29%2Cto_shape%3A%3A%3AArray%28Int32%29%29%3ABool-class-method" class="signature"><strong>.can_broadcast?</strong>(from_shape : ::Array(Int32), to_shape : ::Array(Int32)) : Bool</a>
         
-          <div class="summary"><p>Checks if a shape can be broadcast to another shape</p></div>
+          <div class="summary"><p>Checks if a shape can be broadcast to another shape.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.concatenate</strong>(arrays : ::Array(Array(T)), axis = <span class="n">0</span>) : Array(T) forall T</a>
         
-          <div class="summary"><p>Concatenates arrays along the specified axis</p></div>
+          <div class="summary"><p>Concatenates arrays along the specified axis.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#det%28a%3AArray%28T%29%29%3AFloat64forallT-class-method" class="signature"><strong>.det</strong>(a : Array(T)) : Float64 forall T</a>
         
-          <div class="summary"><p>Computes the determinant of a square matrix</p></div>
+          <div class="summary"><p>Computes the determinant of a square matrix.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#determinant%28a%3AArray%28T%29%29%3AFloat64forallT-class-method" class="signature"><strong>.determinant</strong>(a : Array(T)) : Float64 forall T</a>
         
-          <div class="summary"><p>Alias for determinant</p></div>
+          <div class="summary"><p>Alias for determinant.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#dot%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method" class="signature"><strong>.dot</strong>(a : Array(T), b : Array(U)) : Array(Float64) forall T, U</a>
         
-          <div class="summary"><p>Matrix multiplication (dot product)</p></div>
+          <div class="summary"><p>Computes the matrix multiplication (dot product) of two matrices.</p></div>
         
       </li>
     
@@ -273,49 +279,49 @@
       <li class="entry-summary">
         <a href="#eig%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.eig</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T</a>
         
-          <div class="summary"><p>Computes the eigenvalues and eigenvectors of a square matrix Returns a tuple with eigenvalues and eigenvectors</p></div>
+          <div class="summary"><p>Computes the eigenvalues and eigenvectors of a square matrix.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#eigen%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.eigen</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64)) forall T</a>
         
-          <div class="summary"><p>Alias for eigenvalues and eigenvectors</p></div>
+          <div class="summary"><p>Alias for eigenvalues and eigenvectors.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#hstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.hstack</strong>(arrays : ::Array(Array(T))) : Array(T) forall T</a>
         
-          <div class="summary"><p>Stacks arrays horizontally (along the second axis)</p></div>
+          <div class="summary"><p>Stacks arrays horizontally (along the second axis).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#inv%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.inv</strong>(a : Array(T)) : Array(Float64) forall T</a>
         
-          <div class="summary"><p>Computes the inverse of a square matrix</p></div>
+          <div class="summary"><p>Computes the inverse of a square matrix.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#inverse%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.inverse</strong>(a : Array(T)) : Array(Float64) forall T</a>
         
-          <div class="summary"><p>Alias for inverse</p></div>
+          <div class="summary"><p>Alias for inverse.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3AInt32%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.linspace</strong>(start : Number, stop : Number, num : Int32, type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
         
-          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval with the specified type</p></div>
+          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval with the specified type.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3D50%29-class-method" class="signature"><strong>.linspace</strong>(start : Number, stop : Number, num = <span class="n">50</span>)</a>
         
-          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval</p></div>
+          <div class="summary"><p>Creates a new array with evenly spaced values over a specified interval.</p></div>
         
       </li>
     
@@ -336,42 +342,42 @@
       <li class="entry-summary">
         <a href="#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.ones</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
         
-          <div class="summary"><p>Creates a new array filled with ones with the specified type</p></div>
+          <div class="summary"><p>Creates a new array filled with ones with the specified type.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#ones%28shape%3A%3A%3AArray%28Int32%29%29-class-method" class="signature"><strong>.ones</strong>(shape : ::Array(Int32))</a>
         
-          <div class="summary"><p>Creates a new array filled with ones</p></div>
+          <div class="summary"><p>Creates a new array filled with ones.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#svd%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%2CArray%28Float64%29%29forallT-class-method" class="signature"><strong>.svd</strong>(a : Array(T)) : Tuple(Array(Float64), Array(Float64), Array(Float64)) forall T</a>
         
-          <div class="summary"><p>Computes the singular value decomposition (SVD) of a matrix Returns a tuple with U, S, and V^T matrices such that A = U * S * V^T where U and V are orthogonal matrices and S is a diagonal matrix of singular values</p></div>
+          <div class="summary"><p>Computes the singular value decomposition (SVD) of a matrix.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#vstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.vstack</strong>(arrays : ::Array(Array(T))) : Array(T) forall T</a>
         
-          <div class="summary"><p>Stacks arrays vertically (along the first axis)</p></div>
+          <div class="summary"><p>Stacks arrays vertically (along the first axis).</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method" class="signature"><strong>.zeros</strong>(shape : ::Array(Int32), type : <span class="t">T</span>.<span class="k">class</span>) forall T</a>
         
-          <div class="summary"><p>Creates a new array filled with zeros with the specified type</p></div>
+          <div class="summary"><p>Creates a new array filled with zeros with the specified type.</p></div>
         
       </li>
     
       <li class="entry-summary">
         <a href="#zeros%28shape%3A%3A%3AArray%28Int32%29%29-class-method" class="signature"><strong>.zeros</strong>(shape : ::Array(Int32))</a>
         
-          <div class="summary"><p>Creates a new array filled with zeros</p></div>
+          <div class="summary"><p>Creates a new array filled with zeros.</p></div>
         
       </li>
     
@@ -409,13 +415,17 @@
       
         <div class="doc">
           
-          <p>Creates a new array with evenly spaced values within a given interval with the specified type</p>
+          <p>Creates a new array with evenly spaced values within a given interval with the specified type.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">5</span>, <span class="n">1_f64</span>, <span class="t">Float64</span>)
+arr.data          <span class="c"># =&gt; [0.0, 1.0, 2.0, 3.0, 4.0]</span>
+arr.data[<span class="n">0</span>].<span class="k">class</span> <span class="c"># =&gt; Float64</span></code></pre>
+<p>See also: <code><a href="Narray.html#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3AInt32%2Ctype%3AT.class%29forallT-class-method">Narray.linspace</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L191" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L338" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -430,13 +440,19 @@
       
         <div class="doc">
           
-          <p>Creates a new array with evenly spaced values within a given interval</p>
+          <p>Creates a new array with evenly spaced values within a given interval.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.arange(<span class="n">0</span>, <span class="n">10</span>, <span class="n">2</span>)
+arr.shape <span class="c"># =&gt; [5]</span>
+arr.ndim  <span class="c"># =&gt; 1</span>
+arr.size  <span class="c"># =&gt; 5</span>
+arr.data  <span class="c"># =&gt; [0, 2, 4, 6, 8]</span></code></pre>
+<p>See also: <code><a href="Narray.html#linspace%28start%3ANumber%2Cstop%3ANumber%2Cnum%3AInt32%2Ctype%3AT.class%29forallT-class-method">Narray.linspace</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L177" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L316" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -451,13 +467,20 @@
       
         <div class="doc">
           
-          <p>Creates a new array with the given shape and data</p>
+          <p>Creates a new array with the given shape and data.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+arr.shape <span class="c"># =&gt; [2, 2]</span>
+arr.ndim  <span class="c"># =&gt; 2</span>
+arr.size  <span class="c"># =&gt; 4</span>
+arr.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the data size does not match the shape.</p>
+<p>See also: <code><a href="Narray.html#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.zeros</a></code>, <code><a href="Narray.html#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.ones</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L148" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L241" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -472,14 +495,30 @@
       
         <div class="doc">
           
-          <p>Broadcasts an array to a new shape
-The new shape must be broadcast compatible with the original shape</p>
+          <p>Broadcasts an array to a new shape.</p>
+<p>The new shape must be broadcast compatible with the original shape.
+If the shapes are already the same, returns the original array.</p>
+<pre><code class="language-crystal"><span class="c"># Original array with shape [3]</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+
+<span class="c"># Broadcast to shape [2, 3]</span>
+result <span class="o">=</span> <span class="t">Narray</span>.broadcast(arr, [<span class="n">2</span>, <span class="n">3</span>])
+result.shape <span class="c"># =&gt; [2, 3]</span>
+result.data  <span class="c"># =&gt; [1, 2, 3, 1, 2, 3]</span>
+
+<span class="c"># Broadcasting with dimension size 1</span>
+arr2 <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>])
+result2 <span class="o">=</span> <span class="t">Narray</span>.broadcast(arr2, [<span class="n">2</span>, <span class="n">3</span>])
+result2.shape <span class="c"># =&gt; [2, 3]</span>
+result2.data  <span class="c"># =&gt; [1, 1, 1, 2, 2, 2]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the shapes are incompatible for broadcasting.</p>
+<p>See also: <code><a href="Narray.html#broadcast_shapes%28shape1%3A%3A%3AArray%28Int32%29%2Cshape2%3A%3A%3AArray%28Int32%29%29%3A%3A%3AArray%28Int32%29%7CNil-class-method">Narray.broadcast_shapes</a></code>, <code><a href="Narray/Array.html#broadcast_to%28new_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29-instance-method">Array#broadcast_to</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L40" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -494,14 +533,34 @@ The new shape must be broadcast compatible with the original shape</p>
       
         <div class="doc">
           
-          <p>Checks if two shapes are broadcast compatible
-Returns the resulting shape if compatible, nil otherwise</p>
+          <p>Checks if two shapes are broadcast compatible and returns the resulting shape.</p>
+<p>Broadcasting rules:</p>
+<ul>
+<li>Arrays with fewer dimensions are padded with ones on the left.</li>
+<li>Arrays with dimension size 1 are stretched to match the other array's size.</li>
+<li>If dimensions are incompatible (neither equal nor one is 1), returns nil.</li>
+</ul>
+<pre><code class="language-crystal"><span class="c"># Same shapes</span>
+<span class="t">Narray</span>.broadcast_shapes([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">2</span>, <span class="n">3</span>]) <span class="c"># =&gt; [2, 3]</span>
+
+<span class="c"># Broadcasting scalar to array</span>
+<span class="t">Narray</span>.broadcast_shapes([<span class="n">2</span>, <span class="n">3</span>], <span class="o">[]</span> <span class="k">of</span> <span class="t">Int32</span>) <span class="c"># =&gt; [2, 3]</span>
+
+<span class="c"># Broadcasting 1D array to 2D array</span>
+<span class="t">Narray</span>.broadcast_shapes([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">3</span>]) <span class="c"># =&gt; [2, 3]</span>
+
+<span class="c"># Broadcasting when one dimension is 1</span>
+<span class="t">Narray</span>.broadcast_shapes([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">3</span>]) <span class="c"># =&gt; [2, 3]</span>
+
+<span class="c"># Incompatible shapes</span>
+<span class="t">Narray</span>.broadcast_shapes([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">4</span>, <span class="n">5</span>]) <span class="c"># =&gt; nil</span></code></pre>
+<p>See also: <code><a href="Narray.html#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method">Narray.broadcast</a></code>, <code><a href="Narray.html#can_broadcast%3F%28from_shape%3A%3A%3AArray%28Int32%29%2Cto_shape%3A%3A%3AArray%28Int32%29%29%3ABool-class-method">Narray.can_broadcast?</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L5" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -516,13 +575,19 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Checks if a shape can be broadcast to another shape</p>
+          <p>Checks if a shape can be broadcast to another shape.</p>
+<p>Returns true if the shapes are compatible for broadcasting and the result
+of broadcasting would match the target shape.</p>
+<pre><code class="language-crystal"><span class="t">Narray</span>.can_broadcast?([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">2</span>, <span class="n">3</span>]) <span class="c"># =&gt; true</span>
+<span class="t">Narray</span>.can_broadcast?([<span class="n">3</span>], [<span class="n">2</span>, <span class="n">3</span>])    <span class="c"># =&gt; true</span>
+<span class="t">Narray</span>.can_broadcast?([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">4</span>, <span class="n">5</span>]) <span class="c"># =&gt; false</span></code></pre>
+<p>See also: <code><a href="Narray.html#broadcast_shapes%28shape1%3A%3A%3AArray%28Int32%29%2Cshape2%3A%3A%3AArray%28Int32%29%29%3A%3A%3AArray%28Int32%29%7CNil-class-method">Narray.broadcast_shapes</a></code>, <code><a href="Narray.html#broadcast%28array%3AArray%28T%29%2Cnew_shape%3A%3A%3AArray%28Int32%29%29%3AArray%28T%29forallT-class-method">Narray.broadcast</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/broadcast.cr#L74" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/broadcast.cr#L136" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -537,13 +602,42 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Concatenates arrays along the specified axis</p>
+          <p>Concatenates arrays along the specified axis.</p>
+<p>The arrays must have the same shape except for the dimension corresponding to axis.</p>
+<pre><code class="language-crystal"><span class="c"># 1D arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.concatenate([a, b])
+c.shape <span class="c"># =&gt; [6]</span>
+c.data  <span class="c"># =&gt; [1, 2, 3, 4, 5, 6]</span>
+
+<span class="c"># 2D arrays along axis 0 (rows)</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.concatenate([a, b])
+c.shape <span class="c"># =&gt; [3, 3]</span>
+c.data  <span class="c"># =&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+
+<span class="c"># 2D arrays along axis 1 (columns)</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>, <span class="n">10</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.concatenate([a, b], <span class="n">1</span>)
+c.shape <span class="c"># =&gt; [2, 5]</span>
+c.data  <span class="c"># =&gt; [1, 2, 5, 6, 7, 3, 4, 8, 9, 10]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if:</p>
+<ul>
+<li>The array of arrays is empty</li>
+<li>The axis is out of bounds</li>
+<li>The arrays have different numbers of dimensions</li>
+<li>The arrays have different shapes except for the concatenation axis</li>
+</ul>
+<p>See also: <code><a href="Narray.html#vstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">Narray.vstack</a></code>, <code><a href="Narray.html#hstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">Narray.hstack</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L150" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L263" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -558,13 +652,44 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Computes the determinant of a square matrix</p>
+          <p>Computes the determinant of a square matrix.</p>
+<p>The determinant is a scalar value that can be computed from the elements of a square matrix
+and encodes certain properties of the linear transformation described by the matrix.</p>
+<p>For small matrices, direct formulas are used:</p>
+<ul>
+<li>1x1 matrix: the single element</li>
+<li>2x2 matrix: ad - bc for matrix [[a, b], [c, d]]</li>
+<li>3x3 matrix: uses the cofactor expansion formula</li>
+</ul>
+<p>For larger matrices, Gaussian elimination with partial pivoting is used.</p>
+<pre><code class="language-crystal"><span class="c"># 1x1 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">1</span>], [<span class="n">5</span>])
+<span class="t">Narray</span>.det(a) <span class="c"># =&gt; 5.0</span>
+
+<span class="c"># 2x2 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+<span class="t">Narray</span>.det(a) <span class="c"># =&gt; -2.0  # 1*4 - 2*3 = -2</span>
+
+<span class="c"># 3x3 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>])
+<span class="t">Narray</span>.det(a) <span class="c"># =&gt; 0.0  # Singular matrix</span>
+
+<span class="c"># 4x4 diagonal matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">4</span>, <span class="n">4</span>], [
+  <span class="n">1</span>, <span class="n">0</span>, <span class="n">0</span>, <span class="n">0</span>,
+  <span class="n">0</span>, <span class="n">2</span>, <span class="n">0</span>, <span class="n">0</span>,
+  <span class="n">0</span>, <span class="n">0</span>, <span class="n">3</span>, <span class="n">0</span>,
+  <span class="n">0</span>, <span class="n">0</span>, <span class="n">0</span>, <span class="n">4</span>,
+])
+<span class="t">Narray</span>.det(a) <span class="c"># =&gt; 24.0  # Product of diagonal elements</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the matrix is not 2-dimensional or not square.</p>
+<p>See also: <code><a href="Narray.html#determinant%28a%3AArray%28T%29%29%3AFloat64forallT-class-method">Narray.determinant</a></code>, <code><a href="Narray.html#inv%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">Narray.inv</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L4" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L47" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -579,13 +704,16 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Alias for determinant</p>
+          <p>Alias for determinant.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+<span class="t">Narray</span>.determinant(a) <span class="c"># =&gt; -2.0</span></code></pre>
+<p>See also: <code><a href="Narray.html#det%28a%3AArray%28T%29%29%3AFloat64forallT-class-method">Narray.det</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L88" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L138" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -600,13 +728,23 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Matrix multiplication (dot product)</p>
+          <p>Computes the matrix multiplication (dot product) of two matrices.</p>
+<p>For 2D arrays, this is the standard matrix multiplication.
+The inner dimensions must match: if a has shape [m, n] and b has shape [n, p],
+the result will have shape [m, p].</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">2</span>], [<span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>, <span class="n">10</span>, <span class="n">11</span>, <span class="n">12</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.dot(a, b)
+c.shape <span class="c"># =&gt; [2, 2]</span>
+c.data  <span class="c"># =&gt; [58, 64, 139, 154]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays are not 2-dimensional or if the inner dimensions don't match.</p>
+<p>See also: <code><a href="Narray.html#matmul%28a%3AArray%28T%29%2Cb%3AArray%28U%29%29%3AArray%28Float64%29forallT%2CU-class-method">Narray.matmul</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L460" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L794" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -627,7 +765,7 @@ Returns the resulting shape if compatible, nil otherwise</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L493" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L827" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -642,14 +780,41 @@ Returns the resulting shape if compatible, nil otherwise</p>
       
         <div class="doc">
           
-          <p>Computes the eigenvalues and eigenvectors of a square matrix
-Returns a tuple with eigenvalues and eigenvectors</p>
+          <p>Computes the eigenvalues and eigenvectors of a square matrix.</p>
+<p>The eigenvalues and eigenvectors of a matrix A satisfy the equation A * v = λ * v,
+where v is an eigenvector and λ is the corresponding eigenvalue.</p>
+<p>This method returns a tuple containing:</p>
+<ol>
+<li>An array of eigenvalues</li>
+<li>An array of eigenvectors (as columns of a matrix)</li>
+</ol>
+<p>For small matrices, direct formulas are used:</p>
+<ul>
+<li>1x1 matrix: the eigenvalue is the single element, and the eigenvector is [1]</li>
+<li>2x2 matrix: uses the quadratic formula to find eigenvalues</li>
+</ul>
+<p>For 3x3 symmetric matrices, a specialized approach is used to match NumPy results.
+For larger symmetric matrices, the QR algorithm is used.</p>
+<pre><code class="language-crystal"><span class="c"># 1x1 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">1</span>], [<span class="n">5</span>])
+eigenvalues, eigenvectors <span class="o">=</span> <span class="t">Narray</span>.eig(a)
+eigenvalues[[<span class="n">0</span>]]     <span class="c"># =&gt; 5.0</span>
+eigenvectors[[<span class="n">0</span>, <span class="n">0</span>]] <span class="c"># =&gt; 1.0</span>
+
+<span class="c"># 2x2 symmetric matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>])
+eigenvalues, eigenvectors <span class="o">=</span> <span class="t">Narray</span>.eig(a)
+<span class="c"># Eigenvalues should be 1.0 and 3.0</span>
+<span class="c"># Eigenvectors are orthogonal and normalized</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the matrix is not 2-dimensional, not square, or not symmetric.
+Raises <code>ArgumentError</code> if the matrix has complex eigenvalues (not supported).</p>
+<p>See also: <code><a href="Narray.html#eigen%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method">Narray.eigen</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L208" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L322" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -664,13 +829,17 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Alias for eigenvalues and eigenvectors</p>
+          <p>Alias for eigenvalues and eigenvectors.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">2</span>, <span class="n">1</span>, <span class="n">1</span>, <span class="n">2</span>])
+eigenvalues, eigenvectors <span class="o">=</span> <span class="t">Narray</span>.eigen(a)
+<span class="c"># Same as Narray.eig(a)</span></code></pre>
+<p>See also: <code><a href="Narray.html#eig%28a%3AArray%28T%29%29%3ATuple%28Array%28Float64%29%2CArray%28Float64%29%29forallT-class-method">Narray.eig</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L489" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L611" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -685,13 +854,30 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Stacks arrays horizontally (along the second axis)</p>
+          <p>Stacks arrays horizontally (along the second axis).</p>
+<p>For 1D arrays, this concatenates them along the first axis.
+For 2D arrays, this concatenates them along the second axis (columns).
+For higher dimensions, this is equivalent to <code><a href="Narray.html#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method">.concatenate(arrays, 1)</a></code>.</p>
+<pre><code class="language-crystal"><span class="c"># 1D arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.hstack([a, b])
+c.shape <span class="c"># =&gt; [6]</span>
+c.data  <span class="c"># =&gt; [1, 2, 3, 4, 5, 6]</span>
+
+<span class="c"># 2D arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">5</span>, <span class="n">6</span>, <span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>, <span class="n">10</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.hstack([a, b])
+c.shape <span class="c"># =&gt; [2, 5]</span>
+c.data  <span class="c"># =&gt; [1, 2, 5, 6, 7, 3, 4, 8, 9, 10]</span></code></pre>
+<p>See also: <code><a href="Narray.html#vstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">Narray.vstack</a></code>, <code><a href="Narray.html#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method">Narray.concatenate</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L282" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L438" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -706,13 +892,32 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Computes the inverse of a square matrix</p>
+          <p>Computes the inverse of a square matrix.</p>
+<p>The inverse of a matrix A is a matrix A^(-1) such that A * A^(-1) = I,
+where I is the identity matrix.</p>
+<p>For small matrices, direct formulas are used:</p>
+<ul>
+<li>1x1 matrix: 1/a for matrix [a]</li>
+<li>2x2 matrix: [[d, -b], [-c, a]]/(ad-bc) for matrix [[a, b], [c, d]]</li>
+</ul>
+<p>For larger matrices, Gaussian elimination with an augmented matrix [A|I] is used.</p>
+<pre><code class="language-crystal"><span class="c"># 1x1 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">1</span>], [<span class="n">2</span>])
+inv_a <span class="o">=</span> <span class="t">Narray</span>.inv(a)
+inv_a[[<span class="n">0</span>, <span class="n">0</span>]] <span class="c"># =&gt; 0.5</span>
+
+<span class="c"># 2x2 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">4</span>, <span class="n">7</span>, <span class="n">2</span>, <span class="n">6</span>])
+inv_a <span class="o">=</span> <span class="t">Narray</span>.inv(a)
+<span class="c"># Expected inverse of [[4, 7], [2, 6]] is [[0.6, -0.7], [-0.2, 0.4]]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the matrix is not 2-dimensional, not square, or singular.</p>
+<p>See also: <code><a href="Narray.html#inverse%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">Narray.inverse</a></code>, <code><a href="Narray.html#det%28a%3AArray%28T%29%29%3AFloat64forallT-class-method">Narray.det</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L93" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L168" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -727,13 +932,16 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Alias for inverse</p>
+          <p>Alias for inverse.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+<span class="t">Narray</span>.inverse(a) <span class="c"># Same as Narray.inv(a)</span></code></pre>
+<p>See also: <code><a href="Narray.html#inv%28a%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">Narray.inv</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L202" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L284" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -748,13 +956,16 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Creates a new array with evenly spaced values over a specified interval with the specified type</p>
+          <p>Creates a new array with evenly spaced values over a specified interval with the specified type.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.linspace(<span class="n">0</span>, <span class="n">1</span>, <span class="n">3</span>, <span class="t">Float32</span>)
+arr.data[<span class="n">0</span>].<span class="k">class</span> <span class="c"># =&gt; Float32</span></code></pre>
+<p>See also: <code><a href="Narray.html#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3ANumber%2Ctype%3AT.class%29forallT-class-method">Narray.arange</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L216" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L380" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -769,13 +980,19 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Creates a new array with evenly spaced values over a specified interval</p>
+          <p>Creates a new array with evenly spaced values over a specified interval.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.linspace(<span class="n">0</span>, <span class="n">1</span>, <span class="n">5</span>)
+arr.shape <span class="c"># =&gt; [5]</span>
+arr.ndim  <span class="c"># =&gt; 1</span>
+arr.size  <span class="c"># =&gt; 5</span>
+arr.data  <span class="c"># =&gt; [0.0, 0.25, 0.5, 0.75, 1.0]</span></code></pre>
+<p>See also: <code><a href="Narray.html#arange%28start%3ANumber%2Cstop%3ANumber%2Cstep%3ANumber%2Ctype%3AT.class%29forallT-class-method">Narray.arange</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L205" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L362" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -796,7 +1013,7 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L526" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L860" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -817,7 +1034,7 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/math.cr#L531" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/math.cr#L865" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -832,13 +1049,17 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Creates a new array filled with ones with the specified type</p>
+          <p>Creates a new array filled with ones with the specified type.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.ones([<span class="n">2</span>, <span class="n">2</span>], <span class="t">Int32</span>)
+arr.data          <span class="c"># =&gt; [1, 1, 1, 1]</span>
+arr.data[<span class="n">0</span>].<span class="k">class</span> <span class="c"># =&gt; Int32</span></code></pre>
+<p>See also: <code><a href="Narray.html#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.zeros</a></code>, <code><a href="Narray.html#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method">Narray.array</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L171" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L300" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -853,13 +1074,19 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Creates a new array filled with ones</p>
+          <p>Creates a new array filled with ones.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.ones([<span class="n">2</span>, <span class="n">3</span>])
+arr.shape <span class="c"># =&gt; [2, 3]</span>
+arr.ndim  <span class="c"># =&gt; 2</span>
+arr.size  <span class="c"># =&gt; 6</span>
+arr.data  <span class="c"># =&gt; [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]</span></code></pre>
+<p>See also: <code><a href="Narray.html#zeros%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.zeros</a></code>, <code><a href="Narray.html#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method">Narray.array</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L165" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L286" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -874,15 +1101,44 @@ Returns a tuple with eigenvalues and eigenvectors</p>
       
         <div class="doc">
           
-          <p>Computes the singular value decomposition (SVD) of a matrix
-Returns a tuple with U, S, and V^T matrices such that A = U * S * V^T
-where U and V are orthogonal matrices and S is a diagonal matrix of singular values</p>
+          <p>Computes the singular value decomposition (SVD) of a matrix.</p>
+<p>The SVD decomposes a matrix A into three matrices U, S, and V^T such that:
+A = U * S * V^T</p>
+<p>Where:</p>
+<ul>
+<li>U is an orthogonal matrix containing the left singular vectors</li>
+<li>S is a diagonal matrix containing the singular values</li>
+<li>V^T is the transpose of an orthogonal matrix containing the right singular vectors</li>
+</ul>
+<p>This method returns a tuple containing (U, S, V^T).</p>
+<p>For a matrix of shape (m, n):</p>
+<ul>
+<li>U has shape (m, min(m, n))</li>
+<li>S has shape (min(m, n))</li>
+<li>V^T has shape (min(m, n), n)</li>
+</ul>
+<pre><code class="language-crystal"><span class="c"># 2x2 matrix</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>])
+u, s, vt <span class="o">=</span> <span class="t">Narray</span>.svd(a)
+
+<span class="c"># Verify that U and V^T are orthogonal matrices</span>
+<span class="c"># (U * U^T and V^T * V should be close to identity matrices)</span>
+
+<span class="c"># Verify that A ≈ U * S * V^T</span>
+<span class="c"># Create diagonal matrix from singular values</span>
+s_diag <span class="o">=</span> <span class="t">Narray</span>.zeros([<span class="n">2</span>, <span class="n">2</span>])
+<span class="n">2</span>.times <span class="k">do</span> <span class="o">|</span>i<span class="o">|</span>
+  s_diag[[i, i]] <span class="o">=</span> s[[i]]
+<span class="k">end</span>
+reconstructed <span class="o">=</span> <span class="t">Narray</span>.dot(<span class="t">Narray</span>.dot(u, s_diag), vt)
+<span class="c"># reconstructed should be close to the original matrix a</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the matrix is not 2-dimensional.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/linalg.cr#L496" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/linalg.cr#L651" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -897,13 +1153,29 @@ where U and V are orthogonal matrices and S is a diagonal matrix of singular val
       
         <div class="doc">
           
-          <p>Stacks arrays vertically (along the first axis)</p>
+          <p>Stacks arrays vertically (along the first axis).</p>
+<p>For 1D arrays, this converts them to 2D arrays with one row each.
+For higher dimensions, this is equivalent to <code><a href="Narray.html#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method">.concatenate(arrays, 0)</a></code>.</p>
+<pre><code class="language-crystal"><span class="c"># 1D arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.vstack([a, b])
+c.shape <span class="c"># =&gt; [2, 3]</span>
+c.data  <span class="c"># =&gt; [1, 2, 3, 4, 5, 6]</span>
+
+<span class="c"># 2D arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>, <span class="n">6</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">7</span>, <span class="n">8</span>, <span class="n">9</span>])
+c <span class="o">=</span> <span class="t">Narray</span>.vstack([a, b])
+c.shape <span class="c"># =&gt; [3, 3]</span>
+c.data  <span class="c"># =&gt; [1, 2, 3, 4, 5, 6, 7, 8, 9]</span></code></pre>
+<p>See also: <code><a href="Narray.html#hstack%28arrays%3A%3A%3AArray%28Array%28T%29%29%29%3AArray%28T%29forallT-class-method">Narray.hstack</a></code>, <code><a href="Narray.html#concatenate%28arrays%3A%3A%3AArray%28Array%28T%29%29%2Caxis%3D0%29%3AArray%28T%29forallT-class-method">Narray.concatenate</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray/operations.cr#L260" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray/operations.cr#L394" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -918,13 +1190,17 @@ where U and V are orthogonal matrices and S is a diagonal matrix of singular val
       
         <div class="doc">
           
-          <p>Creates a new array filled with zeros with the specified type</p>
+          <p>Creates a new array filled with zeros with the specified type.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.zeros([<span class="n">2</span>, <span class="n">2</span>], <span class="t">Int32</span>)
+arr.data          <span class="c"># =&gt; [0, 0, 0, 0]</span>
+arr.data[<span class="n">0</span>].<span class="k">class</span> <span class="c"># =&gt; Int32</span></code></pre>
+<p>See also: <code><a href="Narray.html#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.ones</a></code>, <code><a href="Narray.html#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method">Narray.array</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L159" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L270" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -939,13 +1215,19 @@ where U and V are orthogonal matrices and S is a diagonal matrix of singular val
       
         <div class="doc">
           
-          <p>Creates a new array filled with zeros</p>
+          <p>Creates a new array filled with zeros.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.zeros([<span class="n">2</span>, <span class="n">3</span>])
+arr.shape <span class="c"># =&gt; [2, 3]</span>
+arr.ndim  <span class="c"># =&gt; 2</span>
+arr.size  <span class="c"># =&gt; 6</span>
+arr.data  <span class="c"># =&gt; [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]</span></code></pre>
+<p>See also: <code><a href="Narray.html#ones%28shape%3A%3A%3AArray%28Int32%29%2Ctype%3AT.class%29forallT-class-method">Narray.ones</a></code>, <code><a href="Narray.html#array%28shape%3A%3A%3AArray%28Int32%29%2Cdata%3A%3A%3AArray%28T%29%29forallT-class-method">Narray.array</a></code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/4a84876d08edf6b286f085e479791bdc1b83130d/src/narray.cr#L153" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/99c250d69631676b897314a7da62a48dc65c5a00/src/narray.cr#L256" target="_blank">View source</a>]
         
       </div>
     </div>
