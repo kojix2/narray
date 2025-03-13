@@ -457,6 +457,39 @@ module Narray
   end
 
   # Matrix multiplication (dot product)
+  def self.dot(a : Array(T), b : Array(U)) : Array(Float64) forall T, U
+    # Check dimensions
+    if a.ndim != 2 || b.ndim != 2
+      raise ArgumentError.new("Both arrays must be 2-dimensional for dot product")
+    end
+
+    # Check that inner dimensions match
+    a_rows, a_cols = a.shape
+    b_rows, b_cols = b.shape
+
+    if a_cols != b_rows
+      raise ArgumentError.new("Inner dimensions must match: #{a.shape} and #{b.shape}")
+    end
+
+    # Create a new array with shape [a_rows, b_cols]
+    new_shape = [a_rows, b_cols]
+    new_data = ::Array(Float64).new(new_shape.product, 0.0)
+
+    # Compute the dot product
+    a_rows.times do |i|
+      b_cols.times do |j|
+        sum = 0.0
+        a_cols.times do |k|
+          sum += a[[i, k]].to_f64 * b[[k, j]].to_f64
+        end
+        new_data[i * b_cols + j] = sum
+      end
+    end
+
+    Array(Float64).new(new_shape, new_data)
+  end
+
+  # Original dot product for same type (for backward compatibility)
   def self.dot(a : Array(T), b : Array(T)) : Array(T) forall T
     # Check dimensions
     if a.ndim != 2 || b.ndim != 2
@@ -490,6 +523,11 @@ module Narray
   end
 
   # Matrix multiplication (matmul)
+  def self.matmul(a : Array(T), b : Array(U)) : Array(Float64) forall T, U
+    dot(a, b)
+  end
+
+  # Original matmul for same type (for backward compatibility)
   def self.matmul(a : Array(T), b : Array(T)) : Array(T) forall T
     dot(a, b)
   end

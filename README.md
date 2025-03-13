@@ -9,7 +9,7 @@ A multi-dimensional numerical array library for Crystal language. Inspired by Nu
 - Array manipulation functions (reshape, transpose, concatenate, etc.)
 - Mathematical operations (basic arithmetic operations, element-wise functions)
 - Broadcasting support for operations between arrays of different shapes
-- Linear algebra functions (matrix multiplication)
+- Linear algebra functions (matrix multiplication, determinant, inverse, eigenvalues, SVD)
 - Statistical functions (mean, variance, standard deviation, etc.)
 
 ## Installation
@@ -105,6 +105,10 @@ a.add!(b)                               # Broadcasting: a becomes [[11, 22], [13
 
 # Matrix operations
 dot_product = Narray.dot(a, b)          # Matrix multiplication
+det = Narray.det(a)                     # Matrix determinant
+inv = Narray.inv(a)                     # Matrix inverse
+eigenvalues, eigenvectors = Narray.eig(a) # Eigenvalues and eigenvectors
+u, s, vt = Narray.svd(a)                # Singular Value Decomposition
 
 # Statistical operations
 puts a.sum                              # Sum of all elements
@@ -121,7 +125,7 @@ puts a.std                              # Standard deviation
 - ✅ Mathematical operations (arithmetic, statistics)
 - ✅ Broadcasting support for operations between arrays of different shapes
 - ✅ Basic linear algebra (dot product)
-- 🔄 Advanced linear algebra (in progress)
+- ✅ Advanced linear algebra (determinant, inverse, eigenvalues, SVD)
 - 🔄 Advanced features (in progress)
 
 ## Future Development
@@ -131,14 +135,24 @@ This library is being developed incrementally:
 1. ✅ Implementation of basic multi-dimensional array class
 2. ✅ Implementation of array manipulation functions
 3. ✅ Implementation of mathematical operations
-4. 🔄 Implementation of advanced linear algebra functions
-   - Inverse matrices, determinants
-   - Eigenvalues, eigenvectors
-   - Matrix decompositions
+4. ✅ Implementation of advanced linear algebra functions
+   - ✅ Inverse matrices, determinants
+   - ✅ Eigenvalues, eigenvectors
+   - ✅ Matrix decompositions (SVD)
 5. 🔄 Implementation of advanced features
    - Fourier transforms
    - Random number generation
    - Interpolation, extrapolation
+
+## Verification
+
+The test suite includes automatic verification against NumPy for linear algebra functions. The tests run Python code directly from Crystal to compare results with NumPy, ensuring numerical accuracy and consistency.
+
+This approach allows for continuous verification of:
+- Determinant calculation
+- Matrix inversion
+- Eigenvalue decomposition
+- Singular Value Decomposition (SVD)
 
 ## Contributing
 
@@ -147,6 +161,7 @@ This library is being developed incrementally:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+6. Consider adding verification scripts for new functionality
 
 ## Contributors
 
