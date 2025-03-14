@@ -9,3 +9,6 @@
 /shard.lock
 
 *.png
+*.npz
+*.bin
+*.json
