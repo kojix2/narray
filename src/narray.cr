@@ -212,6 +212,112 @@ module Narray
       set_at(indices, value)
     end
 
+    # Type alias for slice indices
+    alias SliceIndex = Int32 | Range(Int32, Int32) | Bool
+
+    # Returns a slice of the array based on the given indices.
+    #
+    # Each index can be:
+    # - An integer: selects a single element along that dimension
+    # - A range: selects a range of elements along that dimension
+    # - A boolean (true): selects all elements along that dimension
+    #
+    # ```
+    # arr = Narray.array([3, 4], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+    # arr.slice([0..1, 1..2]) # => 2D array with elements at positions (0,1), (0,2), (1,1), (1,2)
+    # arr.slice([0, true])    # => 1D array with all elements in the first row
+    # arr.slice([true, 2])    # => 1D array with elements at column index 2
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    def slice(indices : ::Array(SliceIndex)) : Array(T)
+      # Validate indices count
+      if indices.size != ndim
+        raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
+      end
+
+      # Calculate the new shape and prepare for data extraction
+      new_shape = ::Array(Int32).new
+      ranges = ::Array(Range(Int32, Int32)).new
+
+      # Process each dimension
+      indices.each_with_index do |idx, dim|
+        dim_size = shape[dim]
+
+        case idx
+        when Int32
+          # Handle negative indices (counting from the end)
+          actual_idx = idx < 0 ? dim_size + idx : idx
+
+          # Validate bounds
+          if actual_idx < 0 || actual_idx >= dim_size
+            raise IndexError.new("Index #{idx} is out of bounds for dimension #{dim} with size #{dim_size}")
+          end
+
+          # For a single index, the dimension collapses (size 1)
+          new_shape << 1
+          ranges << (actual_idx..actual_idx)
+        when Range(Int32, Int32)
+          # Handle negative indices in range (counting from the end)
+          begin_idx = idx.begin < 0 ? dim_size + idx.begin : idx.begin
+          end_idx = idx.end < 0 ? dim_size + idx.end : idx.end
+
+          # Validate bounds
+          if begin_idx < 0 || begin_idx >= dim_size || end_idx < 0 || end_idx >= dim_size
+            raise IndexError.new("Range #{idx} is out of bounds for dimension #{dim} with size #{dim_size}")
+          end
+
+          # Create a new range with the adjusted indices
+          adjusted_range = idx.exclusive? ? (begin_idx...end_idx) : (begin_idx..end_idx)
+
+          # Calculate size of this dimension in the result
+          size = end_idx - begin_idx + (idx.exclusive? ? 0 : 1)
+          new_shape << size
+          ranges << adjusted_range
+        when Bool
+          if idx # true means select all
+            new_shape << dim_size
+            ranges << (0...dim_size)
+          else
+            raise ArgumentError.new("Boolean index must be true (false not supported)")
+          end
+        end
+      end
+
+      # Extract data for the slice
+      new_data = ::Array(T).new(new_shape.product)
+
+      # Generate all combinations of indices within the specified ranges
+      generate_indices_combinations(ranges) do |indices|
+        flat_idx = indices_to_flat_index(indices)
+        new_data << data[flat_idx]
+      end
+
+      # Create and return the new array
+      Array(T).new(new_shape, new_data)
+    end
+
+    # Helper method to generate all combinations of indices within the given ranges
+    private def generate_indices_combinations(ranges : ::Array(Range(Int32, Int32)), current_indices = [] of Int32, dimension = 0, &block : ::Array(Int32) -> Nil)
+      if dimension == ranges.size
+        # When we've processed all dimensions, yield the current indices
+        yield current_indices.dup
+      else
+        # Process the current dimension
+        range = ranges[dimension]
+        range.each do |i|
+          current_indices << i
+          generate_indices_combinations(ranges, current_indices, dimension + 1, &block)
+          current_indices.pop
+        end
+      end
+    end
+
+    # Note: We intentionally do not provide a `[](indices : ::Array(SliceIndex))` method
+    # to avoid conflicts with the existing `[](indices : ::Array(Int32))` method.
+    # Use the `slice` method directly instead.
+
     # Converts multi-dimensional indices to a flat index.
     #
     # This method calculates the flat index in the underlying data array

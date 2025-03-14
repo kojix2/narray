@@ -54,8 +54,17 @@ puts arr.ndim                           # 2
 puts arr.size                           # 6
 
 # Accessing elements
-puts arr[[0, 0]]                        # 1
+puts arr.at([0, 0])                     # 1
+puts arr.at(0, 0)                       # 1 (variadic indices)
+puts arr[[0, 0]]                        # 1 (bracket notation)
 puts arr[[1, 2]]                        # 6
+
+# Slicing arrays
+sub_arr = arr.slice([0..1, 1..2])       # Slice with range indices
+row = arr.slice([0, true])              # Select entire row (true selects all elements)
+col = arr.slice([true, 1])              # Select entire column
+last_row = arr.slice([-1, true])        # Select last row (negative indices count from the end)
+sub_matrix = arr.slice([-2..-1, 0..1])  # Select last two rows and first two columns
 
 # Reshaping arrays
 reshaped = arr.reshape([3, 2])          # 3x2 array with the same data
@@ -123,6 +132,7 @@ puts a.std                              # Standard deviation
 ## Current Implementation Status
 
 - ✅ Basic multi-dimensional array class
+- ✅ Array access and slicing (element access, range slicing, dimension selection)
 - ✅ Array manipulation functions (reshape, transpose, concatenate)
 - ✅ Mathematical operations (arithmetic, statistics)
 - ✅ Broadcasting support for operations between arrays of different shapes
@@ -135,13 +145,18 @@ puts a.std                              # Standard deviation
 This library is being developed incrementally:
 
 1. ✅ Implementation of basic multi-dimensional array class
-2. ✅ Implementation of array manipulation functions
-3. ✅ Implementation of mathematical operations
-4. ✅ Implementation of advanced linear algebra functions
+2. ✅ Implementation of array access and slicing
+   - ✅ Element access with indices
+   - ✅ Range-based slicing
+   - ✅ Negative indices (counting from the end)
+   - ✅ Dimension selection with boolean flags
+3. ✅ Implementation of array manipulation functions
+4. ✅ Implementation of mathematical operations
+5. ✅ Implementation of advanced linear algebra functions
    - ✅ Inverse matrices, determinants
    - ✅ Eigenvalues, eigenvectors
    - ✅ Matrix decompositions (SVD)
-5. 🔄 Implementation of advanced features
+6. 🔄 Implementation of advanced features
    - Fourier transforms
    - Random number generation
    - Interpolation, extrapolation
