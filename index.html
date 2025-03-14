@@ -62,8 +62,18 @@
       
         <ul>
   
-  <li class=" " data-id="narray/Narray/Array" data-name="narray::array(t)">
+  <li class="parent " data-id="narray/Narray/Array" data-name="narray::array(t)">
       <a href="Narray/Array.html">Array</a>
+      
+        <ul>
+  
+  <li class=" " data-id="narray/Narray/Array/SliceIndex" data-name="narray::array::sliceindex">
+      <a href="Narray/Array/SliceIndex.html">SliceIndex</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -148,8 +158,17 @@ puts arr.ndim                           <span class="c"># 2</span>
 puts arr.size                           <span class="c"># 6</span>
 
 <span class="c"># Accessing elements</span>
-puts arr[[<span class="n">0</span>, <span class="n">0</span>]]                        <span class="c"># 1</span>
+puts arr.at([<span class="n">0</span>, <span class="n">0</span>])                     <span class="c"># 1</span>
+puts arr.at(<span class="n">0</span>, <span class="n">0</span>)                       <span class="c"># 1 (variadic indices)</span>
+puts arr[[<span class="n">0</span>, <span class="n">0</span>]]                        <span class="c"># 1 (bracket notation)</span>
 puts arr[[<span class="n">1</span>, <span class="n">2</span>]]                        <span class="c"># 6</span>
+
+<span class="c"># Slicing arrays</span>
+sub_arr <span class="o">=</span> arr.slice([<span class="n">0</span>..<span class="n">1</span>, <span class="n">1</span>..<span class="n">2</span>])       <span class="c"># Slice with range indices</span>
+row <span class="o">=</span> arr.slice([<span class="n">0</span>, <span class="n">true</span>])              <span class="c"># Select entire row (true selects all elements)</span>
+col <span class="o">=</span> arr.slice([<span class="n">true</span>, <span class="n">1</span>])              <span class="c"># Select entire column</span>
+last_row <span class="o">=</span> arr.slice([<span class="n">-1</span>, <span class="n">true</span>])        <span class="c"># Select last row (negative indices count from the end)</span>
+sub_matrix <span class="o">=</span> arr.slice([<span class="n">-2</span>..<span class="n">-1</span>, <span class="n">0</span>..<span class="n">1</span>])  <span class="c"># Select last two rows and first two columns</span>
 
 <span class="c"># Reshaping arrays</span>
 reshaped <span class="o">=</span> arr.reshape([<span class="n">3</span>, <span class="n">2</span>])          <span class="c"># 3x2 array with the same data</span>
@@ -219,6 +238,7 @@ puts a.std                              <span class="c"># Standard deviation</sp
 </a>Current Implementation Status</h2>
 <ul>
 <li>✅ Basic multi-dimensional array class</li>
+<li>✅ Array access and slicing (element access, range slicing, dimension selection)</li>
 <li>✅ Array manipulation functions (reshape, transpose, concatenate)</li>
 <li>✅ Mathematical operations (arithmetic, statistics)</li>
 <li>✅ Broadcasting support for operations between arrays of different shapes</li>
@@ -234,6 +254,14 @@ puts a.std                              <span class="c"># Standard deviation</sp
 <p>This library is being developed incrementally:</p>
 <ol>
 <li>✅ Implementation of basic multi-dimensional array class</li>
+<li>✅ Implementation of array access and slicing
+<ul>
+<li>✅ Element access with indices</li>
+<li>✅ Range-based slicing</li>
+<li>✅ Negative indices (counting from the end)</li>
+<li>✅ Dimension selection with boolean flags</li>
+</ul>
+</li>
 <li>✅ Implementation of array manipulation functions</li>
 <li>✅ Implementation of mathematical operations</li>
 <li>✅ Implementation of advanced linear algebra functions
