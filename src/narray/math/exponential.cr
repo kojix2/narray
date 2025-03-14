@@ -159,7 +159,7 @@ module Narray
 
       # Apply power to each element
       arr.size.times do |i|
-        new_data[i] = ::Math.pow(arr.data[i].to_f, power)
+        new_data[i] = arr.data[i].to_f ** power
       end
 
       Array(Float64).new(arr.shape.dup, new_data)
@@ -175,7 +175,7 @@ module Narray
     def self.pow!(arr : Array(T), power : Number) : Array(T) forall T
       # Apply power to each element in-place
       arr.size.times do |i|
-        arr.data[i] = T.new(::Math.pow(arr.data[i].to_f, power))
+        arr.data[i] = T.new(arr.data[i].to_f ** power)
       end
 
       arr
