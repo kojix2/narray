@@ -138,28 +138,28 @@ various mathematical operations.</p>
   </h2>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L27" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L27" target="_blank">
         narray.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/broadcast.cr#L210" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/broadcast.cr#L210" target="_blank">
         narray/broadcast.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L9" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L9" target="_blank">
         narray/math.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/operations.cr#L8" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/operations.cr#L8" target="_blank">
         narray/operations.cr
       </a>
     
@@ -279,6 +279,13 @@ various mathematical operations.</p>
         <a href="#%5B%5D%3D%28indices%3A%3A%3AArray%28Int32%29%2Cvalue%3AT%29-instance-method" class="signature"><strong>#[]=</strong>(indices : ::Array(Int32), value : T)</a>
         
           <div class="summary"><p>Sets the element at the given indices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%5B%5D%3D%28indices%3A%3A%3AArray%28SliceIndex%29%2Cvalue%3AArray%28T%29%29-instance-method" class="signature"><strong>#[]=</strong>(indices : ::Array(SliceIndex), value : Array(T))</a>
+        
+          <div class="summary"><p>Sets a slice of the array using bracket notation with slice indices.</p></div>
         
       </li>
     
@@ -412,6 +419,13 @@ various mathematical operations.</p>
         <a href="#set_at%28%2Aargs%3AInt32%29%3Aself-instance-method" class="signature"><strong>#set_at</strong>(*args : Int32) : <span class="k">self</span></a>
         
           <div class="summary"><p>Convenience method for setting elements with variadic indices.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_slice%28indices%3A%3A%3AArray%28SliceIndex%29%2Cvalue%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#set_slice</strong>(indices : ::Array(SliceIndex), value : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Sets a slice of the array to the given value.</p></div>
         
       </li>
     
@@ -551,7 +565,7 @@ arr.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -605,7 +619,7 @@ c.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L370" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L370" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -632,7 +646,7 @@ b.data  <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L414" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L414" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -670,7 +684,7 @@ c.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L34" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L34" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -697,7 +711,7 @@ b.data  <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L78" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L78" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -735,7 +749,7 @@ c.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L202" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L202" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -762,7 +776,7 @@ b.data  <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L246" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L246" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -788,7 +802,7 @@ b.data  <span class="c"># =&gt; [-1, -2, -3, -4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L698" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L698" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -826,7 +840,7 @@ c.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pr
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L538" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L538" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -853,7 +867,7 @@ b.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L584" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L584" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -880,7 +894,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L195" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L195" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -908,7 +922,32 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L211" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L211" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="[]=(indices:::Array(SliceIndex),value:Array(T))-instance-method">
+      <div class="signature">
+        
+        def <strong>[]=</strong>(indices : ::Array(<a href="../Narray/Array/SliceIndex.html">SliceIndex</a>), value : <a href="../Narray/Array.html">Array</a>(T))
+
+        <a class="method-permalink" href="#%5B%5D%3D%28indices%3A%3A%3AArray%28SliceIndex%29%2Cvalue%3AArray%28T%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets a slice of the array using bracket notation with slice indices.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">4</span>], (<span class="n">1</span>..<span class="n">12</span>).to_a)
+sub_arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">100</span>, <span class="n">200</span>, <span class="n">300</span>, <span class="n">400</span>])
+arr[[<span class="n">0</span>..<span class="n">1</span>, <span class="n">0</span>..<span class="n">1</span>]] <span class="o">=</span> sub_arr <span class="c"># Replace the top-left 2x2 submatrix</span></code></pre>
+<p>See <code><a href="../Narray/Array.html#set_slice%28indices%3A%3A%3AArray%28SliceIndex%29%2Cvalue%3AArray%28T%29%29%3Aself-instance-method">#set_slice</a></code> for more details.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -945,7 +984,7 @@ a.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L113" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L113" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -971,7 +1010,7 @@ a.data <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L169" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -998,7 +1037,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1023,7 +1062,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L118" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L118" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1050,7 +1089,7 @@ result.data  <span class="c"># =&gt; [1, 2, 3, 1, 2, 3]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/broadcast.cr#L223" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/broadcast.cr#L223" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1073,7 +1112,7 @@ Elements are stored in row-major order (C-style).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1110,7 +1149,7 @@ a.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pr
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L619" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L619" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1136,7 +1175,7 @@ a.data <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L679" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L679" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1161,7 +1200,7 @@ arr.inspect <span class="c"># =&gt; &quot;Narray::Array(Int32)[shape=[2, 2], ndi
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L360" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L459" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1185,7 +1224,7 @@ a.max <span class="c"># =&gt; 4</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L754" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L754" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1209,7 +1248,7 @@ a.mean <span class="c"># =&gt; 2.5</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L730" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L730" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1233,7 +1272,7 @@ a.min <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L742" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L742" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1270,7 +1309,7 @@ a.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L449" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L449" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1296,7 +1335,7 @@ a.data <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L505" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L505" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1319,7 +1358,7 @@ arr.ndim <span class="c"># =&gt; 2</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L66" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1355,7 +1394,7 @@ reshaped2.ndim  <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/operations.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/operations.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1386,7 +1425,7 @@ arr.data  <span class="c"># =&gt; [0, 1, 2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/operations.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/operations.cr#L59" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1414,7 +1453,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L134" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L134" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1442,7 +1481,40 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L165" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L165" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_slice(indices:::Array(SliceIndex),value:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>set_slice</strong>(indices : ::Array(<a href="../Narray/Array/SliceIndex.html">SliceIndex</a>), value : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#set_slice%28indices%3A%3A%3AArray%28SliceIndex%29%2Cvalue%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets a slice of the array to the given value.</p>
+<p>Each index can be:</p>
+<ul>
+<li>An integer: selects a single element along that dimension</li>
+<li>A range: selects a range of elements along that dimension</li>
+<li>A boolean (true): selects all elements along that dimension</li>
+</ul>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">4</span>], (<span class="n">1</span>..<span class="n">12</span>).to_a)
+sub_arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">100</span>, <span class="n">200</span>, <span class="n">300</span>, <span class="n">400</span>])
+arr.set_slice([<span class="n">0</span>..<span class="n">1</span>, <span class="n">0</span>..<span class="n">1</span>], sub_arr) <span class="c"># Replace the top-left 2x2 submatrix</span></code></pre>
+<p>Raises <code>IndexError</code> if the number of indices does not match the number of dimensions.
+Raises <code>IndexError</code> if any index is out of bounds.
+Raises <code>ArgumentError</code> if the shape of the value does not match the shape of the slice.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L333" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1465,7 +1537,7 @@ For example, a 2x3 array would have a shape of [2, 3].</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1488,7 +1560,7 @@ arr.size <span class="c"># =&gt; 6</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1521,7 +1593,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L234" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L234" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1548,7 +1620,7 @@ a.std <span class="c"># =&gt; 1.118... (approximately)</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L770" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L770" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1585,7 +1657,7 @@ a.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L281" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L281" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1611,7 +1683,7 @@ a.data <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L337" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L337" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1635,7 +1707,7 @@ a.sum <span class="c"># =&gt; 10</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/math.cr#L718" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/math.cr#L718" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1658,7 +1730,7 @@ arr.to_s <span class="c"># =&gt; &quot;Narray.array([2, 2], [1, 2, 3, 4])&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray.cr#L343" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray.cr#L442" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1700,7 +1772,7 @@ transposed.data  <span class="c"># =&gt; [1, 5, 3, 7, 2, 6, 4, 8]</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/operations.cr#L98" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/operations.cr#L98" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1737,7 +1809,7 @@ arr.data  <span class="c"># =&gt; [1, 4, 2, 5, 3, 6]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2bcd0f53db31386bda1cef3e1fced4dee2281cc8/src/narray/operations.cr#L172" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/b4f6725bb3983618231dfc2389b8e840e87f493c/src/narray/operations.cr#L172" target="_blank">View source</a>]
         
       </div>
     </div>

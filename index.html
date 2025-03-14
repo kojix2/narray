@@ -170,6 +170,18 @@ col <span class="o">=</span> arr.slice([<span class="n">true</span>, <span class
 last_row <span class="o">=</span> arr.slice([<span class="n">-1</span>, <span class="n">true</span>])        <span class="c"># Select last row (negative indices count from the end)</span>
 sub_matrix <span class="o">=</span> arr.slice([<span class="n">-2</span>..<span class="n">-1</span>, <span class="n">0</span>..<span class="n">1</span>])  <span class="c"># Select last two rows and first two columns</span>
 
+<span class="c"># Setting slices</span>
+new_data <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">100</span>, <span class="n">200</span>, <span class="n">300</span>, <span class="n">400</span>])
+arr.set_slice([<span class="n">0</span>..<span class="n">1</span>, <span class="n">0</span>..<span class="n">1</span>], new_data)   <span class="c"># Replace top-left 2x2 submatrix</span>
+arr[[<span class="n">0</span>..<span class="n">1</span>, <span class="n">0</span>..<span class="n">1</span>]] <span class="o">=</span> new_data            <span class="c"># Same operation using bracket notation</span>
+row_data <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">4</span>], [<span class="n">100</span>, <span class="n">200</span>, <span class="n">300</span>, <span class="n">400</span>])
+arr.set_slice([<span class="n">0</span>, <span class="n">true</span>], row_data)      <span class="c"># Replace entire first row</span>
+col_data <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">1</span>], [<span class="n">500</span>, <span class="n">600</span>, <span class="n">700</span>])
+arr.set_slice([<span class="n">true</span>, <span class="n">1</span>], col_data)      <span class="c"># Replace entire second column</span>
+arr.set_slice([<span class="n">-1</span>, <span class="n">true</span>], row_data)     <span class="c"># Replace last row (negative index)</span>
+single_element <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">1</span>], [<span class="n">999</span>])
+arr.set_slice([<span class="n">-2</span>, <span class="n">-3</span>], single_element) <span class="c"># Replace element at second-to-last row, third-to-last column</span>
+
 <span class="c"># Reshaping arrays</span>
 reshaped <span class="o">=</span> arr.reshape([<span class="n">3</span>, <span class="n">2</span>])          <span class="c"># 3x2 array with the same data</span>
 transposed <span class="o">=</span> arr.transpose              <span class="c"># 3x2 array, transposed</span>
