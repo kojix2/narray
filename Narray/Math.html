@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Crystal Docs 1.14.0">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="narray">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="narray">
+  <title>Narray::Math - narray main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill="currentColor" fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<input type="checkbox" id="sidebar-btn">
+<label for="sidebar-btn" id="sidebar-btn-label">
+  <svg class="open" xmlns="http://www.w3.org/2000/svg" height="2em" width="2em" viewBox="0 0 512 512"><title>Open Sidebar</title><path fill="currentColor" d="M80 96v64h352V96H80zm0 112v64h352v-64H80zm0 112v64h352v-64H80z"></path></svg>
+  <svg class="close" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512"><title>Close Sidebar</title><path fill="currentColor" d="m118.6 73.4-45.2 45.2L210.7 256 73.4 393.4l45.2 45.2L256 301.3l137.4 137.3 45.2-45.2L301.3 256l137.3-137.4-45.2-45.2L256 210.7Z"></path></svg>
+</label>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          narray
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="narray/Narray" data-name="narray">
+      <a href="../Narray.html">Narray</a>
+      
+        <ul>
+  
+  <li class="parent " data-id="narray/Narray/Array" data-name="narray::array(t)">
+      <a href="../Narray/Array.html">Array</a>
+      
+        <ul>
+  
+  <li class=" " data-id="narray/Narray/Array/SliceIndex" data-name="narray::array::sliceindex">
+      <a href="../Narray/Array/SliceIndex.html">SliceIndex</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" current" data-id="narray/Narray/Math" data-name="narray::math">
+      <a href="../Narray/Math.html">Math</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Narray::<wbr>Math
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Exponential and logarithmic functions module</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L3" target="_blank">
+        narray/math/exponential.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L3" target="_blank">
+        narray/math/hyperbolic.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L3" target="_blank">
+        narray/math/trig.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#acos%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.acos</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the arc cosine (inverse cosine) of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#acos%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.acos!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the arc cosine (inverse cosine) of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#asin%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.asin</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the arc sine (inverse sine) of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#asin%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.asin!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the arc sine (inverse sine) of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#atan%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.atan</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the arc tangent (inverse tangent) of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#atan%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.atan!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the arc tangent (inverse tangent) of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cos%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.cos</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the cosine of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cos%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.cos!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the cosine of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cosh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.cosh</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic cosine of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cosh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.cosh!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic cosine of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exp%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.exp</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the exponential of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exp%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.exp!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the exponential of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#log%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.log</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the natural logarithm of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#log%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.log!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the natural logarithm of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#log10%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.log10</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the base-10 logarithm of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#log10%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.log10!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the base-10 logarithm of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pow%28arr%3AArray%28T%29%2Cpower%3ANumber%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.pow</strong>(arr : Array(T), power : Number) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Raises each element of the array to the specified power.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#pow%21%28arr%3AArray%28T%29%2Cpower%3ANumber%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.pow!</strong>(arr : Array(T), power : Number) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Raises each element of the array to the specified power in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sin%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.sin</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the sine of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sin%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.sin!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the sine of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sinh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.sinh</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic sine of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sinh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.sinh!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic sine of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sqrt%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.sqrt</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the square root of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#sqrt%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.sqrt!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the square root of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tan%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.tan</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the tangent of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tan%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.tan!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the tangent of each element in the array in-place.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tanh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method" class="signature"><strong>.tanh</strong>(arr : Array(T)) : Array(Float64) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic tangent of each element in the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#tanh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method" class="signature"><strong>.tanh!</strong>(arr : Array(T)) : Array(T) forall T</a>
+        
+          <div class="summary"><p>Computes the hyperbolic tangent of each element in the array in-place.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="acos(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>acos</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#acos%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc cosine (inverse cosine) of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">0.7071</span>, <span class="n">0.5</span>, <span class="n">0.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.acos(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.7854, 1.0472, 1.5708] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L156" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="acos!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>acos!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#acos%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc cosine (inverse cosine) of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">0.7071</span>, <span class="n">0.5</span>, <span class="n">0.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.acos!(a)
+a.data <span class="c"># =&gt; [0.0, 0.7854, 1.0472, 1.5708] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L175" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="asin(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>asin</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#asin%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc sine (inverse sine) of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">0.7071</span>, <span class="n">1.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.asin(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.5236, 0.7854, 1.5708] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L120" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="asin!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>asin!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#asin%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc sine (inverse sine) of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">0.7071</span>, <span class="n">1.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.asin!(a)
+a.data <span class="c"># =&gt; [0.0, 0.5236, 0.7854, 1.5708] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L139" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="atan(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>atan</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#atan%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc tangent (inverse tangent) of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">1.0</span>, <span class="n">1.7321</span>, <span class="n">10.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.atan(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.7854, 1.0472, 1.4711] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L192" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="atan!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>atan!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#atan%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the arc tangent (inverse tangent) of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">1.0</span>, <span class="n">1.7321</span>, <span class="n">10.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.atan!(a)
+a.data <span class="c"># =&gt; [0.0, 0.7854, 1.0472, 1.4711] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L211" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cos(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>cos</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#cos%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the cosine of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>, <span class="n">3</span><span class="o">*</span><span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.cos(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1.0, 0.0, -1.0, 0.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cos!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>cos!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#cos%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the cosine of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>, <span class="n">3</span><span class="o">*</span><span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.cos!(a)
+a.data <span class="c"># =&gt; [1.0, 0.0, -1.0, 0.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L67" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cosh(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>cosh</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#cosh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic cosine of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.cosh(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1.0, 1.1276, 1.5431, 3.7622] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cosh!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>cosh!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#cosh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic cosine of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.cosh!(a)
+a.data <span class="c"># =&gt; [1.0, 1.1276, 1.5431, 3.7622] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L67" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exp(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>exp</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#exp%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the exponential of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.exp(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1.0, 2.7183, 7.3891, 20.0855] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exp!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>exp!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#exp%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the exponential of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.exp!(a)
+a.data <span class="c"># =&gt; [1.0, 2.7183, 7.3891, 20.0855] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="log(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>log</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#log%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the natural logarithm of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">5.0</span>, <span class="n">10.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.log(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.6931, 1.6094, 2.3026] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L48" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="log!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>log!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#log%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the natural logarithm of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">5.0</span>, <span class="n">10.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.log!(a)
+a.data <span class="c"># =&gt; [0.0, 0.6931, 1.6094, 2.3026] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L67" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="log10(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>log10</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#log10%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the base-10 logarithm of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">10.0</span>, <span class="n">100.0</span>, <span class="n">1000.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.log10(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 1.0, 2.0, 3.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L84" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="log10!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>log10!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#log10%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the base-10 logarithm of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">10.0</span>, <span class="n">100.0</span>, <span class="n">1000.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.log10!(a)
+a.data <span class="c"># =&gt; [0.0, 1.0, 2.0, 3.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L103" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pow(arr:Array(T),power:Number):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>pow</strong>(arr : <a href="../Narray/Array.html">Array</a>(T), power : Number) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#pow%28arr%3AArray%28T%29%2Cpower%3ANumber%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Raises each element of the array to the specified power.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>, <span class="n">4.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.pow(a, <span class="n">2</span>)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1.0, 4.0, 9.0, 16.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L156" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="pow!(arr:Array(T),power:Number):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>pow!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T), power : Number) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#pow%21%28arr%3AArray%28T%29%2Cpower%3ANumber%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Raises each element of the array to the specified power in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">2.0</span>, <span class="n">3.0</span>, <span class="n">4.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.pow!(a, <span class="n">2</span>)
+a.data <span class="c"># =&gt; [1.0, 4.0, 9.0, 16.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L175" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sin(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sin</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#sin%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the sine of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>, <span class="n">3</span><span class="o">*</span><span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sin(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 1.0, 0.0, -1.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sin!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sin!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#sin%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the sine of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>, <span class="n">3</span><span class="o">*</span><span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sin!(a)
+a.data <span class="c"># =&gt; [0.0, 1.0, 0.0, -1.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sinh(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sinh</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#sinh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic sine of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sinh(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.5211, 1.1752, 3.6269] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L12" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sinh!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sinh!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#sinh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic sine of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sinh!(a)
+a.data <span class="c"># =&gt; [0.0, 0.5211, 1.1752, 3.6269] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L31" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sqrt(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sqrt</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#sqrt%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the square root of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">4.0</span>, <span class="n">9.0</span>, <span class="n">16.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sqrt(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [1.0, 2.0, 3.0, 4.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L120" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="sqrt!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>sqrt!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#sqrt%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the square root of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">1.0</span>, <span class="n">4.0</span>, <span class="n">9.0</span>, <span class="n">16.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.sqrt!(a)
+a.data <span class="c"># =&gt; [1.0, 2.0, 3.0, 4.0]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/exponential.cr#L139" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tan(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>tan</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#tan%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the tangent of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">4</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span> <span class="o">-</span> <span class="n">0.01</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.tan(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 1.0, very large value, 0.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L84" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tan!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>tan!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#tan%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the tangent of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">4</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span><span class="o">/</span><span class="n">2</span> <span class="o">-</span> <span class="n">0.01</span>, <span class="t">Math</span><span class="t">::</span><span class="t">PI</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.tan!(a)
+a.data <span class="c"># =&gt; [0.0, 1.0, very large value, 0.0] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/trig.cr#L103" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tanh(arr:Array(T)):Array(Float64)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>tanh</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Float64) forall T
+
+        <a class="method-permalink" href="#tanh%28arr%3AArray%28T%29%29%3AArray%28Float64%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic tangent of each element in the array.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+b <span class="o">=</span> <span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.tanh(a)
+b.shape <span class="c"># =&gt; [2, 2]</span>
+b.data  <span class="c"># =&gt; [0.0, 0.4621, 0.7616, 0.9640] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L84" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="tanh!(arr:Array(T)):Array(T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>tanh!</strong>(arr : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(T) forall T
+
+        <a class="method-permalink" href="#tanh%21%28arr%3AArray%28T%29%29%3AArray%28T%29forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Computes the hyperbolic tangent of each element in the array in-place.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">2</span>], [<span class="n">0.0</span>, <span class="n">0.5</span>, <span class="n">1.0</span>, <span class="n">2.0</span>])
+<span class="t">Narray</span><span class="t">::</span><span class="t">Math</span>.tanh!(a)
+a.data <span class="c"># =&gt; [0.0, 0.4621, 0.7616, 0.9640] (approximately)</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/67fe3e0ec8a3ab25408c34859c79081c690985cb/src/narray/math/hyperbolic.cr#L103" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
