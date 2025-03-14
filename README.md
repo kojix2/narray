@@ -13,6 +13,7 @@ A multi-dimensional numerical array library for Crystal language. Inspired by Nu
 - Broadcasting support for operations between arrays of different shapes
 - Linear algebra functions (matrix multiplication, determinant, inverse, eigenvalues, SVD)
 - Statistical functions (mean, variance, standard deviation, etc.)
+- Mask operations for conditional selection and modification of array elements
 
 ## Installation
 
@@ -115,8 +116,45 @@ offset = a + 5                          # Add 5 to each element
 # Scalar operations (in-place)
 a.add!(5)                               # Add 5 to each element (in-place)
 a.multiply!(2)                          # Multiply each element by 2 (in-place)
+```
 
-# Broadcasting operations
+### Mask Operations
+
+```crystal
+# Create a sample array
+arr = Narray.array([5], [1, 2, 3, 4, 5])
+
+# Create a mask using comparison operators
+mask = arr.gt(3)                        # [false, false, false, true, true]
+mask2 = arr.eq(2)                       # [false, true, false, false, false]
+
+# Use the mask to select elements
+result = arr.mask(mask)                 # [4, 5]
+
+# Use a block to create a mask
+even_numbers = arr.mask { |x| x.even? } # [2, 4]
+
+# Update elements using a mask
+arr.mask_set(mask, 0)                   # arr becomes [1, 2, 3, 0, 0]
+
+# Update elements using a block
+arr.mask_set(100) { |x| x < 3 }         # arr becomes [100, 100, 3, 0, 0]
+
+# Compare arrays
+a = Narray.array([3], [1, 2, 3])
+b = Narray.array([3], [3, 2, 1])
+eq_mask = a.eq(b)                 # [false, true, false]
+common = a.mask(eq_mask)                # [2]
+
+# Broadcasting with comparison operators
+c = Narray.array([2, 1], [1, 2])
+d = Narray.array([1, 3], [0, 1, 2])
+broadcast_mask = c.gt(d)          # 2D boolean array with broadcasting
+```
+
+### Broadcasting Operations
+
+```crystal
 row = Narray.array([1, 3], [1, 2, 3])   # 1D array with shape [3]
 column = Narray.array([3, 1], [1, 2, 3]) # 2D array with shape [3, 1]
 result = row + column                   # Broadcasting: result has shape [3, 3]
@@ -150,6 +188,7 @@ puts a.std                              # Standard deviation
 - ✅ Broadcasting support for operations between arrays of different shapes
 - ✅ Basic linear algebra (dot product)
 - ✅ Advanced linear algebra (determinant, inverse, eigenvalues, SVD)
+- ✅ Mask operations for conditional selection and modification
 - 🔄 Advanced features (in progress)
 
 ## Future Development
@@ -168,7 +207,11 @@ This library is being developed incrementally:
    - ✅ Inverse matrices, determinants
    - ✅ Eigenvalues, eigenvectors
    - ✅ Matrix decompositions (SVD)
-6. 🔄 Implementation of advanced features
+6. ✅ Implementation of mask operations
+   - ✅ Conditional selection of elements
+   - ✅ Conditional modification of elements
+   - ✅ Comparison operators for creating masks
+7. 🔄 Implementation of advanced features
    - Fourier transforms
    - Random number generation
    - Interpolation, extrapolation

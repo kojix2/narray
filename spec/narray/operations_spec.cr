@@ -222,4 +222,294 @@ describe Narray do
       c.data.should eq([1, 2, 5, 6, 7, 3, 4, 8, 9, 10])
     end
   end
+
+  describe "Mask operations" do
+    describe "Array#mask" do
+      it "returns elements where mask is true" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([5], [true, false, true, false, true])
+        result = arr.mask(mask)
+
+        result.shape.should eq([3])
+        result.data.should eq([1, 3, 5])
+      end
+
+      it "raises an error if mask shape does not match array shape" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([3], [true, false, true])
+
+        expect_raises(ArgumentError, /Mask shape/) do
+          arr.mask(mask)
+        end
+      end
+
+      it "works with a block condition" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        result = arr.mask { |x| x > 2 }
+
+        result.shape.should eq([3])
+        result.data.should eq([3, 4, 5])
+      end
+    end
+
+    describe "Array#mask_set" do
+      it "sets elements where mask is true to a value" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([5], [true, false, true, false, true])
+        arr.mask_set(mask, 0)
+
+        arr.data.should eq([0, 2, 0, 4, 0])
+      end
+
+      it "sets elements where mask is true to values from another array" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([5], [true, false, true, false, true])
+        values = Narray.array([3], [10, 20, 30])
+        arr.mask_set(mask, values)
+
+        arr.data.should eq([10, 2, 20, 4, 30])
+      end
+
+      it "raises an error if mask shape does not match array shape" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([3], [true, false, true])
+
+        expect_raises(ArgumentError, /Mask shape/) do
+          arr.mask_set(mask, 0)
+        end
+      end
+
+      it "raises an error if values array size does not match true count in mask" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = Narray.array([5], [true, false, true, false, true])
+        values = Narray.array([2], [10, 20])
+
+        expect_raises(ArgumentError, /Values array size/) do
+          arr.mask_set(mask, values)
+        end
+      end
+
+      it "works with a block condition" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        arr.mask_set(0) { |x| x > 2 }
+
+        arr.data.should eq([1, 2, 0, 0, 0])
+      end
+    end
+  end
+
+  describe "Comparison operations" do
+    describe "Array#eq" do
+      it "returns a boolean mask for equality with a value" do
+        arr = Narray.array([5], [1, 2, 3, 2, 1])
+        mask = arr.eq(2)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([false, true, false, true, false])
+      end
+    end
+
+    describe "Array#ne" do
+      it "returns a boolean mask for inequality with a value" do
+        arr = Narray.array([5], [1, 2, 3, 2, 1])
+        mask = arr.ne(2)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([true, false, true, false, true])
+      end
+    end
+
+    describe "Array#gt" do
+      it "returns a boolean mask for greater than a value" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = arr.gt(3)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([false, false, false, true, true])
+      end
+    end
+
+    describe "Array#ge" do
+      it "returns a boolean mask for greater than or equal to a value" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = arr.ge(3)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([false, false, true, true, true])
+      end
+    end
+
+    describe "Array#lt" do
+      it "returns a boolean mask for less than a value" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = arr.lt(3)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([true, true, false, false, false])
+      end
+    end
+
+    describe "Array#le" do
+      it "returns a boolean mask for less than or equal to a value" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+        mask = arr.le(3)
+
+        mask.shape.should eq([5])
+        mask.data.should eq([true, true, true, false, false])
+      end
+    end
+
+    describe "Array comparison operations between arrays" do
+      it "compares arrays with eq" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [1, 3, 3])
+        mask = a.eq(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, false, true])
+      end
+
+      it "compares arrays with ne" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [1, 3, 3])
+        mask = a.ne(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, true, false])
+      end
+
+      it "compares arrays with gt" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a.gt(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, false, false])
+      end
+
+      it "compares arrays with broadcasting" do
+        a = Narray.array([2, 1], [1, 2])
+        b = Narray.array([1, 3], [0, 1, 2])
+        mask = a.gt(b)
+
+        mask.shape.should eq([2, 3])
+        mask.data.should eq([true, false, false, true, true, false])
+      end
+
+      it "compares arrays with ge" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a.ge(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, true, false])
+      end
+
+      it "compares arrays with lt" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a.lt(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, false, true])
+      end
+
+      it "compares arrays with le" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a.le(b)
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, true, true])
+      end
+    end
+
+    describe "Array comparison operations with operators" do
+      it "compares arrays with == operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [1, 3, 3])
+        mask = a == b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, false, true])
+      end
+
+      it "compares arrays with != operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [1, 3, 3])
+        mask = a != b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, true, false])
+      end
+
+      it "compares arrays with > operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a > b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, false, false])
+      end
+
+      it "compares arrays with >= operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a >= b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([true, true, false])
+      end
+
+      it "compares arrays with < operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a < b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, false, true])
+      end
+
+      it "compares arrays with <= operator" do
+        a = Narray.array([3], [1, 2, 3])
+        b = Narray.array([3], [0, 2, 4])
+        mask = a <= b
+
+        mask.shape.should eq([3])
+        mask.data.should eq([false, true, true])
+      end
+
+      it "compares arrays with scalars using operators" do
+        arr = Narray.array([5], [1, 2, 3, 4, 5])
+
+        (arr == 3).data.should eq([false, false, true, false, false])
+        (arr != 3).data.should eq([true, true, false, true, true])
+        (arr > 3).data.should eq([false, false, false, true, true])
+        (arr >= 3).data.should eq([false, false, true, true, true])
+        (arr < 3).data.should eq([true, true, false, false, false])
+        (arr <= 3).data.should eq([true, true, true, false, false])
+      end
+
+      it "compares arrays with broadcasting using operators" do
+        a = Narray.array([2, 1], [1, 2])
+        b = Narray.array([1, 3], [0, 1, 2])
+
+        mask = a > b
+        mask.shape.should eq([2, 3])
+        mask.data.should eq([true, false, false, true, true, false])
+
+        mask = a >= b
+        mask.shape.should eq([2, 3])
+        mask.data.should eq([true, true, false, true, true, true])
+
+        mask = a < b
+        mask.shape.should eq([2, 3])
+        mask.data.should eq([false, false, true, false, false, false])
+
+        mask = a <= b
+        mask.shape.should eq([2, 3])
+        mask.data.should eq([false, true, true, false, false, true])
+      end
+    end
+  end
 end

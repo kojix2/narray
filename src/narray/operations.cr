@@ -4,6 +4,7 @@
 # - Reshaping arrays (reshape, reshape!)
 # - Transposing arrays (transpose, transpose!)
 # - Concatenating arrays (concatenate, vstack, hstack)
+# - Masking operations (mask, mask_set)
 module Narray
   class Array(T)
     # Reshapes the array to the new shape.
@@ -223,6 +224,171 @@ module Narray
       end
 
       self
+    end
+  end
+
+  class Array(T)
+    # Returns a new array containing only the elements where the mask is true.
+    #
+    # The mask must be a boolean array with the same shape as the original array.
+    # The result is a 1D array containing only the elements where the mask is true.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = Narray.array([5], [true, false, true, false, true])
+    # result = arr.mask(mask)
+    # result.shape # => [3]
+    # result.data  # => [1, 3, 5]
+    # ```
+    #
+    # Raises `ArgumentError` if the mask shape does not match the array shape.
+    #
+    # See also: `Array#mask_set`, `Array#mask(&block)`.
+    def mask(mask : Array(Bool)) : Array(T)
+      # Validate that the mask shape matches the array shape
+      if mask.shape != shape
+        raise ArgumentError.new("Mask shape #{mask.shape} does not match array shape #{shape}")
+      end
+
+      # Count the number of true values in the mask
+      true_count = mask.data.count { |v| v }
+
+      # Create a new array to hold the masked values
+      new_data = ::Array(T).new(true_count)
+
+      # Copy the values where the mask is true
+      size.times do |i|
+        if mask.data[i]
+          new_data << data[i]
+        end
+      end
+
+      # Return a new 1D array with the masked values
+      Array(T).new([true_count], new_data)
+    end
+
+    # Returns a new array containing only the elements that satisfy the given condition.
+    #
+    # The condition is specified as a block that takes an element and returns a boolean.
+    # The result is a 1D array containing only the elements where the block returns true.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # result = arr.mask { |x| x > 2 }
+    # result.shape # => [3]
+    # result.data  # => [3, 4, 5]
+    # ```
+    #
+    # See also: `Array#mask(mask)`, `Array#mask_set`.
+    def mask(&block : T -> Bool) : Array(T)
+      # Create a boolean mask based on the block
+      mask_data = ::Array(Bool).new(size)
+      data.each do |value|
+        mask_data << block.call(value)
+      end
+      mask_array = Array(Bool).new(shape.dup, mask_data)
+
+      # Use the mask method to get the result
+      mask(mask_array)
+    end
+
+    # Updates elements in the array where the mask is true with the given value.
+    #
+    # The mask must be a boolean array with the same shape as the original array.
+    # The array is modified in-place.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = Narray.array([5], [true, false, true, false, true])
+    # arr.mask_set(mask, 0)
+    # arr.data # => [0, 2, 0, 4, 0]
+    # ```
+    #
+    # Raises `ArgumentError` if the mask shape does not match the array shape.
+    #
+    # See also: `Array#mask`, `Array#mask_set(&block)`.
+    def mask_set(mask : Array(Bool), value : T) : self
+      # Validate that the mask shape matches the array shape
+      if mask.shape != shape
+        raise ArgumentError.new("Mask shape #{mask.shape} does not match array shape #{shape}")
+      end
+
+      # Update the values where the mask is true
+      size.times do |i|
+        if mask.data[i]
+          @data[i] = value
+        end
+      end
+
+      self
+    end
+
+    # Updates elements in the array where the mask is true with values from another array.
+    #
+    # The mask must be a boolean array with the same shape as the original array.
+    # The values array must have the same number of elements as there are true values in the mask.
+    # The array is modified in-place.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = Narray.array([5], [true, false, true, false, true])
+    # values = Narray.array([3], [10, 20, 30])
+    # arr.mask_set(mask, values)
+    # arr.data # => [10, 2, 20, 4, 30]
+    # ```
+    #
+    # Raises `ArgumentError` if the mask shape does not match the array shape.
+    # Raises `ArgumentError` if the values array does not have the correct number of elements.
+    #
+    # See also: `Array#mask`, `Array#mask_set(mask, value)`.
+    def mask_set(mask : Array(Bool), values : Array(T)) : self
+      # Validate that the mask shape matches the array shape
+      if mask.shape != shape
+        raise ArgumentError.new("Mask shape #{mask.shape} does not match array shape #{shape}")
+      end
+
+      # Count the number of true values in the mask
+      true_count = mask.data.count { |v| v }
+
+      # Validate that the values array has the correct number of elements
+      if values.size != true_count
+        raise ArgumentError.new("Values array size (#{values.size}) does not match the number of true values in the mask (#{true_count})")
+      end
+
+      # Update the values where the mask is true
+      value_index = 0
+      size.times do |i|
+        if mask.data[i]
+          @data[i] = values.data[value_index]
+          value_index += 1
+        end
+      end
+
+      self
+    end
+
+    # Updates elements in the array that satisfy the given condition with the given value.
+    #
+    # The condition is specified as a block that takes an element and returns a boolean.
+    # The array is modified in-place.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # arr.mask_set(0) { |x| x > 2 }
+    # arr.data # => [1, 2, 0, 0, 0]
+    # ```
+    #
+    # See also: `Array#mask`, `Array#mask_set(mask, value)`.
+    def mask_set(value : T, &block : T -> Bool) : self
+      # Create a boolean mask based on the block
+      mask_data = ::Array(Bool).new(size)
+      data.each do |val|
+        mask_data << block.call(val)
+      end
+      mask_array = Array(Bool).new(shape.dup, mask_data)
+
+      # Use the mask_set method to update the values
+      mask_set(mask_array, value)
     end
   end
 
@@ -467,6 +633,376 @@ module Narray
         # For higher dimensions, use concatenate
         concatenate(arrays, 1)
       end
+    end
+  end
+
+  class Array(T)
+    # Returns a boolean mask for equality with a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 2, 1])
+    # mask = arr.eq(2)
+    # mask.data # => [false, true, false, true, false]
+    # ```
+    #
+    # See also: `Array#ne`, `Array#==`.
+    def eq(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem == value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for equality with another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [1, 3, 3])
+    # mask = a.eq(b)
+    # mask.data # => [true, false, true]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#ne`, `Array#==`.
+    def eq(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] == b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Returns a boolean mask for inequality with a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 2, 1])
+    # mask = arr.ne(2)
+    # mask.data # => [true, false, true, false, true]
+    # ```
+    #
+    # See also: `Array#eq`, `Array#!=`.
+    def ne(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem != value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for inequality with another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [1, 3, 3])
+    # mask = a.ne(b)
+    # mask.data # => [false, true, false]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#eq`, `Array#!=`.
+    def ne(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] != b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Returns a boolean mask for greater than a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = arr.gt(3)
+    # mask.data # => [false, false, false, true, true]
+    # ```
+    #
+    # See also: `Array#ge`, `Array#>`.
+    def gt(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem > value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for greater than another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [0, 2, 4])
+    # mask = a.gt(b)
+    # mask.data # => [true, false, false]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#ge`, `Array#>`.
+    def gt(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] > b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Returns a boolean mask for greater than or equal to a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = arr.ge(3)
+    # mask.data # => [false, false, true, true, true]
+    # ```
+    #
+    # See also: `Array#gt`, `Array#>=`.
+    def ge(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem >= value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for greater than or equal to another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [0, 2, 4])
+    # mask = a.ge(b)
+    # mask.data # => [true, true, false]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#gt`, `Array#>=`.
+    def ge(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] >= b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Returns a boolean mask for less than a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = arr.lt(3)
+    # mask.data # => [true, true, false, false, false]
+    # ```
+    #
+    # See also: `Array#le`, `Array#<`.
+    def lt(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem < value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for less than another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [0, 2, 4])
+    # mask = a.lt(b)
+    # mask.data # => [false, false, true]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#le`, `Array#<`.
+    def lt(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] < b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Returns a boolean mask for less than or equal to a value.
+    #
+    # ```
+    # arr = Narray.array([5], [1, 2, 3, 4, 5])
+    # mask = arr.le(3)
+    # mask.data # => [true, true, true, false, false]
+    # ```
+    #
+    # See also: `Array#lt`, `Array#<=`.
+    def le(value : T) : Array(Bool)
+      result_data = ::Array(Bool).new(size)
+      data.each do |elem|
+        result_data << (elem <= value)
+      end
+      Array(Bool).new(shape.dup, result_data)
+    end
+
+    # Returns a boolean mask for less than or equal to another array.
+    #
+    # The arrays must be broadcast compatible.
+    #
+    # ```
+    # a = Narray.array([3], [1, 2, 3])
+    # b = Narray.array([3], [0, 2, 4])
+    # mask = a.le(b)
+    # mask.data # => [false, true, true]
+    # ```
+    #
+    # Raises `ArgumentError` if the arrays cannot be broadcast together.
+    #
+    # See also: `Array#lt`, `Array#<=`.
+    def le(other : Array(T)) : Array(Bool)
+      # Get the broadcast shape
+      broadcast_shape = Narray.broadcast_shapes(shape, other.shape)
+      if broadcast_shape.nil?
+        raise ArgumentError.new("Cannot broadcast arrays with shapes #{shape} and #{other.shape}")
+      end
+
+      # Broadcast both arrays to the same shape
+      a = self.broadcast_to(broadcast_shape)
+      b = other.broadcast_to(broadcast_shape)
+
+      # Compare elements
+      result_data = ::Array(Bool).new(a.size)
+      a.size.times do |i|
+        result_data << (a.data[i] <= b.data[i])
+      end
+
+      Array(Bool).new(broadcast_shape, result_data)
+    end
+
+    # Operator overloads for comparison operations
+
+    # Equality operator (==)
+    def ==(other : Array(T)) : Array(Bool)
+      eq(other)
+    end
+
+    # Inequality operator (!=)
+    def !=(other : Array(T)) : Array(Bool)
+      ne(other)
+    end
+
+    # Greater than operator (>)
+    def >(other : Array(T)) : Array(Bool)
+      gt(other)
+    end
+
+    # Greater than or equal to operator (>=)
+    def >=(other : Array(T)) : Array(Bool)
+      ge(other)
+    end
+
+    # Less than operator (<)
+    def <(other : Array(T)) : Array(Bool)
+      lt(other)
+    end
+
+    # Less than or equal to operator (<=)
+    def <=(other : Array(T)) : Array(Bool)
+      le(other)
+    end
+
+    # Equality operator (==) with scalar
+    def ==(value : T) : Array(Bool)
+      eq(value)
+    end
+
+    # Inequality operator (!=) with scalar
+    def !=(value : T) : Array(Bool)
+      ne(value)
+    end
+
+    # Greater than operator (>) with scalar
+    def >(value : T) : Array(Bool)
+      gt(value)
+    end
+
+    # Greater than or equal to operator (>=) with scalar
+    def >=(value : T) : Array(Bool)
+      ge(value)
+    end
+
+    # Less than operator (<) with scalar
+    def <(value : T) : Array(Bool)
+      lt(value)
+    end
+
+    # Less than or equal to operator (<=) with scalar
+    def <=(value : T) : Array(Bool)
+      le(value)
     end
   end
 end
