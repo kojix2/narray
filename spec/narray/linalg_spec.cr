@@ -2,30 +2,6 @@ require "../spec_helper"
 require "file_utils"
 require "process"
 
-# Helper method to run Python code and get the result
-def run_python_code(code : String) : String
-  # Create a temporary file for the Python code
-  temp_file = File.tempfile("numpy_verification", ".py")
-  begin
-    # Write the Python code to the temporary file
-    File.write(temp_file.path, code)
-
-    # Run the Python code and capture the output
-    output = IO::Memory.new
-    error = IO::Memory.new
-    status = Process.run("python", [temp_file.path], output: output, error: error)
-
-    if status.success?
-      return output.to_s
-    else
-      raise "Python execution failed: #{error.to_s}"
-    end
-  ensure
-    # Clean up the temporary file
-    temp_file.delete
-  end
-end
-
 describe Narray do
   describe ".det" do
     it "computes the determinant of a 1x1 matrix" do
@@ -68,7 +44,7 @@ describe Narray do
       PYTHON
 
       # Run the NumPy code and parse the results
-      numpy_result = run_python_code(numpy_code).strip
+      numpy_result = PythonHelper.run_python_code(numpy_code).strip
       numpy_dets = numpy_result.split.map { |val| val.to_f }
 
       # For singular matrix, NumPy returns a very small value close to 0
@@ -284,7 +260,7 @@ describe Narray do
       PYTHON
 
       # Run the NumPy code and parse the results
-      numpy_result = run_python_code(numpy_code).strip
+      numpy_result = PythonHelper.run_python_code(numpy_code).strip
       numpy_eigenvalues = numpy_result.split.map { |val| val.to_f }
 
       # Sort Crystal eigenvalues for comparison
@@ -497,7 +473,7 @@ describe Narray do
       PYTHON
 
       # Run the NumPy code and parse the results
-      numpy_result = run_python_code(numpy_code).strip.split("\n")
+      numpy_result = PythonHelper.run_python_code(numpy_code).strip.split("\n")
       numpy_s_values = numpy_result[0].split.map { |val| val.to_f }
       numpy_error = numpy_result[1].to_f
 
