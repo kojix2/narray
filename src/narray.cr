@@ -123,15 +123,15 @@ module Narray
     #
     # ```
     # arr = Narray.zeros([2, 3], Int32)
-    # arr.set_at([0, 0], 1)
-    # arr.set_at([0, 1], 2)
-    # arr.set_at([1, 2], 3)
+    # arr.at_set([0, 0], 1)
+    # arr.at_set([0, 1], 2)
+    # arr.at_set([1, 2], 3)
     # arr.data # => [1, 2, 0, 0, 0, 3]
     # ```
     #
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
-    def set_at(indices : ::Array(Int32), value : T) : self
+    def at_set(indices : ::Array(Int32), value : T) : self
       # Validate indices
       if indices.size != ndim
         raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
@@ -154,15 +154,15 @@ module Narray
     #
     # ```
     # arr = Narray.zeros([2, 3], Int32)
-    # arr.set_at(0, 0, 1)
-    # arr.set_at(0, 1, 2)
-    # arr.set_at(1, 2, 3)
+    # arr.at_set(0, 0, 1)
+    # arr.at_set(0, 1, 2)
+    # arr.at_set(1, 2, 3)
     # arr.data # => [1, 2, 0, 0, 0, 3]
     # ```
     #
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
-    def set_at(*args : Int32) : self
+    def at_set(*args : Int32) : self
       # The last argument is the value, the rest are indices
       if args.size < 2 # Need at least one index and a value
         raise ArgumentError.new("Wrong number of arguments (#{args.size} for at least 2)")
@@ -178,7 +178,7 @@ module Narray
       end
 
       # Set the value
-      set_at(indices, value)
+      at_set(indices, value)
     end
 
     # Returns the element at the given indices.
@@ -209,7 +209,7 @@ module Narray
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
     def []=(indices : ::Array(Int32), value : T)
-      set_at(indices, value)
+      at_set(indices, value)
     end
 
     # Type alias for slice indices
@@ -324,13 +324,13 @@ module Narray
     # ```
     # arr = Narray.array([3, 4], (1..12).to_a)
     # sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
-    # arr.set_slice([0..1, 0..1], sub_arr) # Replace the top-left 2x2 submatrix
+    # arr.slice_set([0..1, 0..1], sub_arr) # Replace the top-left 2x2 submatrix
     # ```
     #
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
     # Raises `ArgumentError` if the shape of the value does not match the shape of the slice.
-    def set_slice(indices : ::Array(SliceIndex), value : Array(T)) : self
+    def slice_set(indices : ::Array(SliceIndex), value : Array(T)) : self
       # Validate indices count
       if indices.size != ndim
         raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
@@ -408,9 +408,9 @@ module Narray
     # arr[[0..1, 0..1]] = sub_arr # Replace the top-left 2x2 submatrix
     # ```
     #
-    # See `#set_slice` for more details.
+    # See `#slice_set` for more details.
     def []=(indices : ::Array(SliceIndex), value : Array(T))
-      set_slice(indices, value)
+      slice_set(indices, value)
     end
 
     # Note: We intentionally do not provide a `[](indices : ::Array(SliceIndex))` method

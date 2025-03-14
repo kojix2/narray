@@ -68,15 +68,15 @@ sub_matrix = arr.slice([-2..-1, 0..1])  # Select last two rows and first two col
 
 # Setting slices
 new_data = Narray.array([2, 2], [100, 200, 300, 400])
-arr.set_slice([0..1, 0..1], new_data)   # Replace top-left 2x2 submatrix
+arr.slice_set([0..1, 0..1], new_data)   # Replace top-left 2x2 submatrix
 arr[[0..1, 0..1]] = new_data            # Same operation using bracket notation
 row_data = Narray.array([1, 4], [100, 200, 300, 400])
-arr.set_slice([0, true], row_data)      # Replace entire first row
+arr.slice_set([0, true], row_data)      # Replace entire first row
 col_data = Narray.array([3, 1], [500, 600, 700])
-arr.set_slice([true, 1], col_data)      # Replace entire second column
-arr.set_slice([-1, true], row_data)     # Replace last row (negative index)
+arr.slice_set([true, 1], col_data)      # Replace entire second column
+arr.slice_set([-1, true], row_data)     # Replace last row (negative index)
 single_element = Narray.array([1, 1], [999])
-arr.set_slice([-2, -3], single_element) # Replace element at second-to-last row, third-to-last column
+arr.slice_set([-2, -3], single_element) # Replace element at second-to-last row, third-to-last column
 
 # Reshaping arrays
 reshaped = arr.reshape([3, 2])          # 3x2 array with the same data
