@@ -113,6 +113,7 @@
 <li>Broadcasting support for operations between arrays of different shapes</li>
 <li>Linear algebra functions (matrix multiplication, determinant, inverse, eigenvalues, SVD)</li>
 <li>Statistical functions (mean, variance, standard deviation, etc.)</li>
+<li>Mask operations for conditional selection and modification of array elements</li>
 </ul>
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
@@ -223,10 +224,47 @@ offset <span class="o">=</span> a <span class="o">+</span> <span class="n">5</sp
 
 <span class="c"># Scalar operations (in-place)</span>
 a.add!(<span class="n">5</span>)                               <span class="c"># Add 5 to each element (in-place)</span>
-a.multiply!(<span class="n">2</span>)                          <span class="c"># Multiply each element by 2 (in-place)</span>
+a.multiply!(<span class="n">2</span>)                          <span class="c"># Multiply each element by 2 (in-place)</span></code></pre>
+<h3><a id="mask-operations" class="anchor" href="#mask-operations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Mask Operations</h3>
+<pre><code class="language-crystal"><span class="c"># Create a sample array</span>
+arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
 
-<span class="c"># Broadcasting operations</span>
-row <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])   <span class="c"># 1D array with shape [3]</span>
+<span class="c"># Create a mask using comparison operators</span>
+mask <span class="o">=</span> arr.gt(<span class="n">3</span>)                        <span class="c"># [false, false, false, true, true]</span>
+mask2 <span class="o">=</span> arr.eq(<span class="n">2</span>)                       <span class="c"># [false, true, false, false, false]</span>
+
+<span class="c"># Use the mask to select elements</span>
+result <span class="o">=</span> arr.mask(mask)                 <span class="c"># [4, 5]</span>
+
+<span class="c"># Use a block to create a mask</span>
+even_numbers <span class="o">=</span> arr.mask { <span class="o">|</span>x<span class="o">|</span> x.even? } <span class="c"># [2, 4]</span>
+
+<span class="c"># Update elements using a mask</span>
+arr.mask_set(mask, <span class="n">0</span>)                   <span class="c"># arr becomes [1, 2, 3, 0, 0]</span>
+
+<span class="c"># Update elements using a block</span>
+arr.mask_set(<span class="n">100</span>) { <span class="o">|</span>x<span class="o">|</span> x <span class="o">&lt;</span> <span class="n">3</span> }         <span class="c"># arr becomes [100, 100, 3, 0, 0]</span>
+
+<span class="c"># Compare arrays</span>
+a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">3</span>, <span class="n">2</span>, <span class="n">1</span>])
+eq_mask <span class="o">=</span> a.eq(b)                 <span class="c"># [false, true, false]</span>
+common <span class="o">=</span> a.mask(eq_mask)                <span class="c"># [2]</span>
+
+<span class="c"># Broadcasting with comparison operators</span>
+c <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">2</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>])
+d <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">0</span>, <span class="n">1</span>, <span class="n">2</span>])
+broadcast_mask <span class="o">=</span> c.gt(d)          <span class="c"># 2D boolean array with broadcasting</span></code></pre>
+<h3><a id="broadcasting-operations" class="anchor" href="#broadcasting-operations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Broadcasting Operations</h3>
+<pre><code class="language-crystal">row <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">1</span>, <span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])   <span class="c"># 1D array with shape [3]</span>
 column <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>, <span class="n">1</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>]) <span class="c"># 2D array with shape [3, 1]</span>
 result <span class="o">=</span> row <span class="o">+</span> column                   <span class="c"># Broadcasting: result has shape [3, 3]</span>
 
@@ -261,6 +299,7 @@ puts a.std                              <span class="c"># Standard deviation</sp
 <li>✅ Broadcasting support for operations between arrays of different shapes</li>
 <li>✅ Basic linear algebra (dot product)</li>
 <li>✅ Advanced linear algebra (determinant, inverse, eigenvalues, SVD)</li>
+<li>✅ Mask operations for conditional selection and modification</li>
 <li>🔄 Advanced features (in progress)</li>
 </ul>
 <h2><a id="future-development" class="anchor" href="#future-development">
@@ -286,6 +325,13 @@ puts a.std                              <span class="c"># Standard deviation</sp
 <li>✅ Inverse matrices, determinants</li>
 <li>✅ Eigenvalues, eigenvectors</li>
 <li>✅ Matrix decompositions (SVD)</li>
+</ul>
+</li>
+<li>✅ Implementation of mask operations
+<ul>
+<li>✅ Conditional selection of elements</li>
+<li>✅ Conditional modification of elements</li>
+<li>✅ Comparison operators for creating masks</li>
 </ul>
 </li>
 <li>🔄 Implementation of advanced features

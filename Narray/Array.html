@@ -143,29 +143,43 @@ various mathematical operations.</p>
   </h2>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L27" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L27" target="_blank">
         narray.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/broadcast.cr#L210" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/broadcast.cr#L210" target="_blank">
         narray/broadcast.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L15" target="_blank">
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L15" target="_blank">
         narray/math.cr
       </a>
     
     <br/>
   
     
-      <a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/operations.cr#L8" target="_blank">
-        narray/operations.cr
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L9" target="_blank">
+        narray/operations.cr:9
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L230" target="_blank">
+        narray/operations.cr:230
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L639" target="_blank">
+        narray/operations.cr:639
       </a>
     
     <br/>
@@ -209,6 +223,20 @@ various mathematical operations.</p>
     Instance Method Summary
   </h2>
   <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#%21%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#!=</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Inequality operator (!=)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%21%3D%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#!=</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Inequality operator (!=) with scalar</p></div>
+        
+      </li>
     
       <li class="entry-summary">
         <a href="#%2A%28other%3AArray%28T%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#*</strong>(other : Array(T)) : Array(T)</a>
@@ -270,6 +298,76 @@ various mathematical operations.</p>
         <a href="#/%28scalar%3ANumber%29%3AArray%28T%29-instance-method" class="signature"><strong>#/</strong>(scalar : Number) : Array(T)</a>
         
           <div class="summary"><p>Performs element-wise division of an array and a scalar.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#<</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Less than operator (&lt;)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#<</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Less than operator (&lt;) with scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#<=</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Less than or equal to operator (&lt;=)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3C%3D%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#<=</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Less than or equal to operator (&lt;=) with scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#==</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Equality operator (==)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3D%3D%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#==</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Equality operator (==) with scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#></strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Greater than operator (&gt;)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#></strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Greater than operator (&gt;) with scalar</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#>=</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Greater than or equal to operator (&gt;=)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#%3E%3D%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#>=</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Greater than or equal to operator (&gt;=) with scalar</p></div>
         
       </li>
     
@@ -365,9 +463,114 @@ various mathematical operations.</p>
       </li>
     
       <li class="entry-summary">
+        <a href="#eq%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#eq</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for equality with another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#eq%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#eq</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for equality with a value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ge%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#ge</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for greater than or equal to another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ge%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#ge</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for greater than or equal to a value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#gt</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for greater than another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#gt%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#gt</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for greater than a value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#inspect%28io%3AIO%29%3ANil-instance-method" class="signature"><strong>#inspect</strong>(io : IO) : Nil</a>
         
           <div class="summary"><p>Returns a detailed string representation of the array for debugging.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#le%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#le</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for less than or equal to another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#le%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#le</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for less than or equal to a value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#lt</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for less than another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lt%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#lt</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for less than a value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mask%28mask%3AArray%28Bool%29%29%3AArray%28T%29-instance-method" class="signature"><strong>#mask</strong>(mask : Array(Bool)) : Array(T)</a>
+        
+          <div class="summary"><p>Returns a new array containing only the elements where the mask is true.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mask%28%26block%3AT-%3EBool%29%3AArray%28T%29-instance-method" class="signature"><strong>#mask</strong>(&block : T -> Bool) : Array(T)</a>
+        
+          <div class="summary"><p>Returns a new array containing only the elements that satisfy the given condition.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method" class="signature"><strong>#mask_set</strong>(mask : Array(Bool), values : Array(T)) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Updates elements in the array where the mask is true with values from another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mask_set%28mask%3AArray%28Bool%29%2Cvalue%3AT%29%3Aself-instance-method" class="signature"><strong>#mask_set</strong>(mask : Array(Bool), value : T) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Updates elements in the array where the mask is true with the given value.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mask_set%28value%3AT%2C%26block%3AT-%3EBool%29%3Aself-instance-method" class="signature"><strong>#mask_set</strong>(value : T, &block : T -> Bool) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Updates elements in the array that satisfy the given condition with the given value.</p></div>
         
       </li>
     
@@ -410,6 +613,20 @@ various mathematical operations.</p>
         <a href="#ndim%3AInt32-instance-method" class="signature"><strong>#ndim</strong> : Int32</a>
         
           <div class="summary"><p>Returns the number of dimensions of the array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ne%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#ne</strong>(other : Array(T)) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for inequality with another array.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ne%28value%3AT%29%3AArray%28Bool%29-instance-method" class="signature"><strong>#ne</strong>(value : T) : Array(Bool)</a>
+        
+          <div class="summary"><p>Returns a boolean mask for inequality with a value.</p></div>
         
       </li>
     
@@ -570,7 +787,7 @@ arr.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L52" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L52" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -590,6 +807,48 @@ arr.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
 </a>
     Instance Method Detail
   </h2>
+  
+    <div class="entry-detail" id="!=(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>!=</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%21%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Inequality operator (!=)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L954" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="!=(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>!=</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%21%3D%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Inequality operator (!=) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L984" target="_blank">View source</a>]
+        
+      </div>
+    </div>
   
     <div class="entry-detail" id="*(other:Array(T)):Array(T)-instance-method">
       <div class="signature">
@@ -624,7 +883,7 @@ c.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L376" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L376" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -651,7 +910,7 @@ b.data  <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L420" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L420" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -689,7 +948,7 @@ c.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L40" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L40" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -716,7 +975,7 @@ b.data  <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L84" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L84" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -754,7 +1013,7 @@ c.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L208" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L208" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -781,7 +1040,7 @@ b.data  <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L252" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L252" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -807,7 +1066,7 @@ b.data  <span class="c"># =&gt; [-1, -2, -3, -4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L704" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L704" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -845,7 +1104,7 @@ c.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pr
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L544" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L544" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -872,7 +1131,217 @@ b.data  <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L590" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L590" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong><</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3C%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Less than operator (&lt;)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L969" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong><</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3C%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Less than operator (&lt;) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L999" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;=(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong><=</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3C%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Less than or equal to operator (&lt;=)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L974" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&lt;=(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong><=</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3C%3D%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Less than or equal to operator (&lt;=) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L1004" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3D%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equality operator (==)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L949" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="==(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3D%3D%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Equality operator (==) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L979" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>></strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3E%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Greater than operator (&gt;)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L959" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>></strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3E%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Greater than operator (&gt;) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L989" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;=(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>>=</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3E%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Greater than or equal to operator (&gt;=)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L964" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="&gt;=(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>>=</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#%3E%3D%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Greater than or equal to operator (&gt;=) with scalar</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L994" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -899,7 +1368,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L195" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L195" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -927,7 +1396,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L211" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L211" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -952,7 +1421,7 @@ arr[[<span class="n">0</span>..<span class="n">1</span>, <span class="n">0</span
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L412" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L412" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -989,7 +1458,7 @@ a.data  <span class="c"># =&gt; [4, 5, 6, 5, 6, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L119" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1015,7 +1484,7 @@ a.data <span class="c"># =&gt; [6, 7, 8, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L175" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L175" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1042,7 +1511,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L91" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L91" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1067,7 +1536,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L118" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L118" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1095,7 +1564,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L134" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L134" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1123,7 +1592,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L165" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L165" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1150,7 +1619,7 @@ result.data  <span class="c"># =&gt; [1, 2, 3, 1, 2, 3]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/broadcast.cr#L223" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/broadcast.cr#L223" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1173,7 +1642,7 @@ Elements are stored in row-major order (C-style).</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L38" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L38" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1210,7 +1679,7 @@ a.data  <span class="c"># =&gt; [6.0, 3.0, 2.0, 9.0, 4.5, 3.0]</span></code></pr
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L625" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L625" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1236,7 +1705,166 @@ a.data <span class="c"># =&gt; [1, 2, 3, 4]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L685" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L685" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eq(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>eq</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#eq%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for equality with another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>])
+mask <span class="o">=</span> a.eq(b)
+mask.data <span class="c"># =&gt; [true, false, true]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#ne%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#ne</a></code>, <code><a href="../Narray/Array.html#%3D%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#==</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L671" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="eq(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>eq</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#eq%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for equality with a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">1</span>])
+mask <span class="o">=</span> arr.eq(<span class="n">2</span>)
+mask.data <span class="c"># =&gt; [false, true, false, true, false]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#ne%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#ne</a></code>, <code><a href="../Narray/Array.html#%3D%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#==</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L649" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ge(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>ge</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#ge%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for greater than or equal to another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">0</span>, <span class="n">2</span>, <span class="n">4</span>])
+mask <span class="o">=</span> a.ge(b)
+mask.data <span class="c"># =&gt; [true, true, false]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#gt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#gt</a></code>, <code>Array#&gt;=</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L824" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ge(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>ge</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#ge%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for greater than or equal to a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> arr.ge(<span class="n">3</span>)
+mask.data <span class="c"># =&gt; [false, false, true, true, true]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#gt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#gt</a></code>, <code>Array#&gt;=</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L802" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gt(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>gt</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#gt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for greater than another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">0</span>, <span class="n">2</span>, <span class="n">4</span>])
+mask <span class="o">=</span> a.gt(b)
+mask.data <span class="c"># =&gt; [true, false, false]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#ge%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#ge</a></code>, <code>Array#&gt;</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L773" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="gt(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>gt</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#gt%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for greater than a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> arr.gt(<span class="n">3</span>)
+mask.data <span class="c"># =&gt; [false, false, false, true, true]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#ge%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#ge</a></code>, <code>Array#&gt;</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L751" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1261,7 +1889,259 @@ arr.inspect <span class="c"># =&gt; &quot;Narray::Array(Int32)[shape=[2, 2], ndi
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L459" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L459" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="le(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>le</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#le%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for less than or equal to another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">0</span>, <span class="n">2</span>, <span class="n">4</span>])
+mask <span class="o">=</span> a.le(b)
+mask.data <span class="c"># =&gt; [false, true, true]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#lt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#lt</a></code>, <code>Array#&lt;=</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L926" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="le(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>le</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#le%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for less than or equal to a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> arr.le(<span class="n">3</span>)
+mask.data <span class="c"># =&gt; [true, true, true, false, false]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#lt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#lt</a></code>, <code>Array#&lt;=</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L904" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lt(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>lt</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#lt%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for less than another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">0</span>, <span class="n">2</span>, <span class="n">4</span>])
+mask <span class="o">=</span> a.lt(b)
+mask.data <span class="c"># =&gt; [false, false, true]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#le%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#le</a></code>, <code>Array#&lt;</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L875" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lt(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>lt</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#lt%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for less than a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> arr.lt(<span class="n">3</span>)
+mask.data <span class="c"># =&gt; [true, true, false, false, false]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#le%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#le</a></code>, <code>Array#&lt;</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L853" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mask(mask:Array(Bool)):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>mask</strong>(mask : <a href="../Narray/Array.html">Array</a>(Bool)) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#mask%28mask%3AArray%28Bool%29%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new array containing only the elements where the mask is true.</p>
+<p>The mask must be a boolean array with the same shape as the original array.
+The result is a 1D array containing only the elements where the mask is true.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>])
+result <span class="o">=</span> arr.mask(mask)
+result.shape <span class="c"># =&gt; [3]</span>
+result.data  <span class="c"># =&gt; [1, 3, 5]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the mask shape does not match the array shape.</p>
+<p>See also: <code><a href="../Narray/Array.html#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method">Array#mask_set</a></code>, <code><a href="../Narray/Array.html#mask%28mask%3AArray%28Bool%29%29%3AArray%28T%29-instance-method">Array#mask(&amp;block)</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L247" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mask(&amp;block:T-&gt;Bool):Array(T)-instance-method">
+      <div class="signature">
+        
+        def <strong>mask</strong>(&block : T -> Bool) : <a href="../Narray/Array.html">Array</a>(T)
+
+        <a class="method-permalink" href="#mask%28%26block%3AT-%3EBool%29%3AArray%28T%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a new array containing only the elements that satisfy the given condition.</p>
+<p>The condition is specified as a block that takes an element and returns a boolean.
+The result is a 1D array containing only the elements where the block returns true.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+result <span class="o">=</span> arr.mask { <span class="o">|</span>x<span class="o">|</span> x <span class="o">&gt;</span> <span class="n">2</span> }
+result.shape <span class="c"># =&gt; [3]</span>
+result.data  <span class="c"># =&gt; [3, 4, 5]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#mask%28mask%3AArray%28Bool%29%29%3AArray%28T%29-instance-method">Array#mask(mask)</a></code>, <code><a href="../Narray/Array.html#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method">Array#mask_set</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L283" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mask_set(mask:Array(Bool),values:Array(T)):self-instance-method">
+      <div class="signature">
+        
+        def <strong>mask_set</strong>(mask : <a href="../Narray/Array.html">Array</a>(Bool), values : <a href="../Narray/Array.html">Array</a>(T)) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Updates elements in the array where the mask is true with values from another array.</p>
+<p>The mask must be a boolean array with the same shape as the original array.
+The values array must have the same number of elements as there are true values in the mask.
+The array is modified in-place.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>])
+values <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">10</span>, <span class="n">20</span>, <span class="n">30</span>])
+arr.mask_set(mask, values)
+arr.data <span class="c"># =&gt; [10, 2, 20, 4, 30]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the mask shape does not match the array shape.
+Raises <code>ArgumentError</code> if the values array does not have the correct number of elements.</p>
+<p>See also: <code><a href="../Narray/Array.html#mask%28%26block%3AT-%3EBool%29%3AArray%28T%29-instance-method">Array#mask</a></code>, <code><a href="../Narray/Array.html#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method">Array#mask_set(mask, value)</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L344" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mask_set(mask:Array(Bool),value:T):self-instance-method">
+      <div class="signature">
+        
+        def <strong>mask_set</strong>(mask : <a href="../Narray/Array.html">Array</a>(Bool), value : T) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#mask_set%28mask%3AArray%28Bool%29%2Cvalue%3AT%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Updates elements in the array where the mask is true with the given value.</p>
+<p>The mask must be a boolean array with the same shape as the original array.
+The array is modified in-place.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+mask <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>, <span class="n">false</span>, <span class="n">true</span>])
+arr.mask_set(mask, <span class="n">0</span>)
+arr.data <span class="c"># =&gt; [0, 2, 0, 4, 0]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the mask shape does not match the array shape.</p>
+<p>See also: <code><a href="../Narray/Array.html#mask%28%26block%3AT-%3EBool%29%3AArray%28T%29-instance-method">Array#mask</a></code>, <code><a href="../Narray/Array.html#mask_set%28value%3AT%2C%26block%3AT-%3EBool%29%3Aself-instance-method">Array#mask_set(&amp;block)</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L310" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mask_set(value:T,&amp;block:T-&gt;Bool):self-instance-method">
+      <div class="signature">
+        
+        def <strong>mask_set</strong>(value : T, &block : T -> Bool) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#mask_set%28value%3AT%2C%26block%3AT-%3EBool%29%3Aself-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Updates elements in the array that satisfy the given condition with the given value.</p>
+<p>The condition is specified as a block that takes an element and returns a boolean.
+The array is modified in-place.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>])
+arr.mask_set(<span class="n">0</span>) { <span class="o">|</span>x<span class="o">|</span> x <span class="o">&gt;</span> <span class="n">2</span> }
+arr.data <span class="c"># =&gt; [1, 2, 0, 0, 0]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#mask%28%26block%3AT-%3EBool%29%3AArray%28T%29-instance-method">Array#mask</a></code>, <code><a href="../Narray/Array.html#mask_set%28mask%3AArray%28Bool%29%2Cvalues%3AArray%28T%29%29%3Aself-instance-method">Array#mask_set(mask, value)</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L382" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1285,7 +2165,7 @@ a.max <span class="c"># =&gt; 4</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L760" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L760" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1309,7 +2189,7 @@ a.mean <span class="c"># =&gt; 2.5</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L736" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L736" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1333,7 +2213,7 @@ a.min <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L748" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L748" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1370,7 +2250,7 @@ a.data  <span class="c"># =&gt; [2, 4, 6, 3, 6, 9]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L455" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L455" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1396,7 +2276,7 @@ a.data <span class="c"># =&gt; [2, 4, 6, 8]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L511" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L511" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1419,7 +2299,60 @@ arr.ndim <span class="c"># =&gt; 2</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L66" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L66" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ne(other:Array(T)):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>ne</strong>(other : <a href="../Narray/Array.html">Array</a>(T)) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#ne%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for inequality with another array.</p>
+<p>The arrays must be broadcast compatible.</p>
+<pre><code class="language-crystal">a <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>])
+b <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">3</span>], [<span class="n">1</span>, <span class="n">3</span>, <span class="n">3</span>])
+mask <span class="o">=</span> a.ne(b)
+mask.data <span class="c"># =&gt; [false, true, false]</span></code></pre>
+<p>Raises <code>ArgumentError</code> if the arrays cannot be broadcast together.</p>
+<p>See also: <code><a href="../Narray/Array.html#eq%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#eq</a></code>, <code><a href="../Narray/Array.html#%21%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#!=</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L722" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ne(value:T):Array(Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>ne</strong>(value : T) : <a href="../Narray/Array.html">Array</a>(Bool)
+
+        <a class="method-permalink" href="#ne%28value%3AT%29%3AArray%28Bool%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a boolean mask for inequality with a value.</p>
+<pre><code class="language-crystal">arr <span class="o">=</span> <span class="t">Narray</span>.array([<span class="n">5</span>], [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">2</span>, <span class="n">1</span>])
+mask <span class="o">=</span> arr.ne(<span class="n">2</span>)
+mask.data <span class="c"># =&gt; [true, false, true, false, true]</span></code></pre>
+<p>See also: <code><a href="../Narray/Array.html#eq%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#eq</a></code>, <code><a href="../Narray/Array.html#%21%3D%28other%3AArray%28T%29%29%3AArray%28Bool%29-instance-method">Array#!=</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L700" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1455,7 +2388,7 @@ reshaped2.ndim  <span class="c"># =&gt; 1</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/operations.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1486,7 +2419,7 @@ arr.data  <span class="c"># =&gt; [0, 1, 2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/operations.cr#L59" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1509,7 +2442,7 @@ For example, a 2x3 array would have a shape of [2, 3].</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L32" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L32" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1532,7 +2465,7 @@ arr.size <span class="c"># =&gt; 6</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L76" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L76" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1565,7 +2498,7 @@ Raises <code>IndexError</code> if any index is out of bounds.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L234" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L234" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1598,7 +2531,7 @@ Raises <code>ArgumentError</code> if the shape of the value does not match the s
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L333" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L333" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1625,7 +2558,7 @@ a.std <span class="c"># =&gt; 1.118... (approximately)</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L776" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L776" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1662,7 +2595,7 @@ a.data  <span class="c"># =&gt; [4, 3, 2, 9, 8, 7]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L287" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L287" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1688,7 +2621,7 @@ a.data <span class="c"># =&gt; [2, 3, 4, 5]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L343" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L343" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1712,7 +2645,7 @@ a.sum <span class="c"># =&gt; 10</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/math.cr#L724" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/math.cr#L724" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1735,7 +2668,7 @@ arr.to_s <span class="c"># =&gt; &quot;Narray.array([2, 2], [1, 2, 3, 4])&quot;<
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray.cr#L442" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray.cr#L442" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1777,7 +2710,7 @@ transposed.data  <span class="c"># =&gt; [1, 5, 3, 7, 2, 6, 4, 8]</span></code><
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/operations.cr#L98" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L99" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -1814,7 +2747,7 @@ arr.data  <span class="c"># =&gt; [1, 4, 2, 5, 3, 6]</span></code></pre>
       <br/>
       <div>
         
-          [<a href="https://github.com/kojix2/narray/blob/2501472de6137b679f86bde93553f85051db21d5/src/narray/operations.cr#L172" target="_blank">View source</a>]
+          [<a href="https://github.com/kojix2/narray/blob/15ba84d2431381cbac45ab500337efb673c1aaad/src/narray/operations.cr#L173" target="_blank">View source</a>]
         
       </div>
     </div>
