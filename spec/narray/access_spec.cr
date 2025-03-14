@@ -175,7 +175,7 @@ describe Narray do
         end
 
         expect_raises(IndexError, /Wrong number of indices/) do
-          arr.set_at(0, 1)  # Missing value
+          arr.set_at(0, 1) # Missing value
         end
 
         expect_raises(IndexError, /out of bounds/) do
@@ -409,6 +409,169 @@ describe Narray do
       result = arr.slice([1, 0..2])
       result.shape.should eq([1, 3])
       result.data.should eq([5, 6, 7])
+    end
+  end
+
+  describe "Array#set_slice" do
+    it "sets a slice of the array to the given value" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
+
+      # Replace a submatrix
+      arr.set_slice([0..1, 0..1], sub_arr)
+      arr.slice([0..1, 0..1]).data.should eq([100, 200, 300, 400])
+
+      # The rest of the array should remain unchanged
+      arr.at([0, 2]).should eq(3)
+      arr.at([0, 3]).should eq(4)
+      arr.at([1, 2]).should eq(7)
+      arr.at([1, 3]).should eq(8)
+      arr.at([2, 0]).should eq(9)
+      arr.at([2, 1]).should eq(10)
+      arr.at([2, 2]).should eq(11)
+      arr.at([2, 3]).should eq(12)
+    end
+
+    it "supports method chaining" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr1 = Narray.array([1, 1], [100])
+      sub_arr2 = Narray.array([1, 1], [200])
+
+      result = arr.set_slice([0, 0], sub_arr1)
+      result.should be(arr)
+
+      arr.set_slice([0, 0], sub_arr1).set_slice([1, 1], sub_arr2)
+      arr.at([0, 0]).should eq(100)
+      arr.at([1, 1]).should eq(200)
+    end
+
+    it "supports negative indices" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
+
+      # Replace using negative range indices
+      arr.set_slice([-2..-1, 0..1], sub_arr)
+      arr.slice([-2..-1, 0..1]).data.should eq([100, 200, 300, 400])
+
+      # The rest of the array should remain unchanged
+      arr.at([0, 0]).should eq(1)
+      arr.at([0, 1]).should eq(2)
+      arr.at([0, 2]).should eq(3)
+      arr.at([0, 3]).should eq(4)
+      arr.at([1, 2]).should eq(7)
+      arr.at([1, 3]).should eq(8)
+      arr.at([2, 2]).should eq(11)
+      arr.at([2, 3]).should eq(12)
+
+      # Reset the array
+      arr = Narray.array([3, 4], (1..12).to_a)
+
+      # Replace using single negative indices
+      single_row = Narray.array([1, 4], [100, 200, 300, 400])
+      arr.set_slice([-1, true], single_row)
+      arr.slice([-1, true]).data.should eq([100, 200, 300, 400])
+
+      # The rest of the array should remain unchanged
+      arr.at([0, 0]).should eq(1)
+      arr.at([0, 1]).should eq(2)
+      arr.at([0, 2]).should eq(3)
+      arr.at([0, 3]).should eq(4)
+      arr.at([1, 0]).should eq(5)
+      arr.at([1, 1]).should eq(6)
+      arr.at([1, 2]).should eq(7)
+      arr.at([1, 3]).should eq(8)
+
+      # Reset the array
+      arr = Narray.array([3, 4], (1..12).to_a)
+
+      # Replace using mixed negative indices
+      single_element = Narray.array([1, 1], [999])
+      arr.set_slice([-2, -3], single_element)
+      arr.at([1, 1]).should eq(999) # -2 row, -3 column should be [1, 1]
+    end
+
+    it "supports boolean (true) indices" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+
+      # Replace an entire row
+      row_data = Narray.array([1, 4], [100, 200, 300, 400])
+      arr.set_slice([0, true], row_data)
+      arr.slice([0, true]).data.should eq([100, 200, 300, 400])
+
+      # Replace an entire column
+      col_data = Narray.array([3, 1], [500, 600, 700])
+      arr.set_slice([true, 1], col_data)
+      arr.slice([true, 1]).data.should eq([500, 600, 700])
+
+      # The rest of the array should be as expected
+      arr.at([0, 0]).should eq(100)
+      arr.at([0, 2]).should eq(300)
+      arr.at([0, 3]).should eq(400)
+      arr.at([1, 0]).should eq(5)
+      arr.at([1, 2]).should eq(7)
+      arr.at([1, 3]).should eq(8)
+      arr.at([2, 0]).should eq(9)
+      arr.at([2, 2]).should eq(11)
+      arr.at([2, 3]).should eq(12)
+    end
+
+    it "supports integer indices" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+
+      # Replace a single element
+      single_element = Narray.array([1, 1], [100])
+      arr.set_slice([0, 0], single_element)
+      arr.at([0, 0]).should eq(100)
+
+      # Replace a row with a single integer index
+      row_data = Narray.array([1, 4], [200, 300, 400, 500])
+      arr.set_slice([1, true], row_data)
+      arr.slice([1, true]).data.should eq([200, 300, 400, 500])
+
+      # Replace a column with a single integer index
+      col_data = Narray.array([3, 1], [600, 700, 800])
+      arr.set_slice([true, 2], col_data)
+      arr.slice([true, 2]).data.should eq([600, 700, 800])
+    end
+
+    it "raises an error if the value shape does not match the slice shape" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr = Narray.array([3, 2], (1..6).to_a)
+
+      expect_raises(ArgumentError, /Value shape \[3, 2\] does not match slice shape \[2, 2\]/) do
+        arr.set_slice([0..1, 0..1], sub_arr)
+      end
+    end
+
+    it "raises an error for invalid indices" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr = Narray.array([1, 1], [100])
+
+      expect_raises(IndexError, /Wrong number of indices/) do
+        arr.set_slice([0], sub_arr)
+      end
+
+      expect_raises(IndexError, /out of bounds/) do
+        arr.set_slice([3, 0], sub_arr)
+      end
+
+      expect_raises(IndexError, /out of bounds/) do
+        arr.set_slice([0, 4], sub_arr)
+      end
+
+      expect_raises(IndexError, /out of bounds/) do
+        arr.set_slice([-4, 0], sub_arr)
+      end
+    end
+  end
+
+  describe "Array#[]= with slice indices" do
+    it "sets a slice of the array using bracket notation" do
+      arr = Narray.array([3, 4], (1..12).to_a)
+      sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
+
+      arr[[0..1, 0..1]] = sub_arr
+      arr.slice([0..1, 0..1]).data.should eq([100, 200, 300, 400])
     end
   end
 end

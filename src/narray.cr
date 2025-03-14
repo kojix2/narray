@@ -314,6 +314,105 @@ module Narray
       end
     end
 
+    # Sets a slice of the array to the given value.
+    #
+    # Each index can be:
+    # - An integer: selects a single element along that dimension
+    # - A range: selects a range of elements along that dimension
+    # - A boolean (true): selects all elements along that dimension
+    #
+    # ```
+    # arr = Narray.array([3, 4], (1..12).to_a)
+    # sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
+    # arr.set_slice([0..1, 0..1], sub_arr) # Replace the top-left 2x2 submatrix
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    # Raises `ArgumentError` if the shape of the value does not match the shape of the slice.
+    def set_slice(indices : ::Array(SliceIndex), value : Array(T)) : self
+      # Validate indices count
+      if indices.size != ndim
+        raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
+      end
+
+      # Calculate the new shape and prepare for data extraction
+      slice_shape = ::Array(Int32).new
+      ranges = ::Array(Range(Int32, Int32)).new
+
+      # Process each dimension
+      indices.each_with_index do |idx, dim|
+        dim_size = shape[dim]
+
+        case idx
+        when Int32
+          # Handle negative indices (counting from the end)
+          actual_idx = idx < 0 ? dim_size + idx : idx
+
+          # Validate bounds
+          if actual_idx < 0 || actual_idx >= dim_size
+            raise IndexError.new("Index #{idx} is out of bounds for dimension #{dim} with size #{dim_size}")
+          end
+
+          # For a single index, the dimension collapses (size 1)
+          slice_shape << 1
+          ranges << (actual_idx..actual_idx)
+        when Range(Int32, Int32)
+          # Handle negative indices in range (counting from the end)
+          begin_idx = idx.begin < 0 ? dim_size + idx.begin : idx.begin
+          end_idx = idx.end < 0 ? dim_size + idx.end : idx.end
+
+          # Validate bounds
+          if begin_idx < 0 || begin_idx >= dim_size || end_idx < 0 || end_idx >= dim_size
+            raise IndexError.new("Range #{idx} is out of bounds for dimension #{dim} with size #{dim_size}")
+          end
+
+          # Create a new range with the adjusted indices
+          adjusted_range = idx.exclusive? ? (begin_idx...end_idx) : (begin_idx..end_idx)
+
+          # Calculate size of this dimension in the result
+          size = end_idx - begin_idx + (idx.exclusive? ? 0 : 1)
+          slice_shape << size
+          ranges << adjusted_range
+        when Bool
+          if idx # true means select all
+            slice_shape << dim_size
+            ranges << (0...dim_size)
+          else
+            raise ArgumentError.new("Boolean index must be true (false not supported)")
+          end
+        end
+      end
+
+      # Validate that the value shape matches the slice shape
+      if value.shape != slice_shape
+        raise ArgumentError.new("Value shape #{value.shape} does not match slice shape #{slice_shape}")
+      end
+
+      # Set the values in the slice
+      value_index = 0
+      generate_indices_combinations(ranges) do |indices|
+        flat_idx = indices_to_flat_index(indices)
+        data[flat_idx] = value.data[value_index]
+        value_index += 1
+      end
+
+      self
+    end
+
+    # Sets a slice of the array using bracket notation with slice indices.
+    #
+    # ```
+    # arr = Narray.array([3, 4], (1..12).to_a)
+    # sub_arr = Narray.array([2, 2], [100, 200, 300, 400])
+    # arr[[0..1, 0..1]] = sub_arr # Replace the top-left 2x2 submatrix
+    # ```
+    #
+    # See `#set_slice` for more details.
+    def []=(indices : ::Array(SliceIndex), value : Array(T))
+      set_slice(indices, value)
+    end
+
     # Note: We intentionally do not provide a `[](indices : ::Array(SliceIndex))` method
     # to avoid conflicts with the existing `[](indices : ::Array(Int32))` method.
     # Use the `slice` method directly instead.
