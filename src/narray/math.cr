@@ -1,3 +1,8 @@
+# Include mathematical function modules
+require "./math/trig"
+require "./math/hyperbolic"
+require "./math/exponential"
+
 # Mathematical operations for NArray
 #
 # This module provides various mathematical operations for NArray, including:
@@ -5,6 +10,7 @@
 # - In-place arithmetic operations (add!, subtract!, multiply!, divide!)
 # - Statistical functions (sum, mean, min, max, std)
 # - Matrix operations (dot, matmul)
+# - Mathematical functions (sin, cos, tan, etc.)
 module Narray
   class Array(T)
     # Performs element-wise addition of two arrays.
@@ -770,7 +776,7 @@ module Narray
     def std : Float64
       m = mean
       variance = data.sum { |x| (x.to_f - m) ** 2 } / size
-      Math.sqrt(variance)
+      ::Math.sqrt(variance)
     end
   end
 

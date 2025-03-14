@@ -175,7 +175,7 @@ describe Narray do
         end
 
         expect_raises(IndexError, /Wrong number of indices/) do
-          arr.at_set(0, 1)  # Missing value
+          arr.at_set(0, 1) # Missing value
         end
 
         expect_raises(IndexError, /out of bounds/) do

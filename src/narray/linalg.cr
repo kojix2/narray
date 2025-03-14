@@ -357,7 +357,7 @@ module Narray
         raise ArgumentError.new("Matrix has complex eigenvalues, not supported in this implementation")
       end
 
-      sqrt_discriminant = Math.sqrt(discriminant)
+      sqrt_discriminant = ::Math.sqrt(discriminant)
       lambda1 = (trace + sqrt_discriminant) / 2
       lambda2 = (trace - sqrt_discriminant) / 2
 
@@ -378,7 +378,7 @@ module Narray
       end
 
       # Normalize the first eigenvector
-      norm = Math.sqrt(eigenvectors[0] * eigenvectors[0] + eigenvectors[1] * eigenvectors[1])
+      norm = ::Math.sqrt(eigenvectors[0] * eigenvectors[0] + eigenvectors[1] * eigenvectors[1])
       eigenvectors[0] /= norm
       eigenvectors[1] /= norm
 
@@ -396,7 +396,7 @@ module Narray
       end
 
       # Normalize the second eigenvector
-      norm = Math.sqrt(eigenvectors[2] * eigenvectors[2] + eigenvectors[3] * eigenvectors[3])
+      norm = ::Math.sqrt(eigenvectors[2] * eigenvectors[2] + eigenvectors[3] * eigenvectors[3])
       eigenvectors[2] /= norm
       eigenvectors[3] /= norm
 
@@ -538,7 +538,7 @@ module Narray
       n = rows - 1
       d = (matrix[n - 1][n - 1] - matrix[n][n]) / 2.0
       sign_d = d >= 0 ? 1.0 : -1.0
-      shift = matrix[n][n] - matrix[n][n - 1].abs * matrix[n][n - 1].abs / (d.abs + Math.sqrt(d * d + matrix[n][n - 1] * matrix[n][n - 1]))
+      shift = matrix[n][n] - matrix[n][n - 1].abs * matrix[n][n - 1].abs / (d.abs + ::Math.sqrt(d * d + matrix[n][n - 1] * matrix[n][n - 1]))
 
       # Apply the shift
       rows.times do |i|
@@ -550,7 +550,7 @@ module Narray
         # Compute Givens rotation
         a = matrix[i][i]
         b = matrix[i + 1][i]
-        r = Math.sqrt(a * a + b * b)
+        r = ::Math.sqrt(a * a + b * b)
         c = a / r
         s = -b / r
 
@@ -694,7 +694,7 @@ module Narray
       # Create S matrix (diagonal matrix of singular values)
       s_data = ::Array(Float64).new(rows, 0.0)
       rows.times do |i|
-        s_data[i] = Math.sqrt(eigenvalues[[indices[i]]].abs)
+        s_data[i] = ::Math.sqrt(eigenvalues[[indices[i]]].abs)
       end
       s = array([rows], s_data)
 
@@ -765,7 +765,7 @@ module Narray
         cols.times do |j|
           norm += orthogonalized[i][j] * orthogonalized[i][j]
         end
-        norm = Math.sqrt(norm)
+        norm = ::Math.sqrt(norm)
 
         if norm > 1e-10
           cols.times do |j|
@@ -786,7 +786,7 @@ module Narray
       # Create S matrix (diagonal matrix of singular values)
       s_data = ::Array(Float64).new(cols, 0.0)
       cols.times do |i|
-        s_data[i] = Math.sqrt(eigenvalues[[indices[i]]].abs)
+        s_data[i] = ::Math.sqrt(eigenvalues[[indices[i]]].abs)
       end
       s = array([cols], s_data)
 

@@ -37,7 +37,7 @@ module Narray
     ndim2 = shape2.size
 
     # The result will have the maximum number of dimensions
-    result_ndim = Math.max(ndim1, ndim2)
+    result_ndim = ::Math.max(ndim1, ndim2)
     result_shape = ::Array(Int32).new(result_ndim, 0)
 
     # Iterate through dimensions from right to left
