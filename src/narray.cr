@@ -81,14 +81,14 @@ module Narray
     #
     # ```
     # arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
-    # arr[[0, 0]] # => 1
-    # arr[[0, 1]] # => 2
-    # arr[[1, 2]] # => 6
+    # arr.at([0, 0]) # => 1
+    # arr.at([0, 1]) # => 2
+    # arr.at([1, 2]) # => 6
     # ```
     #
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
-    def [](indices : ::Array(Int32)) : T
+    def at(indices : ::Array(Int32)) : T
       # Validate indices
       if indices.size != ndim
         raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
@@ -106,6 +106,96 @@ module Narray
       data[flat_idx]
     end
 
+    # Convenience method for accessing elements with variadic indices.
+    #
+    # ```
+    # arr = Narray.array([2, 3, 4], [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24])
+    # arr.at(0, 1, 2) # => 7
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    def at(*indices : Int32) : T
+      at(indices.to_a)
+    end
+
+    # Sets the element at the given indices.
+    #
+    # ```
+    # arr = Narray.zeros([2, 3], Int32)
+    # arr.set_at([0, 0], 1)
+    # arr.set_at([0, 1], 2)
+    # arr.set_at([1, 2], 3)
+    # arr.data # => [1, 2, 0, 0, 0, 3]
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    def set_at(indices : ::Array(Int32), value : T) : self
+      # Validate indices
+      if indices.size != ndim
+        raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
+      end
+
+      # Check bounds
+      indices.each_with_index do |idx, dim|
+        if idx < 0 || idx >= shape[dim]
+          raise IndexError.new("Index #{idx} is out of bounds for dimension #{dim} with size #{shape[dim]}")
+        end
+      end
+
+      # Calculate the flat index and set the value
+      flat_idx = indices_to_flat_index(indices)
+      data[flat_idx] = value
+      self
+    end
+
+    # Convenience method for setting elements with variadic indices.
+    #
+    # ```
+    # arr = Narray.zeros([2, 3], Int32)
+    # arr.set_at(0, 0, 1)
+    # arr.set_at(0, 1, 2)
+    # arr.set_at(1, 2, 3)
+    # arr.data # => [1, 2, 0, 0, 0, 3]
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    def set_at(*args : Int32) : self
+      # The last argument is the value, the rest are indices
+      if args.size < 2 # Need at least one index and a value
+        raise ArgumentError.new("Wrong number of arguments (#{args.size} for at least 2)")
+      end
+
+      # Extract indices and value
+      value = args.last
+
+      # Create an array of indices
+      indices = ::Array(Int32).new(args.size - 1)
+      (0...args.size - 1).each do |i|
+        indices << args[i]
+      end
+
+      # Set the value
+      set_at(indices, value)
+    end
+
+    # Returns the element at the given indices.
+    #
+    # ```
+    # arr = Narray.array([2, 3], [1, 2, 3, 4, 5, 6])
+    # arr[[0, 0]] # => 1
+    # arr[[0, 1]] # => 2
+    # arr[[1, 2]] # => 6
+    # ```
+    #
+    # Raises `IndexError` if the number of indices does not match the number of dimensions.
+    # Raises `IndexError` if any index is out of bounds.
+    def [](indices : ::Array(Int32)) : T
+      at(indices)
+    end
+
     # Sets the element at the given indices.
     #
     # ```
@@ -119,21 +209,7 @@ module Narray
     # Raises `IndexError` if the number of indices does not match the number of dimensions.
     # Raises `IndexError` if any index is out of bounds.
     def []=(indices : ::Array(Int32), value : T)
-      # Validate indices
-      if indices.size != ndim
-        raise IndexError.new("Wrong number of indices (#{indices.size} for #{ndim})")
-      end
-
-      # Check bounds
-      indices.each_with_index do |idx, dim|
-        if idx < 0 || idx >= shape[dim]
-          raise IndexError.new("Index #{idx} is out of bounds for dimension #{dim} with size #{shape[dim]}")
-        end
-      end
-
-      # Calculate the flat index
-      flat_idx = indices_to_flat_index(indices)
-      data[flat_idx] = value
+      set_at(indices, value)
     end
 
     # Converts multi-dimensional indices to a flat index.
